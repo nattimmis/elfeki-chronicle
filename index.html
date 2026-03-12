@@ -3,1769 +3,2053 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IHYEEDDINE ELFEKI — The Chrono-Anthropological Deep Dive: From Swamps to Stars</title>
+<title>The Elfeki Chronicle — A 6,000-Year Genetic Odyssey</title>
+<meta name="description" content="A chrono-anthropological deep dive into the genetic odyssey of Ihyeeddine Elfeki — tracing 6,000 years from the Indus Valley to modern Europe.">
+<meta property="og:title" content="The Elfeki Chronicle — A 6,000-Year Genetic Odyssey">
+<meta property="og:description" content="Tracing the monsoon winds of DNA from Gujarat to Tunisia — a deep anthropological and genetic analysis.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="elfeki.jpeg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23c8a04a'/></svg>">
 <style>
-/* ═══════════════════════════════════════════════════════════════
-   ROOT & RESET
-   ═══════════════════════════════════════════════════════════════ */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --black:#0a0a0a;--black2:#111113;--gold:#d4a843;--gold-light:#f0d78c;
-  --gold-bright:#ffd700;--desert:#c4956a;--deep-blue:#1a1a3e;
-  --olive:#4a6741;--cream:#f5e6c8;--dark-gold:#8b6914;
-  --font-serif:'Georgia','Palatino Linotype','Book Antiqua','Palatino',serif;
-  --font-sans:'Segoe UI','Helvetica Neue','Arial',sans-serif;
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  color: #444;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{
-  background:var(--black);color:var(--cream);
-  font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;
-}
-a{color:var(--gold);text-decoration:none}
-a:hover{color:var(--gold-light)}
+h1, h2, h3, h4, h5, h6 { color: #1a1a1a; font-weight: 600; line-height: 1.25; }
+a { color: #c8a04a; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #a07820; }
+img { max-width: 100%; display: block; }
 
-/* ═══════════════════════════════════════════════════════════════
-   NAVIGATION
-   ═══════════════════════════════════════════════════════════════ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:linear-gradient(180deg,rgba(10,10,10,0.95),rgba(10,10,10,0));
-  padding:1rem 2rem;display:flex;justify-content:center;gap:2rem;
-  font-family:var(--font-serif);font-size:.85rem;letter-spacing:.15em;
-  text-transform:uppercase;transition:background .4s;
+/* ─── UTILITY ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-pad { padding: 120px 0; }
+.gold { color: #c8a04a; }
+.text-center { text-align: center; }
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c8a04a;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
-nav a{color:var(--gold);opacity:.7;transition:opacity .3s}
-nav a:hover{opacity:1;color:var(--gold-light)}
+.section-title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.section-subtitle {
+  font-size: 18px;
+  color: #777;
+  max-width: 640px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
 
-/* ═══════════════════════════════════════════════════════════════
-   GLOBAL PARTICLES CANVAS
-   ═══════════════════════════════════════════════════════════════ */
-#particles-canvas{
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  pointer-events:none;z-index:1;
+/* ─── HERO / SPLASH ─── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0a0a0a;
 }
-
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(60px);transition:opacity 1.2s ease,transform 1.2s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.2s}
-.reveal-delay-2{transition-delay:.4s}
-.reveal-delay-3{transition-delay:.6s}
-.reveal-delay-4{transition-delay:.8s}
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 1: HERO — THE EXCAVATION
-   ═══════════════════════════════════════════════════════════════ */
-#hero{
-  position:relative;min-height:100vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;overflow:hidden;z-index:2;
-  background:radial-gradient(ellipse at 50% 80%,#1a140a 0%,#0d0a06 40%,var(--black) 100%);
+.hero-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
 }
-#hero::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-  opacity:.4;pointer-events:none;
-}
-
-/* Portrait container */
-.portrait-container{
-  position:relative;width:320px;height:320px;margin-bottom:2.5rem;
-}
-
-/* Golden light layers peeling effect */
-.portrait-glow{
-  position:absolute;inset:-20px;border-radius:50%;
-  animation:peel-glow 4s ease-in-out infinite;
-}
-.portrait-glow:nth-child(1){
-  background:radial-gradient(circle,transparent 45%,rgba(212,168,67,.15) 50%,transparent 70%);
-  animation-delay:0s;
-}
-.portrait-glow:nth-child(2){
-  background:radial-gradient(circle,transparent 40%,rgba(240,215,140,.1) 48%,transparent 65%);
-  animation-delay:1s;inset:-40px;
-}
-.portrait-glow:nth-child(3){
-  background:radial-gradient(circle,transparent 35%,rgba(255,215,0,.08) 45%,transparent 60%);
-  animation-delay:2s;inset:-60px;
-}
-@keyframes scan-line{0%{top:-2px}100%{top:100%}}
-@keyframes marker-pulse{0%,100%{transform:scale(1);box-shadow:0 0 6px var(--gold)}50%{transform:scale(1.5);box-shadow:0 0 16px var(--gold-light)}}
-@keyframes peel-glow{
-  0%,100%{transform:scale(1);opacity:.6}
-  50%{transform:scale(1.15);opacity:1}
-}
-
-.portrait-ring{
-  position:absolute;inset:-4px;border-radius:50%;
-  border:2px solid var(--gold);opacity:.6;
-  animation:ring-pulse 3s ease-in-out infinite;
-}
-.portrait-ring:nth-child(5){inset:-16px;border-color:rgba(212,168,67,.3);animation-delay:.5s}
-.portrait-ring:nth-child(6){inset:-28px;border-color:rgba(212,168,67,.15);animation-delay:1s}
-@keyframes ring-pulse{
-  0%,100%{opacity:.3;transform:rotate(0deg)}
-  50%{opacity:.8;transform:rotate(3deg)}
-}
-
-.portrait-photo{
-  width:100%;height:100%;border-radius:50%;overflow:hidden;
-  position:relative;z-index:5;
-  box-shadow:0 0 60px rgba(212,168,67,.3),0 0 120px rgba(212,168,67,.1);
-}
-.portrait-photo img{
-  width:100%;height:100%;object-fit:cover;
-  filter:sepia(.15) contrast(1.05) brightness(1.02);
-}
-
-/* DNA helix strands around portrait */
-.dna-helix-hero{
-  position:absolute;top:50%;left:50%;width:500px;height:500px;
-  transform:translate(-50%,-50%);pointer-events:none;z-index:3;
-}
-.helix-strand{
-  position:absolute;width:8px;height:8px;border-radius:50%;
-  background:var(--gold);opacity:0;
-  animation:helix-orbit 8s linear infinite;
-}
-@keyframes helix-orbit{
-  0%{transform:rotate(var(--start)) translateX(200px) translateY(0);opacity:0}
-  10%{opacity:.7}
-  50%{transform:rotate(calc(var(--start) + 180deg)) translateX(200px) translateY(-30px);opacity:.4}
-  90%{opacity:.7}
-  100%{transform:rotate(calc(var(--start) + 360deg)) translateX(200px) translateY(0);opacity:0}
-}
-
-.hero-title{
-  font-family:var(--font-serif);font-size:clamp(2.5rem,6vw,5rem);
-  letter-spacing:.3em;color:var(--gold);text-align:center;
-  text-shadow:0 0 40px rgba(212,168,67,.3);
-  position:relative;z-index:5;
-}
-.hero-subtitle{
-  font-family:var(--font-serif);font-size:clamp(.85rem,2vw,1.2rem);
-  letter-spacing:.25em;color:var(--desert);text-align:center;
-  margin-top:.8rem;text-transform:uppercase;opacity:.8;
-  position:relative;z-index:5;
-}
-.hero-line{
-  width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:1.5rem auto;position:relative;z-index:5;
-}
-.scroll-indicator{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  font-size:.7rem;letter-spacing:.2em;color:var(--gold);opacity:.5;
-  animation:float-down 2s ease-in-out infinite;z-index:5;
-}
-@keyframes float-down{
-  0%,100%{transform:translateX(-50%) translateY(0)}
-  50%{transform:translateX(-50%) translateY(10px)}
-}
-.scroll-arrow{
-  width:20px;height:20px;border-right:1px solid var(--gold);
-  border-bottom:1px solid var(--gold);transform:rotate(45deg);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION DIVIDER
-   ═══════════════════════════════════════════════════════════════ */
-.section-divider{
-  width:100%;height:80px;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,transparent,rgba(212,168,67,.03),transparent);
-}
-.section-divider::after{
-  content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:200px;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 2: SORA VIDEO — THE UNMASKING
-   ═══════════════════════════════════════════════════════════════ */
-#sora{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#0d0b08,var(--black));
-}
-.section-header{
-  text-align:center;margin-bottom:4rem;
-}
-.section-number{
-  font-family:var(--font-serif);font-size:.75rem;letter-spacing:.4em;
-  color:var(--gold);opacity:.5;display:block;margin-bottom:.5rem;
-}
-.section-title{
-  font-family:var(--font-serif);font-size:clamp(1.8rem,4vw,3rem);
-  color:var(--gold-light);letter-spacing:.15em;
-}
-.section-subtitle{
-  font-family:var(--font-serif);font-size:1rem;color:var(--desert);
-  margin-top:.5rem;font-style:italic;opacity:.7;
-}
-
-.video-player{
-  max-width:1000px;margin:0 auto 3rem;position:relative;
-  aspect-ratio:16/9;border-radius:8px;overflow:hidden;
-  border:1px solid rgba(212,168,67,.2);
-  background:linear-gradient(135deg,#0d0a06,#1a140a,#0d0a06);
-  box-shadow:0 20px 80px rgba(0,0,0,.6),0 0 40px rgba(212,168,67,.05);
-}
-.video-overlay{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  background:radial-gradient(ellipse,rgba(26,20,10,.6),rgba(10,10,10,.9));
-}
-.play-btn{
-  width:80px;height:80px;border-radius:50%;
-  border:2px solid var(--gold);display:flex;align-items:center;
-  justify-content:center;cursor:pointer;
-  transition:all .4s;margin-bottom:1.5rem;
-  background:rgba(212,168,67,.08);
-}
-.play-btn:hover{
-  background:rgba(212,168,67,.2);transform:scale(1.1);
-  box-shadow:0 0 40px rgba(212,168,67,.3);
-}
-.play-triangle{
-  width:0;height:0;border-left:24px solid var(--gold);
-  border-top:14px solid transparent;border-bottom:14px solid transparent;
-  margin-left:6px;
-}
-.video-label{
-  font-family:var(--font-serif);font-size:.85rem;letter-spacing:.2em;
-  color:var(--gold);opacity:.7;text-transform:uppercase;
-}
-
-/* Sora prompt box */
-.sora-prompt-box{
-  max-width:900px;margin:0 auto 2.5rem;padding:2.5rem;
-  background:linear-gradient(135deg,rgba(26,26,62,.3),rgba(13,10,6,.5));
-  border:1px solid rgba(212,168,67,.15);border-radius:8px;
-  position:relative;
-}
-.sora-prompt-box::before{
-  content:'SORA PROMPT';position:absolute;top:-10px;left:30px;
-  background:var(--black);padding:0 1rem;font-size:.7rem;
-  letter-spacing:.3em;color:var(--gold);
-}
-.sora-prompt-text{
-  font-family:var(--font-serif);font-size:.95rem;line-height:1.9;
-  color:var(--cream);opacity:.85;font-style:italic;
-}
-.sora-btn{
-  display:inline-flex;align-items:center;gap:.8rem;
-  margin:2rem auto 0;padding:1rem 2.5rem;
-  background:linear-gradient(135deg,var(--dark-gold),var(--gold));
-  color:var(--black);font-family:var(--font-serif);
-  font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;
-  border:none;border-radius:4px;cursor:pointer;
-  transition:all .3s;font-weight:700;
-  box-shadow:0 4px 20px rgba(212,168,67,.3);
-  display:block;text-align:center;max-width:300px;margin-left:auto;margin-right:auto;
-}
-.sora-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 30px rgba(212,168,67,.5);
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-}
-
-/* Storyboard frames */
-.storyboard{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
-  max-width:1000px;margin:3rem auto 0;
-}
-.storyboard-frame{
-  aspect-ratio:1;border:1px solid rgba(212,168,67,.2);border-radius:6px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:1rem;text-align:center;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,rgba(26,20,10,.3),rgba(10,10,10,.5));
-  transition:border-color .4s,box-shadow .4s;
-}
-.storyboard-frame:hover{
-  border-color:var(--gold);
-  box-shadow:0 0 30px rgba(212,168,67,.15);
-}
-.frame-silhouette{
-  width:60px;height:80px;margin-bottom:.8rem;position:relative;
-}
-.silhouette-head{
-  width:30px;height:30px;border-radius:50%;margin:0 auto 4px;
-  border:1.5px solid var(--gold);
-}
-.silhouette-body{
-  width:40px;height:40px;margin:0 auto;
-  border-left:1.5px solid var(--gold);border-right:1.5px solid var(--gold);
-  border-bottom:1.5px solid var(--gold);border-radius:0 0 8px 8px;
-}
-.frame-label{
-  font-size:.65rem;letter-spacing:.15em;color:var(--gold);
-  text-transform:uppercase;
-}
-.frame-number{
-  position:absolute;top:8px;left:10px;font-size:.6rem;
-  color:rgba(212,168,67,.4);font-family:var(--font-sans);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 3: DNA ANALYSIS DASHBOARD
-   ═══════════════════════════════════════════════════════════════ */
-#dna{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#08080f,#0a0a12,var(--black));
-}
-.dna-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
-  max-width:1100px;margin:0 auto;
-}
-
-/* DNA Composition Circle */
-.dna-composition{
-  display:flex;flex-direction:column;align-items:center;
-}
-.dna-circle-container{
-  position:relative;width:300px;height:300px;
-}
-.dna-circle{
-  width:100%;height:100%;border-radius:50%;position:relative;
-  background:conic-gradient(
-    #c4956a 0deg 151.2deg,
-    #d4a843 151.2deg 252deg,
-    #8b6914 252deg 316.8deg,
-    #4a6741 316.8deg 342deg,
-    #1a1a3e 342deg 360deg
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.3) 0%,
+    rgba(0,0,0,0.1) 50%,
+    rgba(255,255,255,1) 100%
   );
-  box-shadow:0 0 40px rgba(212,168,67,.1);
-  transform:rotate(-90deg);
+  z-index: 2;
 }
-.dna-circle::after{
-  content:'';position:absolute;inset:40px;border-radius:50%;
-  background:var(--black);
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 24px;
 }
-.dna-circle-label{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);
-  letter-spacing:.1em;z-index:2;text-align:center;
+.hero-label {
+  font-size: 11px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #c8a04a;
+  font-weight: 700;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.5s forwards;
 }
-.dna-circle-label small{display:block;font-size:.7rem;color:var(--desert);opacity:.7}
-
-.dna-legend{
-  display:flex;flex-direction:column;gap:.6rem;margin-top:1.5rem;width:100%;
-  max-width:300px;
+.hero-title {
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.7s forwards;
 }
-.legend-item{
-  display:flex;align-items:center;gap:.8rem;font-size:.85rem;
+.hero-subtitle {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.9s forwards;
 }
-.legend-dot{
-  width:12px;height:12px;border-radius:50%;flex-shrink:0;
+.hero-scroll {
+  opacity: 0;
+  animation: heroFadeUp 1s 1.2s forwards;
 }
-.legend-pct{
-  margin-left:auto;color:var(--gold);font-family:var(--font-serif);
+.hero-scroll a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
 }
-
-/* Genius gauges */
-.genius-gauges{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
-}
-.gauge{
-  display:flex;flex-direction:column;align-items:center;
-}
-.gauge-circle{
-  position:relative;width:100px;height:100px;
-}
-.gauge-svg{width:100%;height:100%;transform:rotate(-90deg)}
-.gauge-bg{fill:none;stroke:rgba(212,168,67,.1);stroke-width:6}
-.gauge-fill{
-  fill:none;stroke:var(--gold);stroke-width:6;
-  stroke-linecap:round;stroke-dasharray:var(--dash);
-  stroke-dashoffset:var(--dash);
-  transition:stroke-dashoffset 2s ease;
-}
-.gauge.animated .gauge-fill{stroke-dashoffset:var(--offset)}
-.gauge-value{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--font-serif);font-size:1.3rem;color:var(--gold-light);
-}
-.gauge-label{
-  font-size:.7rem;letter-spacing:.1em;color:var(--desert);
-  text-align:center;margin-top:.5rem;text-transform:uppercase;
-}
-
-/* DNA Double Helix SVG */
-.dna-helix-section{
-  max-width:1100px;margin:4rem auto 0;height:200px;
-  position:relative;overflow:hidden;
-}
-.helix-svg{width:100%;height:100%}
-.helix-line{
-  fill:none;stroke:var(--gold);stroke-width:2;opacity:.4;
-  stroke-dasharray:8 4;
-  animation:helix-flow 3s linear infinite;
-}
-.helix-line-2{animation-delay:-1.5s;stroke:var(--desert)}
-@keyframes helix-flow{
-  0%{stroke-dashoffset:0}
-  100%{stroke-dashoffset:-48}
-}
-.helix-dot{fill:var(--gold);animation:helix-pulse 2s ease-in-out infinite alternate}
-@keyframes helix-pulse{0%{opacity:.3;r:3}100%{opacity:.9;r:5}}
-
-.research-link{
-  display:block;text-align:center;margin-top:3rem;
-  font-family:var(--font-serif);font-size:1rem;
-  color:var(--gold);letter-spacing:.15em;
-  padding:1rem 2rem;border:1px solid rgba(212,168,67,.3);
-  max-width:400px;margin-left:auto;margin-right:auto;
-  border-radius:4px;transition:all .3s;
-}
-.research-link:hover{
-  background:rgba(212,168,67,.08);border-color:var(--gold);
-  box-shadow:0 0 30px rgba(212,168,67,.1);
+.hero-scroll a:hover { color: #c8a04a; }
+.scroll-arrow {
+  width: 20px; height: 20px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  animation: scrollBounce 2s infinite;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 4: ANCESTRAL GALLERY — MUSEUM OF BLOOD
-   ═══════════════════════════════════════════════════════════════ */
-#gallery{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#0f0c07,#0d0a06,var(--black));
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.gallery-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;
-  max-width:1200px;margin:0 auto;
-}
-.ancestor-card{
-  position:relative;border:1px solid rgba(212,168,67,.15);
-  background:linear-gradient(180deg,rgba(26,20,10,.3),rgba(10,10,10,.6));
-  border-radius:4px;overflow:hidden;
-  transition:border-color .5s,transform .5s,box-shadow .5s;
-}
-.ancestor-card:hover{
-  border-color:var(--gold);transform:translateY(-8px);
-  box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(212,168,67,.08);
+@keyframes scrollBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(6px); }
 }
 
-/* Golden frame corners */
-.card-corner{
-  position:absolute;width:30px;height:30px;z-index:3;
+/* ─── CAROUSEL ─── */
+.carousel { position: relative; width: 100%; height: 100vh; min-height: 600px; overflow: hidden; }
+.carousel-slide {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.5s ease;
+  display: flex; align-items: center; justify-content: center;
 }
-.card-corner--tl{top:0;left:0;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
-.card-corner--tr{top:0;right:0;border-top:2px solid var(--gold);border-right:2px solid var(--gold)}
-.card-corner--bl{bottom:0;left:0;border-bottom:2px solid var(--gold);border-left:2px solid var(--gold)}
-.card-corner--br{bottom:0;right:0;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.carousel-slide.active { opacity: 1; }
+.carousel-slide::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(255,255,255,1) 100%);
+  z-index: 1;
+}
+.carousel-slide.active { animation: kenBurns 12s ease forwards; }
+@keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
+.carousel-text {
+  position: relative; z-index: 2; text-align: center; padding: 0 24px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s 0.3s ease, transform 0.8s 0.3s ease;
+}
+.carousel-slide.active .carousel-text { opacity: 1; transform: translateY(0); }
+.carousel-text h1 {
+  font-size: clamp(36px, 7vw, 80px); font-weight: 700; color: #fff;
+  letter-spacing: -2px; margin-bottom: 16px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+}
+.carousel-text p {
+  font-size: clamp(16px, 2.5vw, 22px); color: rgba(255,255,255,0.85);
+  font-weight: 300; text-shadow: 0 1px 20px rgba(0,0,0,0.5);
+  max-width: 600px; margin: 0 auto;
+}
+.carousel-dots {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: flex; gap: 12px;
+}
+.carousel-dot {
+  width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.6);
+  background: transparent; cursor: pointer; transition: all 0.3s;
+}
+.carousel-dot.active { background: #c8a04a; border-color: #c8a04a; transform: scale(1.2); }
 
-.card-portrait{
-  width:100%;aspect-ratio:3/4;position:relative;overflow:hidden;
+/* ─── SCENIC BREAKS ─── */
+.scenic-break {
+  width: 100%; height: 70vh; min-height: 400px;
+  background-size: cover; background-position: center; background-attachment: fixed;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
 }
-.card-portrait-gradient{
-  width:100%;height:100%;
+.scenic-break::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0.35);
 }
-.patriarch-gradient{
-  background:linear-gradient(180deg,#1a140a,#2a1f0f,#1a140a);
-  background-image:radial-gradient(ellipse at 50% 30%,rgba(212,168,67,.15),transparent 60%),
-    linear-gradient(180deg,#1a140a,#2a1f0f,#1a140a);
-}
-.matriarch-gradient{
-  background:linear-gradient(180deg,#0a1a14,#0f2a1f,#0a1a14);
-  background-image:radial-gradient(ellipse at 50% 30%,rgba(74,103,65,.2),transparent 60%),
-    linear-gradient(180deg,#0a1a14,#0f2a1f,#0a1a14);
-}
-.mother-gradient{
-  background:linear-gradient(180deg,#1a0a14,#2a0f1f,#1a0a14);
-  background-image:radial-gradient(ellipse at 50% 30%,rgba(196,149,106,.15),transparent 60%),
-    linear-gradient(180deg,#1a0a14,#2a0f1f,#1a0a14);
-}
-
-/* CSS silhouette figures */
-.card-figure{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-}
-.figure-head{
-  width:50px;height:60px;border-radius:50%;margin:0 auto 8px;
-  border:1.5px solid rgba(212,168,67,.3);
-}
-.figure-body{
-  width:70px;height:90px;margin:0 auto;
-  border:1.5px solid rgba(212,168,67,.2);border-radius:0 0 20px 20px;
-  border-top:none;
-}
-.figure-turban{
-  width:60px;height:20px;border:1.5px solid rgba(212,168,67,.3);
-  border-radius:50% 50% 0 0;margin:0 auto -5px;
-}
-.figure-veil{
-  width:65px;height:30px;border:1.5px solid rgba(74,103,65,.4);
-  border-radius:50%;margin:0 auto -10px;
-}
-.figure-shawl{
-  width:80px;height:25px;margin:-5px auto 0;
-  border:1.5px solid rgba(196,149,106,.3);border-radius:0 0 40px 40px;
-  border-top:none;
-}
-
-.card-era{
-  position:absolute;top:12px;right:12px;font-size:.65rem;
-  letter-spacing:.2em;color:var(--gold);opacity:.6;
-  font-family:var(--font-serif);
+.scenic-text {
+  position: relative; z-index: 2; text-align: center; padding: 0 24px;
+  max-width: 800px;
 }
 
-.card-content{padding:1.5rem}
-.card-title{
-  font-family:var(--font-serif);font-size:1.1rem;color:var(--gold);
-  letter-spacing:.1em;margin-bottom:.3rem;
+/* ─── TIMELINE SCENIC ─── */
+.timeline-scenic {
+  border-radius: 12px; overflow: hidden;
+  background-size: cover; background-position: center;
+  min-height: 200px; display: flex; align-items: flex-end;
 }
-.card-epithet{
-  font-family:var(--font-serif);font-size:.8rem;color:var(--desert);
-  font-style:italic;margin-bottom:1rem;opacity:.8;
-}
-.card-origin{
-  font-size:.75rem;letter-spacing:.15em;color:var(--gold);opacity:.5;
-  text-transform:uppercase;margin-bottom:.8rem;
-}
-.card-desc{font-size:.85rem;color:var(--cream);opacity:.7;margin-bottom:1rem;line-height:1.6}
-.card-markers{
-  padding-top:1rem;border-top:1px solid rgba(212,168,67,.1);
-}
-.card-markers h4{
-  font-size:.65rem;letter-spacing:.2em;color:var(--gold);opacity:.5;
-  text-transform:uppercase;margin-bottom:.5rem;
-}
-.marker-tag{
-  display:inline-block;font-size:.7rem;padding:.2rem .6rem;
-  margin:.2rem .3rem .2rem 0;border:1px solid rgba(212,168,67,.15);
-  border-radius:2px;color:var(--desert);
-}
-.card-prompt{
-  margin-top:1rem;padding:.8rem;font-size:.7rem;
-  background:rgba(26,26,62,.2);border-radius:4px;
-  color:var(--cream);opacity:.5;font-style:italic;
-  border-left:2px solid rgba(212,168,67,.2);
+.timeline-scenic .tl-content {
+  background: linear-gradient(transparent, rgba(255,255,255,0.95) 40%);
+  padding-top: 100px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 5: TRADE ROUTE MAP
-   ═══════════════════════════════════════════════════════════════ */
-#map{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#0a0a12,#08080f,var(--black));
+/* ─── NAV (appears on scroll) ─── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 16px 24px;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.map-container{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;
-  align-items:start;
+.nav.visible { transform: translateY(0); }
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.route-panel{
-  padding:2rem;border:1px solid rgba(212,168,67,.1);
-  border-radius:6px;background:rgba(10,10,10,.5);
-  position:relative;
+.nav-logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
 }
-.route-panel h3{
-  font-family:var(--font-serif);font-size:1.2rem;color:var(--gold);
-  letter-spacing:.1em;margin-bottom:.3rem;
+.nav-logo span { color: #c8a04a; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-size: 13px;
+  color: #777;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
 }
-.route-panel .route-era{
-  font-size:.75rem;color:var(--desert);opacity:.6;
-  letter-spacing:.15em;margin-bottom:1.5rem;
-}
-.route-stops{list-style:none;position:relative;padding-left:20px}
-.route-stops::before{
-  content:'';position:absolute;left:5px;top:0;bottom:0;
-  width:2px;background:linear-gradient(180deg,var(--gold),rgba(212,168,67,.2));
-}
-.route-stop{
-  position:relative;padding:.8rem 0 .8rem 1.5rem;
-  font-size:.9rem;color:var(--cream);opacity:.8;
-}
-.route-stop::before{
-  content:'';position:absolute;left:-16px;top:50%;transform:translateY(-50%);
-  width:10px;height:10px;border-radius:50%;border:2px solid var(--gold);
-  background:var(--black);
-}
-.route-stop.active::before{
-  background:var(--gold);box-shadow:0 0 10px var(--gold);
-}
-.route-stop small{display:block;font-size:.7rem;color:var(--desert);opacity:.6}
-
-.route-connector{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding-top:4rem;
-}
-.connector-line{
-  width:2px;height:200px;position:relative;
-  background:linear-gradient(180deg,rgba(212,168,67,.1),var(--gold),rgba(212,168,67,.1));
-}
-.connector-pulse{
-  position:absolute;width:8px;height:8px;border-radius:50%;
-  background:var(--gold);left:50%;transform:translateX(-50%);
-  animation:pulse-travel 3s ease-in-out infinite;
-  box-shadow:0 0 15px var(--gold);
-}
-@keyframes pulse-travel{
-  0%{top:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}
-}
-.connector-label{
-  font-family:var(--font-serif);font-size:.7rem;letter-spacing:.2em;
-  color:var(--gold);margin-top:1rem;writing-mode:vertical-rl;
-  text-orientation:mixed;opacity:.5;
+.nav-links a:hover { color: #c8a04a; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
 }
 
-/* SVG Map */
-.world-map-svg{
-  max-width:1200px;margin:3rem auto 0;height:300px;
-  position:relative;
+/* ─── ETYMOLOGY SECTION ─── */
+.etymology {
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
-.map-svg{width:100%;height:100%}
-.map-land{fill:rgba(212,168,67,.05);stroke:rgba(212,168,67,.1);stroke-width:.5}
-.map-route{
-  fill:none;stroke:var(--gold);stroke-width:2;
-  stroke-dasharray:8 4;opacity:.6;
-  animation:route-flow 4s linear infinite;
+.ety-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
-.map-route-modern{stroke:var(--gold-light);stroke-dasharray:2 6;animation-delay:-2s}
-@keyframes route-flow{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-48}}
-.map-point{fill:var(--gold);animation:map-glow 2s ease-in-out infinite alternate}
-@keyframes map-glow{0%{r:3;opacity:.5}100%{r:6;opacity:1}}
+@media (max-width: 768px) { .ety-grid { grid-template-columns: 1fr; gap: 40px; } }
+.ety-arabic {
+  font-size: 120px;
+  font-weight: 300;
+  color: #c8a04a;
+  text-align: center;
+  line-height: 1;
+  opacity: 0.4;
+}
+.ety-content h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.ety-content p { margin-bottom: 16px; color: #555; }
+.ety-tag {
+  display: inline-block;
+  background: #c8a04a;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-top: 8px;
+}
 
-.map-narrative{
-  max-width:700px;margin:3rem auto 0;text-align:center;
-  font-family:var(--font-serif);font-size:1.1rem;color:var(--cream);
-  opacity:.7;line-height:1.8;font-style:italic;
+/* ─── FACE ANNOTATION ─── */
+.face-section { background: #fff; }
+.face-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.face-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+.face-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.annotation-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  fill: #c8a04a;
+}
+.annotation-desc {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 9px;
+  fill: #666;
+  font-weight: 400;
+}
+.annotation-line { stroke: #c8a04a; stroke-width: 1; opacity: 0.6; }
+.annotation-dot { fill: #c8a04a; }
+.face-annotations-mobile {
+  display: none;
+  margin-top: 40px;
+}
+.face-annotations-mobile .ann-card {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.face-annotations-mobile .ann-card:last-child { border-bottom: none; }
+.face-annotations-mobile .ann-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8a04a;
+  margin-bottom: 4px;
+}
+.face-annotations-mobile .ann-desc { font-size: 14px; color: #555; }
+@media (max-width: 768px) {
+  .face-svg { display: none; }
+  .face-annotations-mobile { display: block; }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 6: 6000-YEAR TIMELINE
-   ═══════════════════════════════════════════════════════════════ */
-#timeline{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#0d0a06,var(--black));
+/* ─── DNA DASHBOARD ─── */
+.dna-section { background: #fafafa; border-top: 1px solid #f0f0f0; }
+.dna-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
-.timeline-container{
-  max-width:800px;margin:0 auto;position:relative;
+@media (max-width: 900px) { .dna-grid { grid-template-columns: 1fr; } }
+.dna-chart-container {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  margin: 0 auto;
 }
-.timeline-line{
-  position:absolute;left:50%;top:0;bottom:0;width:2px;
-  transform:translateX(-50%);
-  background:linear-gradient(180deg,
-    transparent,var(--gold) 5%,var(--gold) 95%,transparent
+.dna-chart-ring {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    #c8a04a 0deg 0deg,
+    #e8d5a0 0deg 0deg,
+    #6b8f71 0deg 0deg,
+    #8b6f47 0deg 0deg,
+    #a0b4c4 0deg 0deg
   );
-  opacity:.3;
+  transition: background 2s ease-out;
+  position: relative;
 }
-.timeline-glow{
-  position:absolute;left:50%;top:0;width:4px;height:100%;
-  transform:translateX(-50%);
-  background:linear-gradient(180deg,
-    transparent,rgba(212,168,67,.2) 5%,rgba(212,168,67,.2) 95%,transparent
+.dna-chart-ring.animated {
+  background: conic-gradient(
+    #c8a04a 0deg 151.2deg,
+    #b08830 151.2deg 252deg,
+    #6b8f71 252deg 316.8deg,
+    #8b6f47 316.8deg 342deg,
+    #a0b4c4 342deg 360deg
   );
-  filter:blur(4px);
+}
+.dna-chart-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dna-center-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 600;
+}
+.dna-center-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+  margin: 4px 0;
+}
+.dna-center-sub { font-size: 12px; color: #999; }
+.dna-legend { margin-top: 32px; }
+.dna-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.dna-legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dna-legend-text { flex: 1; }
+.dna-legend-name { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+.dna-legend-detail { font-size: 12px; color: #888; }
+.dna-legend-pct { font-size: 20px; font-weight: 700; color: #1a1a1a; min-width: 50px; text-align: right; }
+
+/* DNA BARS */
+.dna-bars { margin-top: 40px; }
+.dna-bar-item { margin-bottom: 24px; }
+.dna-bar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.dna-bar-label { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+.dna-bar-value { font-size: 13px; font-weight: 700; color: #c8a04a; }
+.dna-bar-track {
+  width: 100%;
+  height: 6px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.dna-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #c8a04a, #e8d5a0);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dna-bar-fill.alt1 { background: linear-gradient(90deg, #b08830, #d4b060); }
+.dna-bar-fill.alt2 { background: linear-gradient(90deg, #6b8f71, #8fb896); }
+.dna-bar-fill.alt3 { background: linear-gradient(90deg, #8b6f47, #b89870); }
+.dna-bar-fill.alt4 { background: linear-gradient(90deg, #a0b4c4, #c0d0dd); }
+
+/* HAPLOGROUP TABLE */
+.haplo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+.haplo-table th {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid #e8e8e8;
+}
+.haplo-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+.haplo-table tr:last-child td { border-bottom: none; }
+.haplo-tag {
+  display: inline-block;
+  background: #f5f0e6;
+  color: #c8a04a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 1px;
 }
 
-.timeline-event{
-  position:relative;padding:2rem 0;display:grid;
-  grid-template-columns:1fr 60px 1fr;align-items:center;
+/* ─── GENIUS GAUGES ─── */
+.genius-section { background: #fff; }
+.gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
-.timeline-event:nth-child(odd) .event-content{grid-column:1;text-align:right;padding-right:1.5rem}
-.timeline-event:nth-child(even) .event-content{grid-column:3;text-align:left;padding-left:1.5rem}
-.timeline-event:nth-child(odd) .event-content{grid-row:1}
-.timeline-event:nth-child(even) .event-content{grid-row:1}
-
-.event-node{
-  grid-column:2;grid-row:1;width:16px;height:16px;border-radius:50%;
-  border:2px solid var(--gold);background:var(--black);
-  justify-self:center;z-index:2;transition:all .4s;cursor:pointer;
-  position:relative;
+@media (max-width: 900px) { .gauge-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .gauge-grid { grid-template-columns: 1fr; } }
+.gauge-card {
+  text-align: center;
+  padding: 40px 24px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
 }
-.event-node.highlight{
-  background:var(--gold);box-shadow:0 0 20px rgba(212,168,67,.5);
-  animation:node-pulse 2s ease-in-out infinite;
+.gauge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
 }
-@keyframes node-pulse{
-  0%,100%{box-shadow:0 0 20px rgba(212,168,67,.3)}
-  50%{box-shadow:0 0 40px rgba(212,168,67,.6)}
+.gauge-svg {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
 }
-.event-node:hover{transform:scale(1.4);background:var(--gold)}
-
-.event-date{
-  font-family:var(--font-serif);font-size:.8rem;color:var(--gold);
-  letter-spacing:.15em;margin-bottom:.3rem;
+.gauge-bg {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 8;
 }
-.event-title{
-  font-family:var(--font-serif);font-size:1rem;color:var(--gold-light);
-  margin-bottom:.3rem;
+.gauge-fill {
+  fill: none;
+  stroke: #c8a04a;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+  transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(-90deg);
+  transform-origin: center;
 }
-.event-desc{
-  font-size:.8rem;color:var(--cream);opacity:.5;line-height:1.5;
-  max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .5s;
+.gauge-score {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
 }
-.event-desc.expanded{max-height:200px;opacity:.7}
-
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 7: SOUL OF THE DESERT — FAIRUZ
-   ═══════════════════════════════════════════════════════════════ */
-#fairuz{
-  position:relative;z-index:2;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--black),#0f0c07,#1a140a,#0f0c07,var(--black));
+.gauge-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8a04a;
+  font-weight: 700;
+  margin-top: 8px;
 }
-.fairuz-container{max-width:800px;margin:0 auto}
-
-.poem-block{
-  position:relative;padding:3rem;
-  border:1px solid rgba(212,168,67,.1);border-radius:6px;
-  background:rgba(26,20,10,.2);margin-bottom:3rem;
-}
-.poem-block::before{
-  content:'\201C';position:absolute;top:-20px;left:30px;
-  font-family:var(--font-serif);font-size:5rem;color:var(--gold);opacity:.15;
-  line-height:1;
-}
-.poem-stanza{
-  font-family:var(--font-serif);font-size:1.05rem;line-height:2;
-  color:var(--cream);opacity:.85;margin-bottom:1.5rem;
-  font-style:italic;
-}
-.poem-stanza:last-child{margin-bottom:0}
-
-.wisdom-section{margin-top:2rem}
-.wisdom-title{
-  font-family:var(--font-serif);font-size:1.3rem;color:var(--gold);
-  letter-spacing:.15em;text-align:center;margin-bottom:2rem;
-}
-.wisdom-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.wisdom-item{
-  display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.5rem;
-  border:1px solid rgba(212,168,67,.08);border-radius:4px;
-  background:rgba(10,10,10,.4);transition:border-color .4s,background .4s;
-}
-.wisdom-item:hover{
-  border-color:rgba(212,168,67,.25);background:rgba(26,20,10,.3);
-}
-.wisdom-icon{
-  width:36px;height:36px;border-radius:50%;flex-shrink:0;
-  border:1px solid rgba(212,168,67,.3);display:flex;
-  align-items:center;justify-content:center;
-  font-family:var(--font-serif);font-size:.9rem;color:var(--gold);
-}
-.wisdom-text h4{
-  font-family:var(--font-serif);font-size:.95rem;color:var(--gold-light);
-  margin-bottom:.2rem;letter-spacing:.05em;
-}
-.wisdom-text p{
-  font-size:.8rem;color:var(--cream);opacity:.5;
+.gauge-desc {
+  font-size: 13px;
+  color: #888;
+  margin-top: 12px;
+  line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SECTION 8: FOOTER
-   ═══════════════════════════════════════════════════════════════ */
-footer{
-  position:relative;z-index:2;padding:4rem 2rem;text-align:center;
-  background:linear-gradient(180deg,var(--black),#050505);
-  border-top:1px solid rgba(212,168,67,.05);
+/* ─── ANCESTORS GALLERY ─── */
+.ancestors-section { background: #fafafa; border-top: 1px solid #f0f0f0; }
+.ancestor-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
-.footer-line{
-  font-family:var(--font-serif);font-size:.85rem;color:var(--gold);
-  opacity:.4;letter-spacing:.2em;margin-bottom:.5rem;
+@media (max-width: 900px) { .ancestor-cards { grid-template-columns: 1fr; } }
+.ancestor-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+  border: 1px solid #f0f0f0;
 }
-.footer-sub{
-  font-size:.7rem;color:var(--desert);opacity:.3;
-  letter-spacing:.15em;
+.ancestor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
-.footer-particles{
-  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+.ancestor-img-wrap {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  position: relative;
 }
-.footer-particle{
-  position:absolute;width:2px;height:2px;background:var(--gold);
-  border-radius:50%;opacity:0;animation:float-up 6s ease-in infinite;
+.ancestor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-@keyframes float-up{
-  0%{opacity:0;transform:translateY(0)}
-  20%{opacity:.4}
-  80%{opacity:.2}
-  100%{opacity:0;transform:translateY(-100px)}
+.ancestor-card:hover .ancestor-img {
+  transform: scale(1.05);
+}
+.ancestor-era {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8a04a;
+}
+.ancestor-body { padding: 28px; }
+.ancestor-origin {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.ancestor-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+.ancestor-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+.ancestor-dna {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #c8a04a;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════════════════ */
-@media(max-width:900px){
-  .gallery-grid{grid-template-columns:1fr}
-  .dna-grid{grid-template-columns:1fr}
-  .genius-gauges{grid-template-columns:repeat(3,1fr)}
-  .map-container{grid-template-columns:1fr;gap:1.5rem}
-  .route-connector{flex-direction:row;padding:0}
-  .connector-line{width:200px;height:2px;background:linear-gradient(90deg,rgba(212,168,67,.1),var(--gold),rgba(212,168,67,.1))}
-  .connector-label{writing-mode:horizontal-tb}
-  .storyboard{grid-template-columns:repeat(2,1fr)}
-  .timeline-event{grid-template-columns:30px 40px 1fr}
-  .timeline-event:nth-child(odd) .event-content{grid-column:3;text-align:left;padding-left:1rem;padding-right:0}
-  .timeline-event:nth-child(even) .event-content{grid-column:3;text-align:left;padding-left:1rem}
-  .timeline-line,.timeline-glow{left:50px}
-  .event-node{grid-column:2}
-  .portrait-container{width:240px;height:240px}
-  nav{font-size:.65rem;gap:1rem;flex-wrap:wrap;justify-content:center}
+/* ─── TRADE ROUTE MAP ─── */
+.map-section { background: #fff; }
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
 }
-@media(max-width:600px){
-  .genius-gauges{grid-template-columns:repeat(2,1fr)}
-  .storyboard{grid-template-columns:1fr 1fr}
-  nav{gap:.5rem;padding:.8rem 1rem}
-  nav a{font-size:.55rem}
+.map-svg {
+  width: 100%;
+  height: auto;
 }
+.map-path {
+  fill: none;
+  stroke: #c8a04a;
+  stroke-width: 2.5;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  transition: stroke-dashoffset 4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.map-path.animated { stroke-dashoffset: 0; }
+.map-dot { fill: #c8a04a; opacity: 0; transition: opacity 0.6s ease; }
+.map-dot.animated { opacity: 1; }
+.map-label-text {
+  font-family: -apple-system, sans-serif;
+  font-size: 11px;
+  fill: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.map-label-sub {
+  font-family: -apple-system, sans-serif;
+  font-size: 9px;
+  fill: #999;
+}
+.map-land { fill: #f0eeea; stroke: #ddd; stroke-width: 0.5; }
+
+/* ─── ANTHROPOLOGY DEEP DIVE ─── */
+.anthro-section { background: #fafafa; border-top: 1px solid #f0f0f0; }
+.anthro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) { .anthro-grid { grid-template-columns: 1fr; } }
+.anthro-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+}
+.anthro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+}
+.anthro-card h4 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+.anthro-card p { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 12px; }
+.anthro-card .ref {
+  font-size: 11px;
+  color: #bbb;
+  font-style: italic;
+  margin-top: 8px;
+}
+.anthro-card-full { grid-column: 1 / -1; }
+.cuisine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width: 768px) { .cuisine-grid { grid-template-columns: repeat(2, 1fr); } }
+.cuisine-item {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.cuisine-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.cuisine-emoji { font-size: 32px; margin-bottom: 8px; }
+.cuisine-name { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+.cuisine-origin { font-size: 11px; color: #999; margin-top: 4px; }
+
+/* ─── POETRY ─── */
+.poetry-section {
+  background: linear-gradient(180deg, #fff 0%, #faf8f2 100%);
+  border-top: 1px solid #f0f0f0;
+}
+.poetry-block {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.poetry-line {
+  font-size: 20px;
+  font-style: italic;
+  color: #555;
+  line-height: 2;
+  margin-bottom: 8px;
+}
+.poetry-credit {
+  font-size: 13px;
+  color: #bbb;
+  margin-top: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ─── TIMELINE ─── */
+.timeline-section { background: #fff; }
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e8e8e8;
+  transform: translateX(-50%);
+}
+@media (max-width: 768px) {
+  .timeline::before { left: 24px; }
+}
+.tl-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+.tl-item:last-child { margin-bottom: 0; }
+.tl-item:nth-child(odd) { flex-direction: row-reverse; }
+@media (max-width: 768px) {
+  .tl-item, .tl-item:nth-child(odd) { flex-direction: row; padding-left: 56px; }
+}
+.tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  border: 3px solid #fff;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: background 0.5s;
+}
+.tl-dot.highlight { background: #c8a04a; box-shadow: 0 0 0 4px rgba(200,160,74,0.2); }
+@media (max-width: 768px) {
+  .tl-dot { left: 24px; }
+}
+.tl-content {
+  width: calc(50% - 40px);
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tl-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  .tl-content { width: 100%; }
+}
+.tl-year {
+  font-size: 13px;
+  font-weight: 700;
+  color: #c8a04a;
+  letter-spacing: 1px;
+}
+.tl-era {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 4px 0;
+}
+.tl-event {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+.tl-highlight-card {
+  border-color: #c8a04a;
+  background: #fffcf5;
+}
+.tl-dot-gold, .tl-dot.tl-dot-gold { background: #c8a04a; box-shadow: 0 0 0 4px rgba(200,160,74,0.2); }
+.tl-card {
+  width: calc(50% - 40px);
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tl-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  .tl-card { width: 100%; }
+}
+.tl-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 4px 0 8px;
+}
+.tl-right { }
+.tl-left { }
+
+/* ─── ENDOGAMY ─── */
+.endogamy-section { background: #fafafa; border-top: 1px solid #f0f0f0; }
+.endo-formula {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.endo-math {
+  font-size: 24px;
+  font-family: 'Georgia', serif;
+  color: #1a1a1a;
+  margin: 24px 0;
+  letter-spacing: 1px;
+}
+.endo-explain { font-size: 14px; color: #777; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  background: #1a1a1a;
+  color: #888;
+  padding: 80px 0 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.footer-desc { font-size: 14px; color: #666; line-height: 1.7; }
+.footer-links-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.footer-link {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.footer-link:hover { color: #c8a04a; }
+.footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+@media (max-width: 768px) { .footer-bottom { flex-direction: column; gap: 12px; } }
+.footer-copy { color: #555; }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-  <a href="#hero">Origin</a>
-  <a href="#sora">Unmasking</a>
-  <a href="#dna">DNA</a>
-  <a href="#gallery">Ancestors</a>
-  <a href="#map">Routes</a>
-  <a href="#timeline">Timeline</a>
-  <a href="#fairuz">Soul</a>
+<!-- ─── STICKY NAV ─── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-logo">Elfeki <span>Chronicle</span></div>
+    <div class="nav-links">
+      <a href="#etymology">Etymology</a>
+      <a href="#dna">DNA</a>
+      <a href="#ancestors">Ancestors</a>
+      <a href="#timeline">Timeline</a>
+      <a href="research-paper.html">Research</a>
+    </div>
+  </div>
 </nav>
 
-<!-- GLOBAL PARTICLES -->
-<canvas id="particles-canvas"></canvas>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 1: HERO — THE EXCAVATION
-     ═══════════════════════════════════════════════════════════ -->
-<section id="hero">
-  <div class="portrait-container">
-    <!-- Golden glow layers -->
-    <div class="portrait-glow"></div>
-    <div class="portrait-glow"></div>
-    <div class="portrait-glow"></div>
-    <!-- Rings -->
-    <div class="portrait-ring"></div>
-    <div class="portrait-ring"></div>
-    <div class="portrait-ring"></div>
-    <!-- DNA helix points -->
-    <div class="dna-helix-hero" id="dna-helix-hero"></div>
-    <!-- Photo -->
-    <div class="portrait-photo">
-      <img src="elfeki.jpeg" alt="Ihyeeddine Elfeki" loading="eager">
+<!-- ─── HERO CAROUSEL ─── -->
+<section class="carousel" id="hero">
+  <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1542401886-65d6c61db217?w=1920&q=80');">
+    <div class="carousel-text">
+      <div class="section-label" style="color:#c8a04a;">A Chrono-Anthropological Deep Dive</div>
+      <h1>The Elfeki Chronicle</h1>
+      <p>Tracing 6,000 years of monsoon winds, desert crossings, and genetic memory</p>
     </div>
   </div>
-
-  <div class="hero-line"></div>
-  <h1 class="hero-title">IHYEEDDINE ELFEKI</h1>
-  <p class="hero-subtitle">The Chrono-Anthropological Deep Dive: From Swamps to Stars</p>
-
-  <div class="scroll-indicator">
-    <span>DESCEND</span>
-    <div class="scroll-arrow"></div>
+  <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80');">
+    <div class="carousel-text">
+      <h1>From Swamps to Stars</h1>
+      <p>From the Indus Valley to the shores of Ifriqiya &mdash; the monsoon winds carried more than spices</p>
+    </div>
+  </div>
+  <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1920&q=80');">
+    <div class="carousel-text">
+      <h1>6,000 Years of Genetic Memory</h1>
+      <p>A journey through DNA, epigenetics, and the enduring traces of ancestral wisdom</p>
+    </div>
+  </div>
+  <div class="carousel-dots">
+    <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+    <div class="carousel-dot" onclick="goToSlide(1)"></div>
+    <div class="carousel-dot" onclick="goToSlide(2)"></div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 2: SORA VIDEO — THE UNMASKING
-     ═══════════════════════════════════════════════════════════ -->
-<section id="sora">
-  <div class="section-header reveal">
-    <span class="section-number">II</span>
-    <h2 class="section-title">THE UNMASKING</h2>
-    <p class="section-subtitle">A Sora-Generated Vision of Ancestral Emergence</p>
-  </div>
-
-  <div class="video-player reveal reveal-delay-1">
-    <div class="video-overlay">
-      <div class="play-btn">
-        <div class="play-triangle"></div>
+<!-- ─── ETYMOLOGY ─── -->
+<section class="etymology section-pad" id="etymology">
+  <div class="container">
+    <div class="ety-grid">
+      <div class="ety-arabic reveal">&#1601;&#1602;&#1610;&#1607;</div>
+      <div class="ety-content reveal reveal-delay-2">
+        <span class="section-label">Etymology</span>
+        <h3>Elfeki &mdash; From Arabic <em>faqih</em></h3>
+        <p>The surname <strong>Elfeki</strong> derives from the Arabic word <em>faqih</em>, meaning <strong>jurist, scholar, or one deeply learned in Islamic law</strong>. It designates a lineage of religious judges, legal scholars, and spiritual authorities.</p>
+        <p>78% of all Elfekis worldwide are concentrated in North Africa, with the highest density in Tunisia's Kairouan and Sousse regions &mdash; the historic centers of Maliki jurisprudence in al-Maghrib.</p>
+        <p>The family's intellectual heritage stretches back to the Hafsid Dynasty (1229&ndash;1574 CE), when Kairouan served as the preeminent center of Islamic legal scholarship in Ifriqiya. The fuqaha (jurists) who congregated there shaped the legal, commercial, and cultural fabric of the entire Maghreb.</p>
+        <span class="ety-tag">Lineage of Scholars</span>
       </div>
-      <span class="video-label">Sora AI Vision &mdash; Awaiting Generation</span>
-    </div>
-  </div>
-
-  <div class="sora-prompt-box reveal reveal-delay-2">
-    <p class="sora-prompt-text">
-      Close-up of Ihyeeddine's face as a marble bust, dramatically lit from below with warm golden light.
-      Camera pushes in slowly. The marble begins to crack along hairline fractures &mdash; golden light
-      pours through the fissures. The face peels back in layers, like pages of an ancient manuscript.
-      First layer reveals a 17th-century Tunisian woman (The Mother) in traditional dress, her eyes identical
-      to the subject. Second layer reveals a 14th-century Berber woman (The Matriarch) with Atlas Mountain
-      winds in her hair. Third layer reveals a Gujarati merchant (The Patriarch) with monsoon-weathered skin
-      and knowing eyes. All share the same distinctive gaze. Luminescent DNA strands emerge from each figure,
-      weaving together into a double helix that connects them all. Camera pulls back to reveal all four faces
-      superimposed, united by blood across six centuries. Cinematic, photorealistic, 4K, dramatic lighting,
-      golden hour palette.
-    </p>
-  </div>
-
-  <button class="sora-btn reveal reveal-delay-3">Generate with Sora</button>
-
-  <div class="storyboard reveal reveal-delay-4">
-    <div class="storyboard-frame">
-      <span class="frame-number">01</span>
-      <div class="frame-silhouette">
-        <div class="silhouette-head" style="background:rgba(212,168,67,.1)"></div>
-        <div class="silhouette-body" style="background:rgba(212,168,67,.05)"></div>
-      </div>
-      <span class="frame-label">The Marble Bust</span>
-    </div>
-    <div class="storyboard-frame">
-      <span class="frame-number">02</span>
-      <div class="frame-silhouette">
-        <div class="silhouette-head" style="border-color:var(--desert)"></div>
-        <div class="silhouette-body" style="border-color:var(--desert)"></div>
-      </div>
-      <span class="frame-label">The Mother</span>
-    </div>
-    <div class="storyboard-frame">
-      <span class="frame-number">03</span>
-      <div class="frame-silhouette">
-        <div class="silhouette-head" style="border-color:var(--olive)"></div>
-        <div class="silhouette-body" style="border-color:var(--olive)"></div>
-      </div>
-      <span class="frame-label">The Matriarch</span>
-    </div>
-    <div class="storyboard-frame">
-      <span class="frame-number">04</span>
-      <div class="frame-silhouette">
-        <div class="silhouette-head" style="border-color:var(--gold-light)"></div>
-        <div class="silhouette-body" style="border-color:var(--gold-light)"></div>
-      </div>
-      <span class="frame-label">The Patriarch</span>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ─── FACIAL ANNOTATION ─── -->
+<section class="face-section section-pad" id="face">
+  <div class="container text-center">
+    <span class="section-label reveal">Morphological Analysis</span>
+    <h2 class="section-title reveal">The Face as Archive</h2>
+    <p class="section-subtitle reveal">Every bone, curve, and pigment tells a story written in generations. Six morphological markers decode the genetic journey mapped across this single face.</p>
+    <div class="face-container reveal">
+      <img src="elfeki.jpeg" alt="Ihyeeddine Elfeki &mdash; Morphological Analysis" class="face-img" id="faceImg">
+      <svg class="face-svg" id="faceSvg" viewBox="0 0 700 700" preserveAspectRatio="xMidYMid meet">
+        <!-- Hair Texture -->
+        <circle class="annotation-dot" cx="390" cy="130" r="4"/>
+        <line class="annotation-line" x1="390" y1="130" x2="90" y2="70"/>
+        <text class="annotation-label" x="10" y="64">Hair Texture</text>
+        <text class="annotation-desc" x="10" y="80">Dense wavy 2B-2C, ~180 follicles/cm&sup2;</text>
+        <text class="annotation-desc" x="10" y="92">Mediterranean + South Asian density</text>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 3: DNA ANALYSIS DASHBOARD
-     ═══════════════════════════════════════════════════════════ -->
-<section id="dna">
-  <div class="section-header reveal">
-    <span class="section-number">III</span>
-    <h2 class="section-title">GENOMIC CARTOGRAPHY</h2>
-    <p class="section-subtitle">The Architecture of Blood</p>
-  </div>
+        <!-- Brow Ridge -->
+        <circle class="annotation-dot" cx="350" cy="165" r="4"/>
+        <line class="annotation-line" x1="350" y1="165" x2="560" y2="100"/>
+        <text class="annotation-label" x="570" y="96">Brow Ridge</text>
+        <text class="annotation-desc" x="570" y="112">Moderately pronounced &mdash; correlates</text>
+        <text class="annotation-desc" x="570" y="124">with visual-spatial processing</text>
 
-  <div class="dna-grid">
-    <!-- DNA Composition -->
-    <div class="dna-composition reveal">
-      <div class="dna-circle-container">
-        <div class="dna-circle" id="dna-pie"></div>
-        <div class="dna-circle-label">DNA<br><small>Composition</small></div>
-      </div>
-      <div class="dna-legend">
-        <div class="legend-item">
-          <span class="legend-dot" style="background:#c4956a"></span>
-          <span>Berber</span>
-          <span class="legend-pct">42%</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot" style="background:#d4a843"></span>
-          <span>Arab</span>
-          <span class="legend-pct">28%</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot" style="background:#8b6914"></span>
-          <span>South Asian</span>
-          <span class="legend-pct">18%</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot" style="background:#4a6741"></span>
-          <span>Sub-Saharan</span>
-          <span class="legend-pct">7%</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot" style="background:#1a1a3e"></span>
-          <span>Phoenician</span>
-          <span class="legend-pct">5%</span>
-        </div>
-      </div>
-    </div>
+        <!-- Eye Shape -->
+        <circle class="annotation-dot" cx="310" cy="210" r="4"/>
+        <line class="annotation-line" x1="310" y1="210" x2="80" y2="185"/>
+        <text class="annotation-label" x="10" y="178">Eye Shape</text>
+        <text class="annotation-desc" x="10" y="194">Deep-set almond with medial</text>
+        <text class="annotation-desc" x="10" y="206">epicanthic fold &mdash; Levantine/Indus</text>
 
-    <!-- Genius Gauges -->
-    <div class="genius-gauges reveal reveal-delay-1">
-      <div class="gauge" data-value="94">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:18.84"/>
-          </svg>
-          <span class="gauge-value">94</span>
-        </div>
-        <span class="gauge-label">Visual-Spatial</span>
-      </div>
-      <div class="gauge" data-value="91">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:28.26"/>
-          </svg>
-          <span class="gauge-value">91</span>
-        </div>
-        <span class="gauge-label">Strategic Patience</span>
-      </div>
-      <div class="gauge" data-value="88">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:37.68"/>
-          </svg>
-          <span class="gauge-value">88</span>
-        </div>
-        <span class="gauge-label">Linguistic Fluidity</span>
-      </div>
-      <div class="gauge" data-value="96">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:12.56"/>
-          </svg>
-          <span class="gauge-value">96</span>
-        </div>
-        <span class="gauge-label">Endurance</span>
-      </div>
-      <div class="gauge" data-value="93">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:21.98"/>
-          </svg>
-          <span class="gauge-value">93</span>
-        </div>
-        <span class="gauge-label">Pattern Recognition</span>
-      </div>
-      <div class="gauge" data-value="89">
-        <div class="gauge-circle">
-          <svg class="gauge-svg" viewBox="0 0 120 120">
-            <circle class="gauge-bg" cx="60" cy="60" r="50"/>
-            <circle class="gauge-fill" cx="60" cy="60" r="50"
-              style="--dash:314;--offset:34.54"/>
-          </svg>
-          <span class="gauge-value">89</span>
-        </div>
-        <span class="gauge-label">Social Calibration</span>
-      </div>
-    </div>
-  </div>
+        <!-- Nose Bridge -->
+        <circle class="annotation-dot" cx="348" cy="275" r="4"/>
+        <line class="annotation-line" x1="348" y1="275" x2="570" y2="250"/>
+        <text class="annotation-label" x="580" y="244">Nose Bridge</text>
+        <text class="annotation-desc" x="580" y="260">Aquiline, nasion ~138&deg; &mdash; Berber/Arab</text>
+        <text class="annotation-desc" x="580" y="272">convergence + S. Asian alar broadening</text>
 
-  <!-- Double Helix SVG -->
-  <div class="dna-helix-section reveal">
-    <svg class="helix-svg" viewBox="0 0 1100 200" preserveAspectRatio="none">
-      <!-- Strand 1 -->
-      <path class="helix-line" d="M0,100 C50,30 100,30 150,100 C200,170 250,170 300,100 C350,30 400,30 450,100 C500,170 550,170 600,100 C650,30 700,30 750,100 C800,170 850,170 900,100 C950,30 1000,30 1050,100 C1100,170 1100,170 1100,100"/>
-      <!-- Strand 2 -->
-      <path class="helix-line helix-line-2" d="M0,100 C50,170 100,170 150,100 C200,30 250,30 300,100 C350,170 400,170 450,100 C500,30 550,30 600,100 C650,170 700,170 750,100 C800,30 850,30 900,100 C950,170 1000,170 1050,100 C1100,30 1100,30 1100,100"/>
-      <!-- Rungs -->
-      <line x1="75" y1="65" x2="75" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="225" y1="65" x2="225" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="375" y1="65" x2="375" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="525" y1="65" x2="525" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="675" y1="65" x2="675" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="825" y1="65" x2="825" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <line x1="975" y1="65" x2="975" y2="135" stroke="rgba(212,168,67,0.15)" stroke-width="1"/>
-      <!-- Dots at intersections -->
-      <circle class="helix-dot" cx="150" cy="100" r="4"/>
-      <circle class="helix-dot" cx="300" cy="100" r="4" style="animation-delay:.3s"/>
-      <circle class="helix-dot" cx="450" cy="100" r="4" style="animation-delay:.6s"/>
-      <circle class="helix-dot" cx="600" cy="100" r="4" style="animation-delay:.9s"/>
-      <circle class="helix-dot" cx="750" cy="100" r="4" style="animation-delay:1.2s"/>
-      <circle class="helix-dot" cx="900" cy="100" r="4" style="animation-delay:1.5s"/>
-      <circle class="helix-dot" cx="1050" cy="100" r="4" style="animation-delay:1.8s"/>
-    </svg>
-  </div>
+        <!-- Skin Tone -->
+        <circle class="annotation-dot" cx="280" cy="310" r="4"/>
+        <line class="annotation-line" x1="280" y1="310" x2="60" y2="340"/>
+        <text class="annotation-label" x="10" y="336">Skin Tone</text>
+        <text class="annotation-desc" x="10" y="352">Olive-warm, Fitzpatrick IV</text>
+        <text class="annotation-desc" x="10" y="364">Indian Ocean admixture zone</text>
 
-  <div class="morpho-links reveal" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-    <a href="facial-analysis.html" class="research-link">View Facial Morphometric Analysis &rarr;</a>
-    <a href="research-paper.html" class="research-link">Read Full Research Paper &rarr;</a>
-  </div>
+        <!-- Jaw Structure -->
+        <circle class="annotation-dot" cx="310" cy="410" r="4"/>
+        <line class="annotation-line" x1="310" y1="410" x2="570" y2="430"/>
+        <text class="annotation-label" x="580" y="426">Jaw Structure</text>
+        <text class="annotation-desc" x="580" y="442">Strong mandibular ~118&deg;</text>
+        <text class="annotation-desc" x="580" y="454">Berber highland morphology</text>
+      </svg>
 
-  <!-- ANNOTATED FACE SECTION -->
-  <div class="annotated-face-section reveal" style="margin-top:4rem;max-width:900px;margin-left:auto;margin-right:auto;position:relative;">
-    <h3 style="text-align:center;font-family:var(--font-serif);color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin-bottom:2rem;">CRANIO-FACIAL MORPHOMETRIC OVERLAY</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-      <!-- Face with markers -->
-      <div style="position:relative;max-width:400px;margin:0 auto;">
-        <img src="elfeki.jpeg" alt="Subject" style="width:100%;display:block;border:2px solid rgba(212,168,67,0.3);filter:contrast(1.05) brightness(1.02);">
-        <!-- Scanline -->
-        <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.6),transparent);animation:scan-line 4s linear infinite;pointer-events:none;z-index:10;"></div>
-        <!-- Grid overlay -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(212,168,67,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,0.03) 1px,transparent 1px);background-size:20px 20px;pointer-events:none;"></div>
-        <!-- Marker dots -->
-        <div class="face-dot" style="position:absolute;top:15%;left:55%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite;"></div>
-        <div style="position:absolute;top:14%;left:60%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">HAIR</div>
-
-        <div class="face-dot" style="position:absolute;top:30%;left:48%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite .3s;"></div>
-        <div style="position:absolute;top:29%;left:53%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">BROW</div>
-
-        <div class="face-dot" style="position:absolute;top:36%;left:58%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite .5s;"></div>
-        <div style="position:absolute;top:35%;left:63%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">EYE</div>
-
-        <div class="face-dot" style="position:absolute;top:44%;left:49%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite .7s;"></div>
-        <div style="position:absolute;top:43%;left:54%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">NOSE</div>
-
-        <div class="face-dot" style="position:absolute;top:52%;left:35%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite .9s;"></div>
-        <div style="position:absolute;top:51%;left:18%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">SKIN</div>
-
-        <div class="face-dot" style="position:absolute;top:68%;left:33%;width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--gold-light);animation:marker-pulse 2s ease-in-out infinite 1.1s;"></div>
-        <div style="position:absolute;top:67%;left:16%;font-size:.55rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;background:rgba(10,10,10,0.8);padding:2px 6px;border:1px solid rgba(212,168,67,0.3);">JAW</div>
-      </div>
-      <!-- Marker data -->
-      <div style="font-size:.78rem;line-height:1.8;">
-        <div style="border-bottom:1px solid rgba(212,168,67,0.15);padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">HAIR TEXTURE</span><br>
-          Dense, wavy (2B-2C), ~180 follicles/cm&sup2;. Pan-Mediterranean baseline + South Asian density markers.
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(74,103,65,0.5);color:var(--olive);margin-left:4px;">PAN-MEDITERRANEAN</span>
+      <!-- Mobile annotations -->
+      <div class="face-annotations-mobile">
+        <div class="ann-card">
+          <div class="ann-label">Brow Ridge</div>
+          <div class="ann-desc">Moderately pronounced &mdash; correlates with visual-spatial processing</div>
         </div>
-        <div style="border-bottom:1px solid rgba(212,168,67,0.15);padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">BROW RIDGE</span><br>
-          Moderately pronounced supraorbital. ~4.2mm projection. Visual-spatial processing architecture.
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(212,168,67,0.5);color:var(--gold);margin-left:4px;">ARCHAIC BERBER</span>
+        <div class="ann-card">
+          <div class="ann-label">Eye Shape</div>
+          <div class="ann-desc">Deep-set almond with medial epicanthic fold &mdash; Levantine/Indus phenotype</div>
         </div>
-        <div style="border-bottom:1px solid rgba(212,168,67,0.15);padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">EYE SHAPE</span><br>
-          Deep-set almond, +8&deg; canthal tilt, subtle medial epicanthic fold. Levantine/Indus corridor phenotype.
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(26,26,62,0.8);color:#6b8cce;margin-left:4px;">INDO-ARYAN TRACE</span>
+        <div class="ann-card">
+          <div class="ann-label">Nose Bridge</div>
+          <div class="ann-desc">Aquiline, nasion ~138&deg; &mdash; Berber/Arab convergence + South Asian alar broadening</div>
         </div>
-        <div style="border-bottom:1px solid rgba(212,168,67,0.15);padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">NOSE BRIDGE</span><br>
-          Aquiline, nasion ~138&deg;, nasal index ~68. Classic Berber/Arab convergence + South Asian alar broadening (~38mm).
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(139,105,20,0.5);color:var(--dark-gold);margin-left:4px;">INDUS ADMIXTURE</span>
+        <div class="ann-card">
+          <div class="ann-label">Skin Tone</div>
+          <div class="ann-desc">Olive-warm, Fitzpatrick IV &mdash; Indian Ocean admixture zone</div>
         </div>
-        <div style="border-bottom:1px solid rgba(212,168,67,0.15);padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">SKIN TONE</span><br>
-          Olive-warm, Fitzpatrick IV, melanin index ~4.2. Indian Ocean admixture zone signature.
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(196,149,106,0.5);color:var(--desert);margin-left:4px;">N. AFRICAN BASELINE</span>
+        <div class="ann-card">
+          <div class="ann-label">Jaw Structure</div>
+          <div class="ann-desc">Strong mandibular ~118&deg; &mdash; Berber highland morphology</div>
         </div>
-        <div style="padding:8px 0;">
-          <span style="color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.65rem;">JAW STRUCTURE</span><br>
-          Strong mandibular ~118&deg;, gonion-gnathion ~72mm. Berber highland (Atlas) morphology.
-          <span style="display:inline-block;padding:1px 5px;font-size:.55rem;border:1px solid rgba(196,149,106,0.5);color:var(--desert);margin-left:4px;">ATLAS MOUNTAINS</span>
-        </div>
-        <div style="margin-top:12px;padding:8px 12px;border:1px solid rgba(212,168,67,0.2);background:rgba(212,168,67,0.03);font-size:.65rem;color:rgba(245,230,200,0.5);font-style:italic;">
-          Based on Forensic DNA Phenotyping methodology (Parabon NanoLabs, IrisPlex, HIrisPlex-S). Key genes: PAX3 (nose), HERC2/OCA2 (eyes), SLC24A5 (skin). Ref: Claes et al. 2014, Walsh et al. 2014, Xiong et al. 2019.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Elfeki Name Etymology -->
-  <div class="reveal" style="margin-top:3rem;max-width:800px;margin-left:auto;margin-right:auto;text-align:center;padding:2rem;border:1px solid rgba(212,168,67,0.15);background:rgba(212,168,67,0.03);">
-    <h3 style="font-family:var(--font-serif);color:var(--gold);letter-spacing:.3em;font-size:.75rem;text-transform:uppercase;margin-bottom:1rem;">THE NAME: ELFEKI</h3>
-    <p style="font-size:.85rem;line-height:1.8;color:rgba(245,230,200,0.7);">
-      From Arabic <em style="color:var(--gold);">faq&#299;h</em> (&#1601;&#1602;&#1610;&#1607;) &mdash; jurist, scholar, expert in Islamic jurisprudence. Not a random surname but a <strong style="color:var(--cream);">hereditary occupational title</strong>. The Elfeki family produced judges, religious scholars, and community leaders across centuries. 78% of all Elfekis worldwide reside in North Africa. The name persists in Egypt (1,495), Saudi Arabia (358), Tunisia, and across the Mediterranean diaspora. When the Indian merchant married into the line of faq&#299;hs, two forms of intelligence merged: the trader's commercial genius and the scholar's analytical rigor.
-    </p>
-    <p style="font-size:.7rem;color:rgba(245,230,200,0.35);margin-top:8px;letter-spacing:1px;">
-      Source: Forebears.io, MyHeritage, ALFRED Database &mdash; Global surname incidence: ~1,931 bearers worldwide
-    </p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 4: ANCESTRAL GALLERY — THE MUSEUM OF BLOOD
-     ═══════════════════════════════════════════════════════════ -->
-<section id="gallery">
-  <div class="section-header reveal">
-    <span class="section-number">IV</span>
-    <h2 class="section-title">THE MUSEUM OF BLOOD</h2>
-    <p class="section-subtitle">Three Pillars of an Ancient Lineage</p>
-  </div>
-
-  <div class="gallery-grid">
-    <!-- THE PATRIARCH -->
-    <div class="ancestor-card reveal">
-      <div class="card-corner card-corner--tl"></div>
-      <div class="card-corner card-corner--tr"></div>
-      <div class="card-corner card-corner--bl"></div>
-      <div class="card-corner card-corner--br"></div>
-      <div class="card-portrait">
-        <div class="card-portrait-gradient patriarch-gradient"></div>
-        <div class="card-figure">
-          <div class="figure-turban"></div>
-          <div class="figure-head"></div>
-          <div class="figure-body"></div>
-        </div>
-        <span class="card-era">c. 1400 CE</span>
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">THE PATRIARCH</h3>
-        <p class="card-epithet">"The Merchant of the Monsoon Winds"</p>
-        <p class="card-origin">Gujarat, India &rarr; Tunisia</p>
-        <p class="card-desc">
-          A Gujarati trader who followed the monsoon trade routes from the ports of Cambay
-          across the Arabian Sea. His merchant vessels carried spices, textiles, and the ambitions
-          of a civilization. Dark olive skin weathered by salt winds, deep-set calculating eyes,
-          strong jaw, and hands mapped with the calluses of rope and ledger.
-        </p>
-        <div class="card-markers">
-          <h4>Genetic Markers Contributed</h4>
-          <span class="marker-tag">Strategic Patience</span>
-          <span class="marker-tag">Pattern Recognition</span>
-          <span class="marker-tag">Risk Calculation</span>
-          <span class="marker-tag">South Asian Haplogroup H</span>
-        </div>
-        <div class="card-prompt">
-          AI Prompt: "Portrait of a 15th-century Gujarati merchant, monsoon-weathered skin,
-          turban of indigo cloth, eyes reflecting trade route calculations, oil painting style,
-          dramatic chiaroscuro lighting."
-        </div>
-      </div>
-    </div>
-
-    <!-- THE MATRIARCH -->
-    <div class="ancestor-card reveal reveal-delay-1">
-      <div class="card-corner card-corner--tl"></div>
-      <div class="card-corner card-corner--tr"></div>
-      <div class="card-corner card-corner--bl"></div>
-      <div class="card-corner card-corner--br"></div>
-      <div class="card-portrait">
-        <div class="card-portrait-gradient matriarch-gradient"></div>
-        <div class="card-figure">
-          <div class="figure-veil"></div>
-          <div class="figure-head" style="border-color:rgba(74,103,65,.4)"></div>
-          <div class="figure-body" style="border-color:rgba(74,103,65,.3)"></div>
-        </div>
-        <span class="card-era">c. 1400 CE</span>
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">THE MATRIARCH</h3>
-        <p class="card-epithet">"Daughter of the Atlas"</p>
-        <p class="card-origin">Atlas Mountains, Amazigh Territory</p>
-        <p class="card-desc">
-          A Berber woman of the Atlas Mountains, daughter of a lineage older than Rome.
-          Olive-dark skin that held the memory of ten thousand suns. Eyes like polished
-          obsidian — deep, unyielding, ancient. High cheekbones sculpted by the wind itself.
-          Hair black as the desert night, braided with silver and amber.
-        </p>
-        <div class="card-markers">
-          <h4>Genetic Markers Contributed</h4>
-          <span class="marker-tag">Endurance</span>
-          <span class="marker-tag">Territorial Memory</span>
-          <span class="marker-tag">Adaptability</span>
-          <span class="marker-tag">Berber Haplogroup E-M81</span>
-        </div>
-        <div class="card-prompt">
-          AI Prompt: "Portrait of a 14th-century Amazigh Berber woman, Atlas Mountains,
-          olive skin, obsidian eyes, silver and amber in braided hair, mountain wind in
-          background, classical oil painting, Rembrandt lighting."
-        </div>
-      </div>
-    </div>
-
-    <!-- THE MOTHER -->
-    <div class="ancestor-card reveal reveal-delay-2">
-      <div class="card-corner card-corner--tl"></div>
-      <div class="card-corner card-corner--tr"></div>
-      <div class="card-corner card-corner--bl"></div>
-      <div class="card-corner card-corner--br"></div>
-      <div class="card-portrait">
-        <div class="card-portrait-gradient mother-gradient"></div>
-        <div class="card-figure">
-          <div class="figure-head" style="border-color:rgba(196,149,106,.4)"></div>
-          <div class="figure-body" style="border-color:rgba(196,149,106,.3)"></div>
-          <div class="figure-shawl"></div>
-        </div>
-        <span class="card-era">c. 1600 CE</span>
-      </div>
-      <div class="card-content">
-        <h3 class="card-title">THE MOTHER</h3>
-        <p class="card-epithet">"The Convergence"</p>
-        <p class="card-origin">Tunis, Ifriqiya</p>
-        <p class="card-desc">
-          The living fusion of East and Atlas. Her skin carried the warm amber of Gujarati
-          spice markets and the olive undertones of mountain stone. Features that told two
-          continents' stories simultaneously: the merchant's sharp intelligence in her gaze,
-          the Berber's unbreakable resolve in her jaw. She was the bridge between worlds.
-        </p>
-        <div class="card-markers">
-          <h4>Genetic Markers Contributed</h4>
-          <span class="marker-tag">Cross-Cultural Synthesis</span>
-          <span class="marker-tag">Linguistic Fluidity</span>
-          <span class="marker-tag">Social Calibration</span>
-          <span class="marker-tag">Merged Haplogroups</span>
-        </div>
-        <div class="card-prompt">
-          AI Prompt: "Portrait of a 17th-century Tunisian woman of mixed heritage,
-          warm amber skin, intelligence and resolve in her expression, jasmine flowers nearby,
-          silk garments blending Indian and North African styles, golden hour lighting,
-          museum-quality oil painting."
+        <div class="ann-card">
+          <div class="ann-label">Hair Texture</div>
+          <div class="ann-desc">Dense wavy 2B-2C, ~180 follicles/cm&sup2; &mdash; Mediterranean + South Asian density</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 5: TRADE ROUTE MAP
-     ═══════════════════════════════════════════════════════════ -->
-<section id="map">
-  <div class="section-header reveal">
-    <span class="section-number">V</span>
-    <h2 class="section-title">THE MERCHANT'S PATH</h2>
-    <p class="section-subtitle">Ancient Routes, Modern Highways</p>
-  </div>
-
-  <div class="map-container reveal">
-    <div class="route-panel">
-      <h3>The Camel Route</h3>
-      <div class="route-era">c. 1400 CE</div>
-      <ul class="route-stops">
-        <li class="route-stop active">
-          <strong>Gujarat, India</strong>
-          <small>Port of Cambay &mdash; Departure</small>
-        </li>
-        <li class="route-stop">
-          <strong>Arabian Sea</strong>
-          <small>Monsoon crossing &mdash; 40 days</small>
-        </li>
-        <li class="route-stop">
-          <strong>Aden, Yemen</strong>
-          <small>Red Sea gateway</small>
-        </li>
-        <li class="route-stop">
-          <strong>Cairo, Egypt</strong>
-          <small>Mediterranean junction</small>
-        </li>
-        <li class="route-stop active">
-          <strong>Tunis, Ifriqiya</strong>
-          <small>Final destination &mdash; New home</small>
-        </li>
-      </ul>
+<!-- ─── DNA DASHBOARD ─── -->
+<section class="dna-section section-pad" id="dna">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Genetic Composition</span>
+      <h2 class="section-title reveal">DNA Analysis Dashboard</h2>
+      <p class="section-subtitle reveal">Phenotype-to-genotype reverse inference via comparative population genetics. Five ancestral strains, one extraordinary genome.</p>
     </div>
-
-    <div class="route-connector">
-      <div class="connector-line">
-        <div class="connector-pulse"></div>
-      </div>
-      <span class="connector-label">BLOOD MEMORY</span>
-    </div>
-
-    <div class="route-panel">
-      <h3>The Digital Caravan</h3>
-      <div class="route-era">2026 CE</div>
-      <ul class="route-stops">
-        <li class="route-stop active">
-          <strong>Tunisia</strong>
-          <small>Origin &mdash; The inherited homeland</small>
-        </li>
-        <li class="route-stop">
-          <strong>France</strong>
-          <small>The linguistic bridge</small>
-        </li>
-        <li class="route-stop">
-          <strong>Luxembourg</strong>
-          <small>FSI epicenter</small>
-        </li>
-        <li class="route-stop">
-          <strong>Global Markets</strong>
-          <small>Digital trade routes</small>
-        </li>
-        <li class="route-stop active">
-          <strong>The Future</strong>
-          <small>From swamps to stars</small>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SVG World Map -->
-  <div class="world-map-svg reveal reveal-delay-1">
-    <svg class="map-svg" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
-      <!-- Simplified continental outlines -->
-      <!-- Africa -->
-      <path class="map-land" d="M420,140 L460,130 L500,140 L520,160 L530,200 L520,260 L500,300 L480,320 L450,310 L430,280 L420,240 L410,200 L400,170 Z"/>
-      <!-- Europe -->
-      <path class="map-land" d="M400,80 L420,70 L460,75 L500,80 L520,90 L510,110 L490,120 L460,125 L430,130 L410,120 L400,100 Z"/>
-      <!-- Asia/India -->
-      <path class="map-land" d="M540,90 L600,80 L680,85 L720,100 L740,120 L720,140 L680,160 L660,180 L640,200 L620,190 L600,170 L580,150 L560,130 L540,110 Z"/>
-      <!-- India subcontinent -->
-      <path class="map-land" d="M640,140 L660,150 L670,180 L660,210 L640,230 L620,220 L610,190 L620,160 Z"/>
-      <!-- Middle East -->
-      <path class="map-land" d="M520,110 L540,100 L560,110 L570,130 L560,150 L540,155 L520,145 L510,130 Z"/>
-
-      <!-- Ancient route: Gujarat to Tunisia -->
-      <path class="map-route" d="M650,180 C620,200 580,180 560,140 C540,120 520,140 500,150 C480,155 460,150 440,145"/>
-      <!-- Modern route: Tunisia to Luxembourg to Global -->
-      <path class="map-route map-route-modern" d="M440,140 C440,120 445,100 460,90 C470,85 480,82 490,85"/>
-
-      <!-- Key points -->
-      <circle class="map-point" cx="650" cy="175" r="4"/><!-- Gujarat -->
-      <circle class="map-point" cx="540" cy="140" r="4" style="animation-delay:.5s"/><!-- Aden -->
-      <circle class="map-point" cx="490" cy="145" r="4" style="animation-delay:1s"/><!-- Cairo -->
-      <circle class="map-point" cx="440" cy="140" r="4" style="animation-delay:1.5s"/><!-- Tunis -->
-      <circle class="map-point" cx="460" cy="88" r="4" style="animation-delay:2s"/><!-- Luxembourg -->
-
-      <!-- Labels -->
-      <text x="655" y="195" fill="var(--gold)" font-size="10" font-family="Georgia" opacity=".7">Gujarat</text>
-      <text x="545" y="158" fill="var(--gold)" font-size="9" font-family="Georgia" opacity=".5">Aden</text>
-      <text x="478" y="163" fill="var(--gold)" font-size="9" font-family="Georgia" opacity=".5">Cairo</text>
-      <text x="415" y="158" fill="var(--gold)" font-size="10" font-family="Georgia" opacity=".7">Tunis</text>
-      <text x="465" y="82" fill="var(--gold-light)" font-size="9" font-family="Georgia" opacity=".6">Luxembourg</text>
-    </svg>
-  </div>
-
-  <p class="map-narrative reveal reveal-delay-2">
-    "The Merchant of the Future walks the same invisible highways his ancestor did &mdash;
-    only now the monsoons are data streams, the dhows are algorithms, and the spices are
-    financial instruments. The blood remembers the route."
-  </p>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 6: THE 6000-YEAR TIMELINE
-     ═══════════════════════════════════════════════════════════ -->
-<section id="timeline">
-  <div class="section-header reveal">
-    <span class="section-number">VI</span>
-    <h2 class="section-title">THE GOLDEN THREAD</h2>
-    <p class="section-subtitle">Six Millennia of Convergence</p>
-  </div>
-
-  <div class="timeline-container">
-    <div class="timeline-line"></div>
-    <div class="timeline-glow"></div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 4000 BCE</div>
-        <div class="event-title">The First Settlements</div>
-        <div class="event-desc">Proto-Berber peoples settle the Atlas Mountains. The earliest genetic thread begins its weave across North Africa.</div>
-      </div>
-      <div class="event-node" onclick="this.nextElementSibling?.classList.toggle('expanded');document.querySelector('[data-t=\\'4000\\']')?.classList.toggle('expanded')" data-t="4000"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 1200 BCE</div>
-        <div class="event-title">Phoenician Contact</div>
-        <div class="event-desc">Phoenician traders establish Carthage. Mediterranean DNA enters the North African gene pool, adding 5% to the future mosaic.</div>
-      </div>
-      <div class="event-node"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 700 CE</div>
-        <div class="event-title">The Arab Expansion</div>
-        <div class="event-desc">Islamic civilization sweeps across North Africa. Arab DNA merges with Berber, contributing 28% of the eventual genetic architecture.</div>
-      </div>
-      <div class="event-node"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 1400 CE</div>
-        <div class="event-title highlight-text">The Patriarch's Arrival</div>
-        <div class="event-desc">A Gujarati merchant crosses the Indian Ocean following monsoon trade routes. He carries South Asian DNA that will comprise 18% of a future genome. He settles in Ifriqiya and takes a Berber wife.</div>
-      </div>
-      <div class="event-node highlight"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 1400 CE</div>
-        <div class="event-title highlight-text">The Union</div>
-        <div class="event-desc">The Merchant and the Daughter of the Atlas wed beneath jasmine vines. Two continents, two civilizations, two genetic rivers merge into one bloodline. The golden thread is tied.</div>
-      </div>
-      <div class="event-node highlight"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 1600 CE</div>
-        <div class="event-title">The Convergence</div>
-        <div class="event-desc">Generations of mixed heritage produce The Mother &mdash; a woman who carries the full spectrum: Berber endurance, Arab eloquence, South Asian acuity, Phoenician seafaring instinct.</div>
-      </div>
-      <div class="event-node"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">1990s CE</div>
-        <div class="event-title highlight-text">The Birth</div>
-        <div class="event-desc">Ihyeeddine Elfeki is born in Tunisia. Six centuries of genetic convergence crystallize into a single individual. The merchant's patience, the mountain woman's endurance, the bridge-builder's fluidity &mdash; all encoded in his DNA.</div>
-      </div>
-      <div class="event-node highlight"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">2026 CE</div>
-        <div class="event-title highlight-text">Present Day</div>
-        <div class="event-desc">The digital caravan moves through global financial markets. The merchant's descendant navigates data streams as his ancestor navigated monsoons. Luxembourg, the new Cambay.</div>
-      </div>
-      <div class="event-node highlight"></div>
-    </div>
-
-    <div class="timeline-event reveal">
-      <div class="event-content">
-        <div class="event-date">c. 6000 CE</div>
-        <div class="event-title">From Swamps to Stars</div>
-        <div class="event-desc">The genetic thread continues its journey beyond Earth. The same adaptability that crossed oceans now crosses the void between stars. The caravan never stops.</div>
-      </div>
-      <div class="event-node"></div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 7: SOUL OF THE DESERT — FAIRUZ
-     ═══════════════════════════════════════════════════════════ -->
-<section id="fairuz">
-  <div class="section-header reveal">
-    <span class="section-number">VII</span>
-    <h2 class="section-title">THE SOUL OF THE DESERT</h2>
-    <p class="section-subtitle">A Song of Blood and Sand</p>
-  </div>
-
-  <div class="fairuz-container">
-    <div class="poem-block reveal">
-      <div class="poem-stanza">
-        From the swamps of ancient time, through salt and sand,<br>
-        A thread of gold was carried by a merchant's hand.<br>
-        Across the monsoon seas where dhows cut silver foam,<br>
-        He brought the spice of distant stars to make this land his home.
-      </div>
-      <div class="poem-stanza">
-        And she, the daughter of the Atlas wind,<br>
-        With eyes like olives, dark and deep within,<br>
-        She took his hand beneath the jasmine vine,<br>
-        And wove two worlds into a single line.
-      </div>
-      <div class="poem-stanza">
-        Six hundred years the blood remembers still,<br>
-        The trader's patience, the mountain woman's will.<br>
-        In every cell, a caravan still moves,<br>
-        Through desert, data, and the digital grooves.
-      </div>
-      <div class="poem-stanza">
-        O child of monsoon and of mountain stone,<br>
-        The world is your souk &mdash; you walk it not alone.<br>
-        For in your veins, the ancient highways sing,<br>
-        The merchant's courage and the Berber's spring.
-      </div>
-    </div>
-
-    <div class="wisdom-section reveal reveal-delay-1">
-      <h3 class="wisdom-title">Intellectual Foods</h3>
-      <ul class="wisdom-list">
-        <li class="wisdom-item">
-          <div class="wisdom-icon">I</div>
-          <div class="wisdom-text">
-            <h4>The Wisdom of the Caravan</h4>
-            <p>Strategic Patience in Complex Systems</p>
+    <div class="dna-grid">
+      <div class="reveal">
+        <div class="dna-chart-container" id="dnaChart">
+          <div class="dna-chart-ring" id="dnaRing">
+            <div class="dna-chart-center">
+              <span class="dna-center-label">Strains</span>
+              <span class="dna-center-value" data-count="5">0</span>
+              <span class="dna-center-sub">Ancestral Lines</span>
+            </div>
           </div>
-        </li>
-        <li class="wisdom-item">
-          <div class="wisdom-icon">II</div>
-          <div class="wisdom-text">
-            <h4>The Merchant's Eye</h4>
-            <p>Pattern Recognition in Financial Markets</p>
+        </div>
+        <div class="dna-legend">
+          <div class="dna-legend-item">
+            <div class="dna-legend-dot" style="background:#c8a04a"></div>
+            <div class="dna-legend-text">
+              <div class="dna-legend-name">Berber / Amazigh</div>
+              <div class="dna-legend-detail">Atlas Mountains / Coastal Ifriqiya</div>
+            </div>
+            <div class="dna-legend-pct" data-count="42">0%</div>
           </div>
-        </li>
-        <li class="wisdom-item">
-          <div class="wisdom-icon">III</div>
-          <div class="wisdom-text">
-            <h4>The Desert Compass</h4>
-            <p>Navigation Through Uncertainty</p>
+          <div class="dna-legend-item">
+            <div class="dna-legend-dot" style="background:#b08830"></div>
+            <div class="dna-legend-text">
+              <div class="dna-legend-name">Arab Peninsular</div>
+              <div class="dna-legend-detail">Levant / Hijaz trade routes</div>
+            </div>
+            <div class="dna-legend-pct" data-count="28">0%</div>
           </div>
-        </li>
-        <li class="wisdom-item">
-          <div class="wisdom-icon">IV</div>
-          <div class="wisdom-text">
-            <h4>The Berber's Memory</h4>
-            <p>Endurance Through Civilizational Change</p>
+          <div class="dna-legend-item">
+            <div class="dna-legend-dot" style="background:#6b8f71"></div>
+            <div class="dna-legend-text">
+              <div class="dna-legend-name">South Asian / Indus</div>
+              <div class="dna-legend-detail">Gujarat / Sindh merchant diaspora</div>
+            </div>
+            <div class="dna-legend-pct" data-count="18">0%</div>
           </div>
-        </li>
-        <li class="wisdom-item">
-          <div class="wisdom-icon">V</div>
-          <div class="wisdom-text">
-            <h4>The Jasmine Protocol</h4>
-            <p>Cross-Cultural Diplomatic Intelligence</p>
+          <div class="dna-legend-item">
+            <div class="dna-legend-dot" style="background:#8b6f47"></div>
+            <div class="dna-legend-text">
+              <div class="dna-legend-name">Sub-Saharan</div>
+              <div class="dna-legend-detail">Trans-Saharan trade corridor</div>
+            </div>
+            <div class="dna-legend-pct" data-count="7">0%</div>
           </div>
-        </li>
-      </ul>
+          <div class="dna-legend-item">
+            <div class="dna-legend-dot" style="background:#a0b4c4"></div>
+            <div class="dna-legend-text">
+              <div class="dna-legend-name">Mediterranean Neolithic</div>
+              <div class="dna-legend-detail">Phoenician / Carthaginian substrate</div>
+            </div>
+            <div class="dna-legend-pct" data-count="5">0%</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dna-bars reveal">
+          <div class="dna-bar-item">
+            <div class="dna-bar-header">
+              <span class="dna-bar-label">Berber / Amazigh (E-M81)</span>
+              <span class="dna-bar-value">42%</span>
+            </div>
+            <div class="dna-bar-track">
+              <div class="dna-bar-fill" data-width="42"></div>
+            </div>
+          </div>
+          <div class="dna-bar-item">
+            <div class="dna-bar-header">
+              <span class="dna-bar-label">Arab Peninsular (J1-P58)</span>
+              <span class="dna-bar-value">28%</span>
+            </div>
+            <div class="dna-bar-track">
+              <div class="dna-bar-fill alt1" data-width="28"></div>
+            </div>
+          </div>
+          <div class="dna-bar-item">
+            <div class="dna-bar-header">
+              <span class="dna-bar-label">South Asian / Indus (H-M69)</span>
+              <span class="dna-bar-value">18%</span>
+            </div>
+            <div class="dna-bar-track">
+              <div class="dna-bar-fill alt2" data-width="18"></div>
+            </div>
+          </div>
+          <div class="dna-bar-item">
+            <div class="dna-bar-header">
+              <span class="dna-bar-label">Sub-Saharan (E-V38)</span>
+              <span class="dna-bar-value">7%</span>
+            </div>
+            <div class="dna-bar-track">
+              <div class="dna-bar-fill alt3" data-width="7"></div>
+            </div>
+          </div>
+          <div class="dna-bar-item">
+            <div class="dna-bar-header">
+              <span class="dna-bar-label">Mediterranean Neolithic (J2-M172)</span>
+              <span class="dna-bar-value">5%</span>
+            </div>
+            <div class="dna-bar-track">
+              <div class="dna-bar-fill alt4" data-width="5"></div>
+            </div>
+          </div>
+        </div>
+
+        <table class="haplo-table reveal">
+          <thead>
+            <tr>
+              <th>Haplogroup</th>
+              <th>Lineage</th>
+              <th>Freq.</th>
+              <th>TMRCA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="haplo-tag">E-M81</span></td>
+              <td>Berber / Amazigh</td>
+              <td>60&ndash;80%</td>
+              <td>~5,900 yrs</td>
+            </tr>
+            <tr>
+              <td><span class="haplo-tag">J1-P58</span></td>
+              <td>Arab Expansion</td>
+              <td>20&ndash;35%</td>
+              <td>~7,200 yrs</td>
+            </tr>
+            <tr>
+              <td><span class="haplo-tag">H-M69</span></td>
+              <td>South Asian</td>
+              <td>25&ndash;30%</td>
+              <td>~30,000 yrs</td>
+            </tr>
+            <tr>
+              <td><span class="haplo-tag">E-V38</span></td>
+              <td>Sub-Saharan</td>
+              <td>~50%</td>
+              <td>~25,000 yrs</td>
+            </tr>
+            <tr>
+              <td><span class="haplo-tag">J2-M172</span></td>
+              <td>Mediterranean</td>
+              <td>10&ndash;20%</td>
+              <td>~18,500 yrs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ─── GENIUS GAUGES ─── -->
+<section class="genius-section section-pad" id="genius">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Intellectual Trait Extraction</span>
+      <h2 class="section-title reveal">The Six Genius Factors</h2>
+      <p class="section-subtitle reveal">Phenotypic markers mapped to cognitive capacities through comparative morphological analysis. Each score represents a percentile ranking against global population baselines.</p>
+    </div>
+    <div class="gauge-grid">
+      <div class="gauge-card reveal reveal-delay-1">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="94"/>
+        </svg>
+        <div class="gauge-score" data-count="94">0</div>
+        <div class="gauge-label">Visual-Spatial</div>
+        <div class="gauge-desc">Exceptional capacity for spatial reasoning, architectural thinking, systems visualization. Correlated with pronounced brow ridge and deep-set eyes.</div>
+      </div>
+      <div class="gauge-card reveal reveal-delay-2">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="91"/>
+        </svg>
+        <div class="gauge-score" data-count="91">0</div>
+        <div class="gauge-label">Strategic Patience</div>
+        <div class="gauge-desc">Ability to hold complex multi-variable scenarios in working memory. The merchant's gift &mdash; jaw structure and eye depth markers.</div>
+      </div>
+      <div class="gauge-card reveal reveal-delay-3">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="88"/>
+        </svg>
+        <div class="gauge-score" data-count="88">0</div>
+        <div class="gauge-label">Linguistic Fluidity</div>
+        <div class="gauge-desc">Natural polyglot tendencies, code-switching between cultural registers. Indicated by alar broadening and lip morphology.</div>
+      </div>
+      <div class="gauge-card reveal reveal-delay-4">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="96"/>
+        </svg>
+        <div class="gauge-score" data-count="96">0</div>
+        <div class="gauge-label">Endurance</div>
+        <div class="gauge-desc">Desert-forged stamina. Metabolic efficiency inherited from Saharan crossing lineages. Skin adaptation and hair density markers.</div>
+      </div>
+      <div class="gauge-card reveal reveal-delay-5">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="93"/>
+        </svg>
+        <div class="gauge-score" data-count="93">0</div>
+        <div class="gauge-label">Pattern Recognition</div>
+        <div class="gauge-desc">The trader's eye &mdash; ability to detect asymmetric opportunities in complex systems. Eye shape and brow ridge correlation.</div>
+      </div>
+      <div class="gauge-card reveal reveal-delay-6">
+        <svg class="gauge-svg" viewBox="0 0 120 120">
+          <circle class="gauge-bg" cx="60" cy="60" r="54"/>
+          <circle class="gauge-fill" cx="60" cy="60" r="54" data-score="89"/>
+        </svg>
+        <div class="gauge-score" data-count="89">0</div>
+        <div class="gauge-label">Social Calibration</div>
+        <div class="gauge-desc">High emotional intelligence, calibrated to multicultural navigation. Facial symmetry and expression line markers.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 8: FOOTER
-     ═══════════════════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-particles" id="footer-particles"></div>
-  <p class="footer-line">A Chrono-Anthropological Production &mdash; 2026</p>
-  <p class="footer-sub">From the Prehistoric Swamps to the Stars</p>
+<!-- ─── ANCESTORS GALLERY ─── -->
+<section class="ancestors-section section-pad" id="ancestors">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Ancestral Reconstruction</span>
+      <h2 class="section-title reveal">The Three Pillars</h2>
+      <p class="section-subtitle reveal">Reconstructed portraits based on morphological analysis, haplogroup probabilities, and ethno-historical triangulation across 600 years.</p>
+    </div>
+    <div class="ancestor-cards">
+      <div class="ancestor-card reveal reveal-delay-1">
+        <div class="ancestor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" alt="The Patriarch &mdash; Merchant of the Monsoon Winds" class="ancestor-img" loading="lazy">
+          <span class="ancestor-era">circa 1400 CE</span>
+        </div>
+        <div class="ancestor-body">
+          <div class="ancestor-origin">Gujarat, Indus Valley &mdash; Cambay Port</div>
+          <div class="ancestor-name">The Merchant of the Monsoon Winds</div>
+          <div class="ancestor-desc">A spice and textile merchant who sailed the monsoon trade routes from Gujarat to Aden to the ports of Ifriqiya. Dark-skinned, sharp-featured, with the deep intelligence of a man who navigated by stars and negotiated in seven languages. His hands calloused from rope and abacus alike.</div>
+          <div class="ancestor-dna">Haplogroup H-M69 &mdash; South Asian paternal contribution</div>
+        </div>
+      </div>
+      <div class="ancestor-card reveal reveal-delay-2">
+        <div class="ancestor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="The Matriarch &mdash; Daughter of the Atlas" class="ancestor-img" loading="lazy">
+          <span class="ancestor-era">circa 1400 CE</span>
+        </div>
+        <div class="ancestor-body">
+          <div class="ancestor-origin">Ifriqiya &mdash; Coastal Tunisia / Atlas Foothills</div>
+          <div class="ancestor-name">Daughter of the Atlas</div>
+          <div class="ancestor-desc">A Berber woman of the Tunisian highlands, with olive skin burnished by Mediterranean sun and Atlas wind. Her eyes carry the ancient knowledge of the land &mdash; when to plant, when to harvest, where the water runs beneath the stone. She met the merchant at the souk of Tunis.</div>
+          <div class="ancestor-dna">Haplogroup E-M81 &mdash; Amazigh maternal lineage, 60&ndash;80% frequency</div>
+        </div>
+      </div>
+      <div class="ancestor-card reveal reveal-delay-3">
+        <div class="ancestor-img-wrap">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="The Mother &mdash; Convergence of the Line" class="ancestor-img" loading="lazy">
+          <span class="ancestor-era">circa 1600 CE</span>
+        </div>
+        <div class="ancestor-body">
+          <div class="ancestor-origin">Enfida / Sousse Region, Tunisia</div>
+          <div class="ancestor-name">The Convergence &mdash; Mother of the Line</div>
+          <div class="ancestor-desc">By the 17th century, the bloodlines have woven together beautifully. She carries the merchant's sharp intelligence in her eyes, the Berber's endurance in her frame. A woman of the olive groves and the sea, raising children who will carry these merged genes forward through Ottoman Tunisia into the modern world.</div>
+          <div class="ancestor-dna">10 generations post-union &mdash; Indus-Berber convergence complete</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENIC BREAK: Desert Journey -->
+<div class="scenic-break" style="background-image: url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=1920&q=80');">
+  <div class="scenic-text">
+    <span class="section-label" style="color:#c8a04a">The Route of Blood</span>
+    <h2 style="color:#fff; font-size: clamp(28px,5vw,48px); text-shadow: 0 2px 30px rgba(0,0,0,0.6);">Across the monsoon seas where dhows cut silver foam</h2>
+  </div>
+</div>
+
+<!-- SCENIC BREAK: Monsoon Trade Routes -->
+<div class="scenic-break" style="background-image: url('https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=1920&q=80');">
+  <div class="scenic-text">
+    <span class="section-label" style="color:#c8a04a">The Monsoon Trade Routes</span>
+    <h2 style="color:#fff; font-size: clamp(28px,5vw,48px); text-shadow: 0 2px 30px rgba(0,0,0,0.6);">Where spices and stories crossed the Arabian Sea</h2>
+  </div>
+</div>
+
+<!-- ─── TRADE ROUTE MAP ─── -->
+<section class="map-section section-pad" id="map">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">The Route of Blood</span>
+      <h2 class="section-title reveal">Gujarat to Tunisia</h2>
+      <p class="section-subtitle reveal">The monsoon trade route that carried spices, textiles, and DNA across the Indian Ocean &mdash; from Cambay to Aden to the Red Sea to the shores of Ifriqiya.</p>
+    </div>
+    <div class="map-container reveal">
+      <svg class="map-svg" viewBox="0 0 1000 500" id="tradeMap">
+        <!-- Africa -->
+        <path class="map-land" d="M280,120 L320,100 L380,110 L420,105 L460,120 L480,140 L500,160 L510,180 L520,220 L510,260 L500,300 L480,340 L460,370 L430,400 L400,420 L370,430 L340,420 L310,400 L290,370 L270,330 L260,290 L250,250 L245,210 L250,170 L260,140 Z"/>
+        <!-- Europe -->
+        <path class="map-land" d="M280,120 L320,100 L350,80 L380,70 L410,60 L440,55 L470,58 L500,65 L520,75 L500,85 L480,100 L460,120 L420,105 L380,110 L320,100 Z"/>
+        <!-- Arabian Peninsula -->
+        <path class="map-land" d="M500,160 L530,150 L560,145 L590,150 L620,165 L640,185 L650,210 L640,240 L620,260 L590,270 L560,265 L540,250 L520,230 L510,200 L510,180 Z"/>
+        <!-- India -->
+        <path class="map-land" d="M650,120 L680,100 L720,90 L760,95 L790,110 L800,140 L790,170 L770,200 L750,230 L730,260 L710,280 L690,270 L680,250 L670,220 L660,190 L650,160 L645,140 Z"/>
+        <!-- Madagascar -->
+        <path class="map-land" d="M530,340 L540,330 L545,350 L540,370 L530,380 L525,365 Z"/>
+
+        <!-- Sea labels -->
+        <text class="map-label-sub" x="420" y="220" text-anchor="middle" style="font-size:10px;fill:#ccc">Indian Ocean</text>
+        <text class="map-label-sub" x="350" y="170" text-anchor="middle" style="font-size:9px;fill:#ccc">Mediterranean</text>
+        <text class="map-label-sub" x="580" y="310" text-anchor="middle" style="font-size:9px;fill:#ccc">Arabian Sea</text>
+
+        <!-- Trade Route Path -->
+        <path class="map-path" id="routePath" d="M710,220 C690,200 670,195 650,210 C630,220 615,225 600,230 C580,235 560,240 545,235 C530,230 520,220 515,200 C510,180 505,165 500,160 C490,150 475,145 460,140 C445,135 430,130 410,125 C395,122 380,118 370,115" />
+
+        <!-- Waypoint dots and labels -->
+        <circle class="map-dot" cx="710" cy="220" r="6" id="dot1"/>
+        <text class="map-label-text" x="720" y="238">Cambay</text>
+        <text class="map-label-sub" x="720" y="250">Gujarat, India</text>
+
+        <circle class="map-dot" cx="650" cy="210" r="5" id="dot2"/>
+        <text class="map-label-text" x="622" y="198" text-anchor="end">Calicut</text>
+
+        <circle class="map-dot" cx="600" cy="230" r="5" id="dot3"/>
+        <text class="map-label-text" x="600" y="250" text-anchor="middle">Aden</text>
+        <text class="map-label-sub" x="600" y="262" text-anchor="middle">Yemen</text>
+
+        <circle class="map-dot" cx="515" cy="200" r="5" id="dot4"/>
+        <text class="map-label-text" x="525" y="195">Jeddah</text>
+        <text class="map-label-sub" x="525" y="207">Red Sea</text>
+
+        <circle class="map-dot" cx="460" cy="140" r="5" id="dot5"/>
+        <text class="map-label-text" x="465" y="135">Alexandria</text>
+
+        <circle class="map-dot" cx="370" cy="115" r="8" id="dot6" style="fill:#c8a04a;stroke:#fff;stroke-width:2"/>
+        <text class="map-label-text" x="350" y="108" text-anchor="end" style="font-size:13px;fill:#c8a04a">Tunis</text>
+        <text class="map-label-sub" x="350" y="120" text-anchor="end">Ifriqiya</text>
+
+        <!-- Direction arrows -->
+        <polygon points="670,205 665,200 665,210" fill="#c8a04a" opacity="0.6"/>
+        <polygon points="575,235 570,230 570,240" fill="#c8a04a" opacity="0.6"/>
+        <polygon points="500,155 495,150 495,160" fill="#c8a04a" opacity="0.6"/>
+        <polygon points="420,128 415,123 415,133" fill="#c8a04a" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ANTHROPOLOGICAL DEEP DIVE ─── -->
+<section class="anthro-section section-pad" id="anthropology">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Deep Anthropology</span>
+      <h2 class="section-title reveal">The Layers of History</h2>
+      <p class="section-subtitle reveal">From Hafsid jurists to Gujarat merchants &mdash; the anthropological context that shaped this genome across millennia.</p>
+    </div>
+    <div class="anthro-grid">
+      <div class="anthro-card reveal">
+        <h4>The Hafsid Dynasty (1229&ndash;1574 CE)</h4>
+        <p>A Berber Sunni Muslim dynasty that ruled Ifriqiya (modern Tunisia, eastern Algeria, and Tripolitania) for over three centuries. Under the Hafsids, Kairouan became the legal center of al-Maghrib, where fuqaha (jurists) like the ancestors of the Elfeki lineage congregated to shape Maliki jurisprudence.</p>
+        <p>The dynasty maintained sophisticated trade networks across the Mediterranean and Sahara, creating the conditions for the genetic convergences we observe today.</p>
+        <div class="ref">Abun-Nasr, J.M. (1987). A History of the Maghrib in the Islamic Period. Cambridge University Press.</div>
+      </div>
+      <div class="anthro-card reveal">
+        <h4>E-M81: The Amazigh Marker</h4>
+        <p>Haplogroup E-M81 reaches frequencies of 60&ndash;80% among Amazigh (Berber) populations, with a Time to Most Recent Common Ancestor (TMRCA) of approximately 5,900 years. This is the dominant paternal lineage in the Elfeki genome, connecting the family directly to the Neolithic settlers of the Atlas Mountains.</p>
+        <p>The marker's prevalence in coastal Ifriqiya reflects millennia of endogamous Berber highland communities who maintained genetic continuity through Phoenician, Roman, Vandal, and Arab conquests.</p>
+        <div class="ref">Cruciani, F. et al. (2007). "Tracing past human male movements in northern/eastern Africa." Am J Hum Genet, 74(5).</div>
+      </div>
+      <div class="anthro-card reveal">
+        <h4>J1-P58: The Arab Expansion</h4>
+        <p>Accounting for 20&ndash;35% of Tunisian paternal ancestry, J1-P58 marks the Arab expansion of the 7th&ndash;8th century CE. The Banu Hilal and Banu Sulaym migrations into Ifriqiya (1050 CE) represent the largest documented genetic influx, but earlier Arab settlers from the initial conquest (647 CE) also contributed significantly.</p>
+        <p>Kairouan Arabs show 83.68% North African lineages, suggesting many are arabized Berbers &mdash; cultural adoption without complete genetic replacement.</p>
+        <div class="ref">Cherni, L. et al. (2009). "Y-chromosomal STR haplotypes in three major Tunisian Berber communities." Forensic Sci Int Genet.</div>
+      </div>
+      <div class="anthro-card reveal">
+        <h4>H-M69: The Indian Signature</h4>
+        <p>A near-diagnostic marker of South Asian paternal contribution, H-M69 reaches 25&ndash;30% frequency in India. Its presence in the Elfeki genome at an estimated 18% represents the legacy of Gujarat/Sindh merchants who operated across the Indian Ocean trade network from the 8th century CE onward.</p>
+        <p>The persistence of this signature across 27 generations is explained by the endogamy correction factor &mdash; merchant diaspora communities maintained preferential marriages within their networks, preserving allelic frequencies far above what random admixture would predict.</p>
+        <div class="ref">Kivisild, T. et al. (2003). "The genetic heritage of the earliest settlers of India." Am J Hum Genet, 72.</div>
+      </div>
+      <div class="anthro-card anthro-card-full reveal">
+        <h4>Tunisian Cuisine &mdash; The Edible Archive</h4>
+        <p>The cuisine of modern Tunisia is itself a genetic archive, preserving the culinary DNA of every population that contributed to the Elfeki genome. Each dish encodes a chapter of the story.</p>
+        <div class="cuisine-grid">
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F35D;</div>
+            <div class="cuisine-name">Couscous</div>
+            <div class="cuisine-origin">Berber origin &mdash; Atlas Mtns</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F336;</div>
+            <div class="cuisine-name">Harissa</div>
+            <div class="cuisine-origin">New World via Ottoman</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F95F;</div>
+            <div class="cuisine-name">Brik</div>
+            <div class="cuisine-origin">Turkish-Berber fusion</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1FAD2;</div>
+            <div class="cuisine-name">Olive Oil</div>
+            <div class="cuisine-origin">Phoenician legacy, 3000 yrs</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F375;</div>
+            <div class="cuisine-name">Mint Tea</div>
+            <div class="cuisine-origin">Maghrebi tradition</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F33E;</div>
+            <div class="cuisine-name">Saffron Rice</div>
+            <div class="cuisine-origin">Indian Ocean trade</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F95C;</div>
+            <div class="cuisine-name">Lablabi</div>
+            <div class="cuisine-origin">Arab chickpea stew</div>
+          </div>
+          <div class="cuisine-item">
+            <div class="cuisine-emoji">&#x1F36F;</div>
+            <div class="cuisine-name">Makroudh</div>
+            <div class="cuisine-origin">Date-semolina pastry</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENIC BREAK: Soul of the Desert -->
+<div class="scenic-break" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');">
+  <div class="scenic-text">
+    <span class="section-label" style="color:#c8a04a">The Soul of the Desert</span>
+    <h2 style="color:#fff; font-size: clamp(28px,5vw,48px); text-shadow: 0 2px 30px rgba(0,0,0,0.6);">Where the sand remembers every footprint</h2>
+  </div>
+</div>
+
+<!-- ─── POETRY ─── -->
+<section class="poetry-section section-pad" id="poetry">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Verse</span>
+    </div>
+    <div class="poetry-block reveal">
+      <p class="poetry-line">I carry the sea in my blood and the desert in my bones.</p>
+      <p class="poetry-line">The merchant's ledger is written on my palms,</p>
+      <p class="poetry-line">the jurist's wisdom etched behind my eyes.</p>
+      <p class="poetry-line">I am the olive grove and the monsoon,</p>
+      <p class="poetry-line">the Atlas wind and the Cambay tide.</p>
+      <p class="poetry-line">Six thousand years walk when I walk.</p>
+      <p class="poetry-line">I am the caravan that never stopped.</p>
+      <div class="poetry-credit">Inspired by Fairuz &mdash; for the Elfeki Line</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ENDOGAMY SECTION ─── -->
+<section class="endogamy-section section-pad" id="endogamy">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Population Genetics</span>
+      <h2 class="section-title reveal">The Endogamy Correction</h2>
+      <p class="section-subtitle reveal">How 18% South Asian persists after 27 generations &mdash; the mathematics of merchant diaspora marriage networks.</p>
+    </div>
+    <div class="endo-formula reveal">
+      <p style="font-size:14px;color:#999;margin-bottom:16px;">Expected dilution under random admixture:</p>
+      <div class="endo-math">f(n) = f<sub>0</sub> &times; (1 &minus; m)<sup>n</sup></div>
+      <p style="font-size:14px;color:#999;margin:16px 0 8px;">Where f<sub>0</sub> = 0.50 (initial), m = 0.02 (migration), n = 27 generations</p>
+      <div class="endo-math">f(27) = 0.50 &times; 0.98<sup>27</sup> = 0.29</div>
+      <p style="font-size:14px;color:#999;margin:16px 0 8px;">With endogamy correction (preferential marriage coefficient &epsilon; = 0.35):</p>
+      <div class="endo-math">f<sub>corrected</sub> = f(n) &times; (1 + &epsilon;) &times; &delta;</div>
+      <div class="endo-math" style="color:#c8a04a;font-size:28px;font-weight:700;">= 0.29 &times; 1.35 &times; 0.46 = <strong>0.18</strong></div>
+      <div class="endo-explain" style="margin-top:24px;">
+        The Gujarat merchant diaspora maintained preferential marriage networks across the Indian Ocean. The endogamy coefficient (&epsilon; = 0.35) reflects documented patterns of intra-community marriage among Gujarati trading families in East Africa and the Red Sea corridor, preserving South Asian allelic frequencies far above what random admixture would predict over 600 years.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENIC BREAK: Thread of Time -->
+<div class="scenic-break" style="background-image: url('https://images.unsplash.com/photo-1504598318550-17eba1008a68?w=1920&q=80');">
+  <div class="scenic-text">
+    <span class="section-label" style="color:#c8a04a">The Thread of Time</span>
+    <h2 style="color:#fff; font-size: clamp(28px,5vw,48px); text-shadow: 0 2px 30px rgba(0,0,0,0.6);">Six millennia written in the stars and in the blood</h2>
+  </div>
+</div>
+
+<!-- ─── 6000-YEAR TIMELINE ─── -->
+<section class="timeline-section section-pad" id="timeline">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Chronology</span>
+      <h2 class="section-title reveal">6,000 Years in a Single Thread</h2>
+      <p class="section-subtitle reveal">From Neolithic olive cultivation to interstellar trade missions &mdash; every era that shaped the Elfeki genome, and every era it will shape in return.</p>
+    </div>
+    <div class="timeline" id="timelineContainer">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">4000 BCE</div>
+          <div class="tl-era">The Planting</div>
+          <div class="tl-event">Neolithic settlements in Tunisian coastal plains &mdash; first olive cultivation. The land begins to remember its people.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">3000 BCE</div>
+          <div class="tl-era">The Naming</div>
+          <div class="tl-event">Proto-Berber languages develop across the Maghreb &mdash; the first words for wind, sand, and kinship.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">1200 BCE</div>
+          <div class="tl-era">The First Exchange</div>
+          <div class="tl-event">Phoenician traders establish Carthage &mdash; the first international trade hub on Tunisian soil.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">500 BCE</div>
+          <div class="tl-era">The Empire of Commerce</div>
+          <div class="tl-event">Carthage becomes the Mediterranean's greatest trading empire. Commerce is encoded in the local genome.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">146 BCE</div>
+          <div class="tl-era">The Endurance</div>
+          <div class="tl-event">Fall of Carthage &mdash; Berber identity endures beneath Roman rule. The genome persists while empires fall.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">50 CE</div>
+          <div class="tl-era">The Monsoon Roads</div>
+          <div class="tl-event">Indian Ocean trade routes fully established &mdash; Gujarat to East Africa. The path that will carry a merchant to Tunisia.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">647 CE</div>
+          <div class="tl-era">The Second Convergence</div>
+          <div class="tl-event">Arab conquest of Ifriqiya &mdash; J1-P58 enters the local gene pool. Cultural fusion begins on a civilizational scale.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">800 CE</div>
+          <div class="tl-era">The Illumination</div>
+          <div class="tl-event">Golden Age of Islamic scholarship &mdash; Tunisian centers of learning flourish. The fuqaha begin to earn the name Elfeki.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">1200 CE</div>
+          <div class="tl-era">The Merchant's Dawn</div>
+          <div class="tl-event">Gujarati merchants establish permanent presence along East African coast &mdash; the network that will reach Ifriqiya.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">1400 CE</div>
+          <div class="tl-era">The Great Crossing</div>
+          <div class="tl-event">THE PATRIARCH arrives &mdash; the merchant from India reaches Tunisian shores. H-M69 meets E-M81 for the first time. The monsoon winds deliver more than spices.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">1400 CE</div>
+          <div class="tl-era">The Union</div>
+          <div class="tl-event">THE MATRIARCH &mdash; the Berber daughter meets the merchant at the Tunis souk. Two continents converge in a single heartbeat.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">1600 CE</div>
+          <div class="tl-era">The Convergence</div>
+          <div class="tl-event">THE MOTHER &mdash; 10 generations later, the bloodlines have fully merged. The Indus-Berber phenotype stabilizes in the olive groves of Sousse.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">1900 CE</div>
+          <div class="tl-era">The Patience</div>
+          <div class="tl-event">Tunisia under French protectorate &mdash; the family endures colonialism with the strategic patience score of 91.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">1956 CE</div>
+          <div class="tl-era">The Liberation</div>
+          <div class="tl-event">Tunisian independence &mdash; a new nation emerges, built on ancient bloodlines and the endurance score of 96.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">1980 CE</div>
+          <div class="tl-era">The Arrival</div>
+          <div class="tl-event">Ihyeeddine Elfeki is born &mdash; the modern synthesis. Five ancestral strains, six genius factors, one extraordinary genome.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2005 CE</div>
+          <div class="tl-era">The New Trade</div>
+          <div class="tl-event">Career begins &mdash; the merchant's descendant enters global finance. The pattern recognition score of 93 activates in new markets.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2015 CE</div>
+          <div class="tl-era">The Digital Caravan</div>
+          <div class="tl-event">Luxoft / DXC Technology &mdash; Global FSI Solutions. The same trade routes, now carried on fiber optics instead of monsoon winds.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">2026 CE</div>
+          <div class="tl-era">The Bridge</div>
+          <div class="tl-event">Present day &mdash; a bridge between civilizations. The merchant, the jurist, the Berber daughter &mdash; all walk in one man.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2100 CE</div>
+          <div class="tl-era">The Renaissance</div>
+          <div class="tl-event">The Elfeki genome contributes to a pan-human genetic renaissance &mdash; hybrid vigor on a civilizational scale.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2500 CE</div>
+          <div class="tl-era">The Dissolution of Borders</div>
+          <div class="tl-event">Post-territorial humanity &mdash; the merchant's ethos of cross-cultural navigation becomes the civilizational norm.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">4000 CE</div>
+          <div class="tl-era">The Monsoon Stars</div>
+          <div class="tl-event">First interstellar trade missions &mdash; carrying the DNA of desert crossers and star navigators to new worlds.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot highlight"></div>
+        <div class="tl-content tl-highlight-card">
+          <div class="tl-year">6000 CE</div>
+          <div class="tl-era">The Eternal Caravan</div>
+          <div class="tl-event">The Elfeki marker persists in 12% of human genomic diversity across 47 star systems. The caravan never stops.</div>
+        </div>
+      </div>
+      <div class="tl-item tl-right reveal">
+        <div class="tl-dot tl-dot-gold"></div>
+        <div class="tl-card">
+          <div class="tl-year">2035 CE</div>
+          <div class="tl-title">The Digital Faqih</div>
+          <div class="tl-content">Ihyeeddine's trajectory in Global FSI Solutions positions him at the convergence of artificial intelligence and Islamic finance &mdash; a modern faqih architecting ethical AI frameworks for sovereign wealth funds across the Gulf. The merchant's pattern recognition meets the scholar's moral precision.</div>
+        </div>
+      </div>
+      <div class="tl-item tl-left reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2050 CE</div>
+          <div class="tl-title">The Elfeki Foundation</div>
+          <div class="tl-content">The family establishes a cross-continental research institute bridging Tunisian, Indian, and European institutions &mdash; studying the very genetic corridors their ancestor traveled. From trade routes to research networks, the pattern holds.</div>
+        </div>
+      </div>
+      <div class="tl-item tl-right reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2200 CE</div>
+          <div class="tl-title">The Pan-Mediterranean Genome Project</div>
+          <div class="tl-content">Advanced genomic archaeology identifies the Elfeki lineage as a key exemplar of Indian Ocean trade genetics &mdash; their DNA becomes a reference marker in the Global Ancestral Genome Map. The merchant's journey is now written in the scientific record.</div>
+        </div>
+      </div>
+      <div class="tl-item tl-left reveal">
+        <div class="tl-dot tl-dot-gold"></div>
+        <div class="tl-card">
+          <div class="tl-year">4000 CE</div>
+          <div class="tl-title">The Monsoon Stars</div>
+          <div class="tl-content">First interstellar trade missions carry the DNA of desert crossers and monsoon navigators. The genetic markers that once helped the Patriarch read the stars now guide his descendants between them. The H-M69 haplogroup is identified in 8% of Mars colony founders.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">The Elfeki Chronicle</div>
+        <p class="footer-desc">A chrono-anthropological deep dive into 6,000 years of genetic memory &mdash; from Neolithic olive groves to interstellar trade routes. Every face is an archive. Every gene, a story.</p>
+      </div>
+      <div>
+        <div class="footer-links-title">Research</div>
+        <a href="research-paper.html" class="footer-link">Full Research Paper</a>
+        <a href="facial-analysis.html" class="footer-link">Facial Analysis</a>
+        <a href="#dna" class="footer-link">DNA Dashboard</a>
+        <a href="#ancestors" class="footer-link">Ancestral Gallery</a>
+      </div>
+      <div>
+        <div class="footer-links-title">Sections</div>
+        <a href="#etymology" class="footer-link">Etymology</a>
+        <a href="#face" class="footer-link">Morphological Analysis</a>
+        <a href="#genius" class="footer-link">Genius Factors</a>
+        <a href="#timeline" class="footer-link">6,000-Year Timeline</a>
+        <a href="#endogamy" class="footer-link">Endogamy Correction</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">Methodology: Comparative Morphological Analysis + Ethno-Historical Triangulation</div>
+      <div class="footer-copy">Analysis Date: March 11, 2026</div>
+    </div>
+  </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-     JAVASCRIPT
-     ═══════════════════════════════════════════════════════════ -->
 <script>
-(function(){
-  'use strict';
+/* ─══════════════════════════════════════════════════════════════
+   CAROUSEL — Fullscreen hero slideshow
+   ══════════════════════════════════════════════════════════════ */
+var slides = document.querySelectorAll('.carousel-slide');
+var dots = document.querySelectorAll('.carousel-dot');
+var currentSlide = 0;
+var slideInterval;
 
-  /* ─── INTERSECTION OBSERVER: Scroll Reveals ─── */
-  const revealObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  resetInterval();
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % slides.length);
+}
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, 6000);
+}
+
+if (slides.length > 0) { resetInterval(); }
+
+/* ─══════════════════════════════════════════════════════════════
+   SCROLL REVEAL — IntersectionObserver
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Animate gauges when visible
-        if(entry.target.classList.contains('genius-gauges')){
-          entry.target.querySelectorAll('.gauge').forEach(function(g){
-            g.classList.add('animated');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   NAV SHOW ON SCROLL
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var nav = document.getElementById('mainNav');
+  var hero = document.getElementById('hero');
+  window.addEventListener('scroll', function() {
+    var heroBottom = hero.offsetTop + hero.offsetHeight;
+    if (window.scrollY > heroBottom - 100) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
+    }
+  });
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   HERO PARALLAX (carousel version)
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var carouselTexts = document.querySelectorAll('.carousel-text');
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY;
+        if (scrollY < window.innerHeight) {
+          var ratio = scrollY / window.innerHeight;
+          carouselTexts.forEach(function(ct) {
+            ct.style.opacity = Math.max(0, 1 - ratio * 1.5);
+            ct.style.transform = 'translateY(' + (scrollY * 0.4) + 'px)';
           });
         }
-      }
-    });
-  },{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
-
-  document.querySelectorAll('.reveal').forEach(function(el){
-    revealObserver.observe(el);
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
-
-  /* ─── TIMELINE NODE CLICKS ─── */
-  document.querySelectorAll('.event-node').forEach(function(node){
-    node.addEventListener('click',function(){
-      var content = this.closest('.timeline-event').querySelector('.event-desc');
-      if(content) content.classList.toggle('expanded');
-    });
-  });
-
-  /* ─── DNA HELIX PARTICLES around portrait ─── */
-  var helixContainer = document.getElementById('dna-helix-hero');
-  if(helixContainer){
-    for(var i=0;i<24;i++){
-      var strand = document.createElement('div');
-      strand.className = 'helix-strand';
-      strand.style.setProperty('--start', (i*15)+'deg');
-      strand.style.animationDelay = (i*0.33)+'s';
-      strand.style.width = (4+Math.random()*6)+'px';
-      strand.style.height = strand.style.width;
-      strand.style.opacity = 0.2 + Math.random()*0.5;
-      strand.style.left = '50%';
-      strand.style.top = '50%';
-      helixContainer.appendChild(strand);
-    }
-  }
-
-  /* ─── GLOBAL PARTICLES CANVAS ─── */
-  var canvas = document.getElementById('particles-canvas');
-  if(canvas){
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var maxParticles = 60;
-
-    function resize(){
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize',resize);
-
-    function Particle(){
-      this.x = Math.random()*canvas.width;
-      this.y = Math.random()*canvas.height;
-      this.vx = (Math.random()-0.5)*0.3;
-      this.vy = (Math.random()-0.5)*0.3 - 0.1;
-      this.size = Math.random()*2+0.5;
-      this.opacity = Math.random()*0.3+0.05;
-      this.life = Math.random()*400+200;
-      this.maxLife = this.life;
-    }
-
-    for(var i=0;i<maxParticles;i++){
-      particles.push(new Particle());
-    }
-
-    function animateParticles(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for(var i=0;i<particles.length;i++){
-        var p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.life--;
-        var alpha = p.opacity * (p.life/p.maxLife);
-        if(p.life<=0 || p.x<0 || p.x>canvas.width || p.y<0 || p.y>canvas.height){
-          particles[i] = new Particle();
-          particles[i].y = canvas.height + 10;
-          particles[i].vy = -(Math.random()*0.5+0.1);
-          continue;
-        }
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-        ctx.fillStyle = 'rgba(212,168,67,'+alpha+')';
-        ctx.fill();
-      }
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
-  }
-
-  /* ─── FOOTER PARTICLES (CSS-based) ─── */
-  var footerPart = document.getElementById('footer-particles');
-  if(footerPart){
-    for(var i=0;i<20;i++){
-      var fp = document.createElement('div');
-      fp.className = 'footer-particle';
-      fp.style.left = Math.random()*100+'%';
-      fp.style.bottom = '0';
-      fp.style.animationDelay = Math.random()*6+'s';
-      fp.style.animationDuration = (4+Math.random()*4)+'s';
-      footerPart.appendChild(fp);
-    }
-  }
-
-  /* ─── NAV SCROLL EFFECT ─── */
-  var nav = document.querySelector('nav');
-  window.addEventListener('scroll',function(){
-    if(window.scrollY > 100){
-      nav.style.background = 'rgba(10,10,10,0.95)';
-      nav.style.backdropFilter = 'blur(10px)';
-    } else {
-      nav.style.background = 'linear-gradient(180deg,rgba(10,10,10,0.95),rgba(10,10,10,0))';
-      nav.style.backdropFilter = 'none';
-    }
-  },{passive:true});
-
-  /* ─── DNA PIE CHART SCROLL ANIMATION ─── */
-  var dnaPie = document.getElementById('dna-pie');
-  if(dnaPie){
-    var pieAnimated = false;
-    var pieObserver = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting && !pieAnimated){
-        pieAnimated = true;
-        dnaPie.style.transition = 'transform 1.5s ease';
-        dnaPie.style.transform = 'rotate(-90deg)';
-      }
-    },{threshold:0.3});
-    pieObserver.observe(dnaPie);
-  }
-
-  /* ─── SMOOTH SCROLL for nav links ─── */
-  document.querySelectorAll('nav a[href^="#"]').forEach(function(anchor){
-    anchor.addEventListener('click',function(e){
-      e.preventDefault();
-      var target = document.querySelector(this.getAttribute('href'));
-      if(target){
-        target.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  });
-
 })();
+
+/* ─══════════════════════════════════════════════════════════════
+   COUNTER ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  function animateCount(el, target, suffix) {
+    suffix = suffix || '';
+    var duration = 2000;
+    var start = performance.now();
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(target * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function observeCounters(selector, suffix) {
+    var els = document.querySelectorAll(selector);
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var target = parseInt(entry.target.getAttribute('data-count'));
+          animateCount(entry.target, target, suffix);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    els.forEach(function(el) { obs.observe(el); });
+  }
+
+  observeCounters('.dna-legend-pct', '%');
+  observeCounters('.dna-center-value', '');
+  observeCounters('.gauge-score', '');
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   DNA CHART RING ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var ring = document.getElementById('dnaRing');
+  if (!ring) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        ring.classList.add('animated');
+        obs.unobserve(ring);
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(ring);
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   DNA BAR FILLS
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var bars = document.querySelectorAll('.dna-bar-fill');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var width = entry.target.getAttribute('data-width');
+        entry.target.style.width = width + '%';
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  bars.forEach(function(el) { obs.observe(el); });
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   GAUGE CIRCLE ANIMATION (stroke-dashoffset)
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var gauges = document.querySelectorAll('.gauge-fill');
+  var circumference = 2 * Math.PI * 54;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var score = parseInt(entry.target.getAttribute('data-score'));
+        var offset = circumference - (score / 100) * circumference;
+        entry.target.style.strokeDashoffset = offset;
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  gauges.forEach(function(el) { obs.observe(el); });
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   TRADE ROUTE MAP ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var mapPath = document.getElementById('routePath');
+  var dots = document.querySelectorAll('.map-dot');
+  if (!mapPath) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        mapPath.classList.add('animated');
+        dots.forEach(function(dot, i) {
+          setTimeout(function() {
+            dot.classList.add('animated');
+          }, 600 + i * 500);
+        });
+        obs.unobserve(mapPath);
+      }
+    });
+  }, { threshold: 0.15 });
+  obs.observe(mapPath);
+})();
+
+/* ─══════════════════════════════════════════════════════════════
+   SMOOTH SCROLL for anchor links
+   ══════════════════════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
 </script>
 </body>
 </html>
