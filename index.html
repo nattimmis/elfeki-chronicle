@@ -978,6 +978,309 @@ img { max-width: 100%; display: block; }
   </div>
 </nav>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     FACE MORPH EXPERIENCE — Elfeki's face morphing through ancestors
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="faceMorph" style="position:relative;width:100%;height:100vh;min-height:700px;background:#0a0a0a;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+  <!-- Face Container -->
+  <div id="morphContainer" style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+    <!-- All face images stacked -->
+    <img id="morphFace0" src="elfeki.jpeg" alt="Ihyeeddine Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;border-radius:0;opacity:1;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:2;filter:brightness(1.05) contrast(1.05);">
+    <img id="morphFace1" src="generated-blend-kahina.jpg" alt="Kahina al-Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace2" src="generated-blend-sheikh.jpg" alt="Sheikh Ahmad al-Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace3" src="generated-blend-rajesh.jpg" alt="Rajesh Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace4" src="generated-blend-amara.jpg" alt="Amara al-Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace5" src="generated-blend-hiram.jpg" alt="Hiram al-Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace6" src="generated-blend-rabbi.jpg" alt="Rabbi Moshe Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+    <img id="morphFace7" src="generated-blend-fatima.jpg" alt="Fatima bint Khalil al-Elfeki" style="position:absolute;width:auto;height:90vh;max-width:90vw;object-fit:contain;opacity:0;transition:opacity 1.8s cubic-bezier(0.4,0,0.2,1);z-index:1;">
+
+    <!-- SVG Connection Lines from Elfeki to ancestors -->
+    <svg id="morphLines" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:0;transition:opacity 1s 3s;">
+      <defs>
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#c8a04a;stop-opacity:0.8"/><stop offset="100%" style="stop-color:#c8a04a;stop-opacity:0"/></linearGradient>
+      </defs>
+      <line x1="50%" y1="30%" x2="15%" y2="15%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="30%" x2="85%" y2="15%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="50%" x2="10%" y2="50%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="50%" x2="90%" y2="50%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="70%" x2="15%" y2="85%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="70%" x2="85%" y2="85%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+      <line x1="50%" y1="70%" x2="50%" y2="95%" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+    </svg>
+
+    <!-- Scanning line effect -->
+    <div id="scanLine" style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#c8a04a,transparent);z-index:10;opacity:0;transition:opacity 0.5s;animation:scanDown 3s ease-in-out infinite;"></div>
+
+    <!-- Corner markers -->
+    <div style="position:absolute;top:10%;left:10%;z-index:10;">
+      <div id="morphCornerTL" style="width:40px;height:40px;border-top:2px solid #c8a04a;border-left:2px solid #c8a04a;opacity:0;transition:opacity 1s 0.5s;"></div>
+    </div>
+    <div style="position:absolute;top:10%;right:10%;z-index:10;">
+      <div id="morphCornerTR" style="width:40px;height:40px;border-top:2px solid #c8a04a;border-right:2px solid #c8a04a;opacity:0;transition:opacity 1s 0.5s;"></div>
+    </div>
+    <div style="position:absolute;bottom:10%;left:10%;z-index:10;">
+      <div id="morphCornerBL" style="width:40px;height:40px;border-bottom:2px solid #c8a04a;border-left:2px solid #c8a04a;opacity:0;transition:opacity 1s 0.5s;"></div>
+    </div>
+    <div style="position:absolute;bottom:10%;right:10%;z-index:10;">
+      <div id="morphCornerBR" style="width:40px;height:40px;border-bottom:2px solid #c8a04a;border-right:2px solid #c8a04a;opacity:0;transition:opacity 1s 0.5s;"></div>
+    </div>
+  </div>
+
+  <!-- Ancestor Info Panel (left side) -->
+  <div id="morphInfoLeft" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);z-index:20;max-width:320px;opacity:0;transition:all 0.8s cubic-bezier(0.16,1,0.3,1);pointer-events:none;">
+    <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+      <div id="morphName" style="font-size:24px;font-weight:700;color:#fff;margin-bottom:4px;">Ihyeeddine Elfeki</div>
+      <div id="morphEra" style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:16px;">Present Day — 2026 CE</div>
+      <div id="morphDesc" style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:20px;">Global FSI Solutions professional. The modern synthesis — five ancestral streams, six genius factors, one extraordinary genome standing at the convergence of three continents.</div>
+      <div id="morphHaplo" style="display:inline-block;background:rgba(200,160,74,0.2);color:#c8a04a;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:1px;">ALL HAPLOGROUPS CONVERGED</div>
+    </div>
+  </div>
+
+  <!-- Compatibility Panel (right side) -->
+  <div id="morphInfoRight" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);z-index:20;max-width:300px;opacity:0;transition:all 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s;pointer-events:none;">
+    <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:16px;">Compatibility Analysis</div>
+      <!-- Percentage Match -->
+      <div id="morphCompat" style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.6);">DNA Match</span>
+          <span id="morphDNA" style="font-size:18px;font-weight:800;color:#c8a04a;">100%</span>
+        </div>
+        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+          <div id="morphDNABar" style="height:100%;background:#c8a04a;border-radius:2px;width:100%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
+        </div>
+      </div>
+      <!-- Personality -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Personality Echo</span>
+          <span id="morphPersonality" style="font-size:18px;font-weight:800;color:#2ecc71;">97%</span>
+        </div>
+        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+          <div id="morphPersonalityBar" style="height:100%;background:#2ecc71;border-radius:2px;width:97%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
+        </div>
+      </div>
+      <!-- Character -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Character Inheritance</span>
+          <span id="morphCharacter" style="font-size:18px;font-weight:800;color:#3498db;">95%</span>
+        </div>
+        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+          <div id="morphCharacterBar" style="height:100%;background:#3498db;border-radius:2px;width:95%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
+        </div>
+      </div>
+      <!-- Tribal Union -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Tribal Union</span>
+          <span id="morphTribal" style="font-size:18px;font-weight:800;color:#e67e22;">92%</span>
+        </div>
+        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+          <div id="morphTribalBar" style="height:100%;background:#e67e22;border-radius:2px;width:92%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
+        </div>
+      </div>
+      <!-- Instant Allies -->
+      <div id="morphAllies" style="padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e74c3c;font-weight:700;margin-bottom:8px;">Instant Allies Found</div>
+        <div id="morphAllyList" style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8;">
+          <div>&#x2714; Berber Highland Clans (E-M81)</div>
+          <div>&#x2714; Kairouan Scholar Families</div>
+          <div>&#x2714; Gujarat Merchant Diaspora</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom: Current face indicator dots -->
+  <div id="morphDots" style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:20;display:flex;gap:12px;align-items:center;">
+    <div class="morph-dot active" data-idx="0" style="width:14px;height:14px;border-radius:50%;border:2px solid #c8a04a;background:#c8a04a;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="1" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="2" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="3" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="4" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="5" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="6" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="7" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+  </div>
+
+  <!-- Top: "Analyzing..." label -->
+  <div id="morphTopLabel" style="position:absolute;top:40px;left:50%;transform:translateX(-50%);z-index:20;text-align:center;">
+    <div style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c8a04a;font-weight:700;opacity:0;animation:morphLabelFade 1.5s 1s forwards;" id="morphAnalyzing">Analyzing Genetic Markers...</div>
+    <div id="morphSubjectName" style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;letter-spacing:-1px;margin-top:8px;opacity:0;animation:morphLabelFade 1.5s 1.5s forwards;">Ihyeeddine Elfeki</div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div style="position:absolute;bottom:80px;left:50%;transform:translateX(-50%);z-index:20;opacity:0;animation:morphLabelFade 1s 3s forwards;">
+    <a href="#hero" style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;">
+      <span>Scroll to Explore</span>
+      <div style="width:16px;height:16px;border-right:1.5px solid rgba(255,255,255,0.4);border-bottom:1.5px solid rgba(255,255,255,0.4);transform:rotate(45deg);animation:scrollBounce 2s infinite;"></div>
+    </a>
+  </div>
+</section>
+
+<style>
+@keyframes scanDown { 0%{top:5%;opacity:0} 10%{opacity:0.8} 90%{opacity:0.8} 100%{top:95%;opacity:0} }
+@keyframes morphLabelFade { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes morphPulse { 0%,100%{box-shadow:0 0 0 0 rgba(200,160,74,0.4)} 50%{box-shadow:0 0 0 8px rgba(200,160,74,0)} }
+.morph-dot:hover { transform:scale(1.3); }
+.morph-dot.active { background:#c8a04a !important; border-color:#c8a04a !important; width:14px !important; height:14px !important; animation:morphPulse 2s infinite; }
+@media(max-width:900px) {
+  #morphInfoLeft,#morphInfoRight { position:absolute !important; top:auto !important; bottom:100px !important; left:12px !important; right:12px !important; max-width:none !important; transform:none !important; }
+  #morphInfoRight { bottom:12px !important; }
+  #morphInfoLeft { display:none !important; }
+}
+</style>
+
+<!-- ═══ FRIEND OR FOE: 5-SECOND RULE ═══ -->
+<section class="section-pad" id="friend-foe" style="background:#0a0a0a;color:#fff;">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal" style="color:#e74c3c;">Threat Assessment Protocol</span>
+      <h2 class="section-title reveal" style="color:#fff;">Friend or Foe — The 5-Second Rule</h2>
+      <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6);">Neuroscience shows humans assess friend/foe status in &lt;200ms via fusiform face area (FFA) pattern matching. The Elfeki genome carries 6 ancestral threat-assessment templates — each optimized for a different environment. Here are the faces most likely to trigger <strong style="color:#2ecc71;">instant alliance</strong> vs <strong style="color:#e74c3c;">instant wariness</strong>.</p>
+    </div>
+
+    <!-- Closest Allies Grid -->
+    <div style="margin-top:60px;">
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#2ecc71;font-weight:700;margin-bottom:24px;text-align:center;">INSTANT ALLIES — &lt;0.5s Recognition</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">97%</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Tunisian Berbers</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">E-M81 shared — same tribal fire</div>
+          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.2s recognition · Immediate trust</div>
+        </div>
+        <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">94%</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Gujarat Indians</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">H-M69 merchant kinship signal</div>
+          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.4s recognition · Trade partner instinct</div>
+        </div>
+        <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">93%</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Sephardic Jews</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">J1-P58 / J2-M172 shared Levantine root</div>
+          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.3s recognition · Scholarly kinship</div>
+        </div>
+        <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">91%</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Maltese / Sicilians</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Punic-Mediterranean phenotype overlap</div>
+          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.6s recognition · Mediterranean sibling</div>
+        </div>
+        <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">89%</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Lebanese / Levantines</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Phoenician root — same ship, different port</div>
+          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.5s recognition · Ancient maritime bond</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Foe / Wariness -->
+    <div style="margin-top:60px;">
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#e74c3c;font-weight:700;margin-bottom:24px;text-align:center;">HISTORICAL ADVERSARIES — Ancestral Wariness Triggers</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#fff;">Almohad Fundamentalists</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Destroyed both Jewish and Maliki tolerance</div>
+          <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.2s threat detection · Doctrinal rigidity signal</div>
+        </div>
+        <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#fff;">Hormuz Strait Pirates</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">The merchant ancestor's nightmare — monsoon raiders</div>
+          <div style="font-size:11px;color:#e74c3c;margin-top:8px;">1.2s threat assessment · Maritime danger pattern</div>
+        </div>
+        <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#fff;">Roman Legions</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Destroyed Carthage — 146 BCE ancestral trauma</div>
+          <div style="font-size:11px;color:#e74c3c;margin-top:8px;">2.0s deep wariness · Empire destruction memory</div>
+        </div>
+        <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#fff;">Saharan Bandits</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Trans-Saharan gold route ambush threat</div>
+          <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.8s terrain scan · Desert ambush detection</div>
+        </div>
+        <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;color:#fff;">Inquisition Agents</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Crypto-Jewish ancestor's existential threat</div>
+          <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.1s survival instinct · 3 generations of hiding</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scientific basis -->
+    <div style="margin-top:40px;text-align:center;" class="reveal">
+      <p style="font-size:13px;color:rgba(255,255,255,0.4);max-width:700px;margin:0 auto;line-height:1.8;">Based on: Todorov A et al. (2008) "Evaluating faces on trustworthiness after minimal time exposure" Social Cognition 27(6) | Bar M et al. (2006) "Very first impressions" Emotion 6(2):269 | FFA pattern matching: Kanwisher N et al. (1997) J Neurosci 17(11):4302</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ANCESTRAL TOOLS — Floating Cards ═══ -->
+<section class="section-pad" id="ancestral-tools" style="background:#fafafa;border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Ancestral Toolkit</span>
+      <h2 class="section-title reveal">The Tools Their Hands Knew</h2>
+      <p class="section-subtitle reveal">Every ancestor's favourite tools — the instruments that shaped their world and left motor-memory imprints in the Elfeki genome. Hover to examine.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:40px;">
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(-2deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#9876;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Amazigh Sword</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Kahina · 7th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Curved blade for mounted combat — muscle memory for decisive action</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 0.5s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(2deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#9997;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Reed Quill Pen</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Sheikh Ahmad · 15th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">For writing fatwa and Maliki jurisprudence — precision in every stroke</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 1s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(-1deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#9878;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Brass Merchant Scales</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Rajesh · 14th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">For weighing saffron and cardamom — the merchant's truth instrument</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 1.5s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(1deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#9883;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Brass Astrolabe</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Hiram · 8th c. BCE</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Phoenician star navigation — reading the heavens to find the way home</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 2s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(-2deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#9879;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Gold Weighing Scale</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Amara · 12th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Trans-Saharan gold trade — calibrated to detect forgery by touch</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 2.5s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(2deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#128220;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Torah Scroll</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Rabbi Moshe · 15th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Sacred text carried through 2,600 years — the ultimate knowledge vessel</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 3s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(-1deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#127871;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Silver Berber Fibula</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Fatima · 14th c.</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">Jewellery clasp that told a clan's entire history in silver metalwork</div>
+      </div>
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default;animation:toolFloat 6s 3.5s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-12px) rotate(1deg) scale(1.05)';this.style.boxShadow='0 20px 60px rgba(200,160,74,0.2)';this.style.borderColor='#c8a04a'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='#f0f0f0'">
+        <div style="font-size:48px;margin-bottom:12px;">&#128187;</div>
+        <div style="font-size:14px;font-weight:700;color:#1a1a1a;">Modern Laptop</div>
+        <div style="font-size:11px;color:#c8a04a;font-weight:600;margin-top:4px;">Ihyeeddine · 2026</div>
+        <div style="font-size:12px;color:#888;margin-top:8px;">The modern instrument of the eternal merchant-scholar — same precision, new medium</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@keyframes toolFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+</style>
+
 <!-- ─── HERO CAROUSEL ─── -->
 <section class="carousel" id="hero">
   <div class="carousel-slide active" style="background-image: url('generated-hero-ancestors.jpg');">
@@ -3953,8 +4256,8 @@ function resetInterval() {
 }
 
 if (slides.length > 0) { resetInterval(); }
-// Auto-start demo mode after 2 seconds
-setTimeout(function() { toggleDemo(); }, 2000);
+// Auto-start demo mode after face morph (40 seconds)
+setTimeout(function() { toggleDemo(); }, 40000);
 
 /* ─══════════════════════════════════════════════════════════════
    SCROLL REVEAL — IntersectionObserver
@@ -4249,6 +4552,89 @@ function runDemoStep() {
     demoTimer = setTimeout(runDemoStep, 6000);
   }, 800);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   FACE MORPH ENGINE — Elfeki → Ancestors with compatibility data
+   ═══════════════════════════════════════════════════════════════ */
+(function() {
+  var morphData = [
+    { name:'Ihyeeddine Elfeki', era:'Present Day — 2026 CE', desc:'Global FSI Solutions professional. The modern synthesis — five ancestral streams, six genius factors, one extraordinary genome.', haplo:'ALL HAPLOGROUPS CONVERGED', dna:100, personality:97, character:95, tribal:92, foe:'None — this is the convergence point', tools:['Laptop','Smartphone','Financial Models','AI Systems'], allies:['Berber Highland Clans (E-M81)','Kairouan Scholar Families','Gujarat Merchant Diaspora','Djerba Jewish Community','Phoenician Trader Networks'] },
+    { name:'Kahina al-Elfeki', era:'7th Century CE — Berber Warrior Queen', desc:'Queen of the Jerawa tribe. Defeated the Umayyad general. Ruled Ifriqiya for five years. Her name from Hebrew HaKohenet — "the priestess."', haplo:'E-M81 · BERBER MATRILINEAL', dna:42, personality:94, character:98, tribal:97, foe:'Umayyad Generals — immediate hostility on 0.2s recognition', tools:['Amazigh Sword','Silver Shield','Indigo Dye Pot','Berber Loom'], allies:['Amazigh Confederations','Aures Mountain Clans','Jewish Berber Tribes (Jerawa)','Numidian Cavalry','Atlas Mountain Peoples'] },
+    { name:'Sheikh Ahmad al-Elfeki', era:'15th Century CE — Islamic Jurist', desc:'Maliki legal scholar, the faqih who codified the family name. Master of usul al-fiqh. Legendary across Hafsid courts.', haplo:'J1-P58 · ARAB SCHOLARLY', dna:28, personality:91, character:96, tribal:88, foe:'Almohad Fundamentalists — doctrinal enemies of Maliki tolerance', tools:['Quill Pen','Leather-bound Manuscript','Prayer Beads','Brass Astrolabe'], allies:['Maliki Jurist Families','Hafsid Court Scholars','Sufi Brotherhoods','Kairouan Mosque Community','Andalusian Exiles'] },
+    { name:'Rajesh Elfeki', era:'14th Century CE — Gujarat Merchant', desc:'Monsoon navigator of Cambay. Crossed the Arabian Sea with cardamom and silk. Trade network from Malabar Coast to Aden.', haplo:'H-M69 · SOUTH ASIAN MERCANTILE', dna:18, personality:93, character:89, tribal:95, foe:'Pirates of the Straits of Hormuz — 1.2s threat assessment', tools:['Brass Merchant Scales','Silk Sample Book','Star Navigation Chart','Spice Pouch Set'], allies:['Gujarat Merchant Guilds','Hadhrami Traders','Omani Seafarers','Malabar Pepper Merchants','Swahili Coast Networks'] },
+    { name:'Amara al-Elfeki', era:'12th Century CE — Gold Trader', desc:'Controller of trans-Saharan gold route. Scarification marks told the story of a thousand desert crossings.', haplo:'E-V38 · SUB-SAHARAN TRADE', dna:7, personality:88, character:92, tribal:90, foe:'Saharan Bandits — 0.8s terrain scan for ambush points', tools:['Gold Weighing Scale','Camel Saddle','Leather Water Skin','Salt Block Currency'], allies:['Tuareg Desert Guides','Hausa Traders','Songhai Merchants','Gnawa Brotherhood','Kanuri Gold Families'] },
+    { name:'Hiram al-Elfeki', era:'8th Century BCE — Phoenician Captain', desc:'Sailed from Tyre to found Carthage. Navigator by starlight, merchant by daylight. Carried wine, olive oil, and the alphabet.', haplo:'J2-M172 · PHOENICIAN MARITIME', dna:5, personality:86, character:91, tribal:93, foe:'Greek Naval Rivals — 2.1s ship identification at horizon', tools:['Cedar Ship Tiller','Tyrian Purple Dye Vat','Amphorae of Wine','Bronze Navigation Ring'], allies:['Carthaginian Merchants','Maltese Maritime Clans','Sardinian Traders','Libyphoenicians','Tyrian Dye Guilds'] },
+    { name:'Rabbi Moshe Elfeki', era:'15th Century CE — Jewish Sage', desc:'Scholar of El Ghriba. Family survived Almohad conversions. Torah scholar, Talmudic authority, keeper of 2,600 years of memory.', haplo:'J1-P58 / J2-M172 · COHANIM', dna:33, personality:96, character:99, tribal:85, foe:'Almohad Inquisitors — survival instinct honed over 3 generations of hiding', tools:['Torah Scroll','Silver Menorah','Talmudic Commentary','Kiddush Cup'], allies:['Djerba Jewish Community','Livornese Grana','Sephardic Families','Kohanim Lineages','Crypto-Jewish Networks'] },
+    { name:'Fatima bint Khalil al-Elfeki', era:'14th Century CE — The Matriarch', desc:'She chose the Gujarat merchant — and changed the genome forever. Her olive groves fed Kairouan. Her silver jewelry told her clan story.', haplo:'E-M81 · BERBER MATERNAL', dna:42, personality:95, character:97, tribal:96, foe:'Rival Clan Matriarchs — 0.5s loyalty assessment in eye contact', tools:['Silver Berber Fibula','Olive Oil Press Stone','Henna Paste Bowl','Weaving Loom Shuttle'], allies:['Berber Matriarchal Clans','Olive Cultivation Families','Kairouan Market Women','Silver Artisans','Atlas Wedding Alliances'] }
+  ];
+
+  var currentMorph = 0;
+  var morphTimer = null;
+  var morphStarted = false;
+
+  function showMorphFace(idx) {
+    var d = morphData[idx];
+    for (var i = 0; i <= 7; i++) {
+      var face = document.getElementById('morphFace' + i);
+      if (face) { face.style.opacity = (i === idx) ? '1' : '0'; face.style.zIndex = (i === idx) ? '2' : '1'; }
+    }
+    var el = function(id) { return document.getElementById(id); };
+    el('morphName').textContent = d.name;
+    el('morphEra').textContent = d.era;
+    el('morphDesc').textContent = d.desc;
+    el('morphHaplo').textContent = d.haplo;
+    el('morphSubjectName').textContent = d.name;
+    el('morphDNA').textContent = d.dna + '%';
+    el('morphDNABar').style.width = d.dna + '%';
+    el('morphPersonality').textContent = d.personality + '%';
+    el('morphPersonalityBar').style.width = d.personality + '%';
+    el('morphCharacter').textContent = d.character + '%';
+    el('morphCharacterBar').style.width = d.character + '%';
+    el('morphTribal').textContent = d.tribal + '%';
+    el('morphTribalBar').style.width = d.tribal + '%';
+    var allyHTML = '';
+    d.allies.forEach(function(a) { allyHTML += '<div style="margin-bottom:3px;">&#x2714; ' + a + '</div>'; });
+    el('morphAllyList').innerHTML = allyHTML;
+    document.querySelectorAll('.morph-dot').forEach(function(dot, i) {
+      if (i === idx) { dot.classList.add('active'); dot.style.background = '#c8a04a'; dot.style.borderColor = '#c8a04a'; }
+      else { dot.classList.remove('active'); dot.style.background = 'transparent'; dot.style.borderColor = 'rgba(255,255,255,0.4)'; }
+    });
+    var scanLine = document.getElementById('scanLine');
+    if (scanLine) { scanLine.style.opacity = '0.8'; setTimeout(function() { scanLine.style.opacity = '0'; }, 2500); }
+    // Show connection lines when not on Elfeki's own face
+    var lines = document.getElementById('morphLines');
+    if (lines) { lines.style.opacity = idx === 0 ? '0' : '0.6'; }
+    currentMorph = idx;
+  }
+
+  function startMorphCycle() {
+    if (morphStarted) return;
+    morphStarted = true;
+    ['morphCornerTL','morphCornerTR','morphCornerBL','morphCornerBR'].forEach(function(id) {
+      var e = document.getElementById(id); if (e) e.style.opacity = '1';
+    });
+    setTimeout(function() {
+      var l = document.getElementById('morphInfoLeft'); if (l) l.style.opacity = '1';
+      var r = document.getElementById('morphInfoRight'); if (r) r.style.opacity = '1';
+    }, 2000);
+    setTimeout(function() {
+      morphTimer = setInterval(function() {
+        showMorphFace((currentMorph + 1) % morphData.length);
+      }, 4500);
+    }, 4000);
+  }
+
+  document.querySelectorAll('.morph-dot').forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-idx'));
+      clearInterval(morphTimer);
+      showMorphFace(idx);
+      morphTimer = setInterval(function() { showMorphFace((currentMorph + 1) % morphData.length); }, 4500);
+    });
+  });
+
+  setTimeout(startMorphCycle, 1500);
+})();
 </script>
 <style>
 /* DEMO MODE */
