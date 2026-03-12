@@ -75,7 +75,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #f8f8f8;
 }
 .hero-canvas {
   position: absolute;
@@ -953,6 +953,39 @@ img { max-width: 100%; display: block; }
 </head>
 <body>
 
+<!-- ─── YEAR COUNTER (left side) ─── -->
+<div id="yearCounter" style="position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:150;writing-mode:vertical-lr;text-orientation:mixed;pointer-events:none;opacity:0;transition:opacity 0.5s;">
+  <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;font-weight:700;">ERA</div>
+  <div id="yearValue" style="font-size:clamp(28px,4vw,48px);font-weight:800;color:#1a1a1a;letter-spacing:-1px;margin-top:8px;">2026 CE</div>
+  <div id="yearEvent" style="font-size:12px;color:#888;margin-top:8px;max-width:120px;writing-mode:horizontal-tb;">Present Day</div>
+</div>
+
+<!-- ─── PERSISTENT TIMELINE (right side) ─── -->
+<div id="persistTimeline" style="position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;align-items:center;gap:0;height:60vh;pointer-events:auto;">
+  <div style="position:relative;width:4px;height:100%;border-radius:2px;background:linear-gradient(180deg,#00e5ff,#aa00ff,#d50000,#ffea00,#00e5ff);">
+    <a href="#faceMorph" style="position:absolute;top:0%;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#00e5ff;box-shadow:0 0 12px #00e5ff,0 0 24px rgba(0,229,255,0.3);cursor:pointer;text-decoration:none;" title="4000 BCE — Neolithic"></a>
+    <a href="#etymology" style="position:absolute;top:8%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#00bcd4;box-shadow:0 0 10px #00bcd4;cursor:pointer;text-decoration:none;" title="1200 BCE — Phoenicians"></a>
+    <a href="#family-tree" style="position:absolute;top:16%;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#aa00ff;box-shadow:0 0 12px #aa00ff,0 0 24px rgba(170,0,255,0.3);cursor:pointer;text-decoration:none;" title="586 BCE — Jewish Settlement"></a>
+    <a href="#dna" style="position:absolute;top:24%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#7c4dff;box-shadow:0 0 10px #7c4dff;cursor:pointer;text-decoration:none;" title="146 BCE — Fall of Carthage"></a>
+    <a href="#ancestors" style="position:absolute;top:32%;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#d50000;box-shadow:0 0 12px #d50000,0 0 24px rgba(213,0,0,0.3);cursor:pointer;text-decoration:none;" title="670 CE — Kairouan Founded"></a>
+    <a href="#insights" style="position:absolute;top:40%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#ff1744;box-shadow:0 0 10px #ff1744;cursor:pointer;text-decoration:none;" title="1050 CE — Banu Hilal"></a>
+    <a href="#jewish-lineage" style="position:absolute;top:48%;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#ffea00;box-shadow:0 0 12px #ffea00,0 0 24px rgba(255,234,0,0.3);cursor:pointer;text-decoration:none;" title="1146 CE — Almohad Catastrophe"></a>
+    <a href="#tribal-matches" style="position:absolute;top:56%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#ffd600;box-shadow:0 0 10px #ffd600;cursor:pointer;text-decoration:none;" title="1229 CE — Hafsid Dynasty"></a>
+    <a href="#genotype-analysis" style="position:absolute;top:64%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#76ff03;box-shadow:0 0 10px #76ff03;cursor:pointer;text-decoration:none;" title="1400 CE — Gujarat Crossing"></a>
+    <a href="#timeline" style="position:absolute;top:72%;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#00e5ff;box-shadow:0 0 12px #00e5ff,0 0 24px rgba(0,229,255,0.3);cursor:pointer;text-decoration:none;" title="1492 CE — Sephardic Exodus"></a>
+    <a href="#timeline" style="position:absolute;top:80%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#e040fb;box-shadow:0 0 10px #e040fb;cursor:pointer;text-decoration:none;" title="1980 CE — Elfeki Born"></a>
+    <a href="#timeline" style="position:absolute;top:88%;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:#ffea00;box-shadow:0 0 16px #ffea00,0 0 32px rgba(255,234,0,0.4);cursor:pointer;text-decoration:none;" title="2026 CE — Present"></a>
+    <a href="#timeline" style="position:absolute;top:96%;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#00e5ff;box-shadow:0 0 10px #00e5ff;cursor:pointer;text-decoration:none;" title="6000 CE — Eternal Caravan"></a>
+    <div id="timelineThumb" style="position:absolute;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:#c8a04a;box-shadow:0 0 20px #c8a04a,0 0 40px rgba(200,160,74,0.4);transition:top 0.3s;top:0%;border:2px solid #fff;"></div>
+  </div>
+</div>
+
+<style>
+#persistTimeline a { transition: all 0.3s; }
+#persistTimeline a:hover { transform: translateX(-50%) scale(1.8); }
+@media (max-width: 768px) { #persistTimeline { display: none; } #yearCounter { display: none; } }
+</style>
+
 <!-- ─── LANGUAGE BAR ─── -->
 <div id="langBar" style="position:fixed;top:0;left:0;right:0;z-index:200;background:#1a1a1a;padding:6px 24px;display:flex;justify-content:center;gap:16px;font-size:12px;">
   <button onclick="setLang('en')" class="lang-btn active" id="langEn" style="background:none;border:1px solid #c8a04a;color:#c8a04a;padding:4px 16px;border-radius:100px;cursor:pointer;font-size:12px;font-weight:600;">English</button>
@@ -965,15 +998,15 @@ img { max-width: 100%; display: block; }
   <div class="nav-inner">
     <div class="nav-logo">Elfeki <span>Chronicle</span></div>
     <div class="nav-links">
-      <a href="#etymology">Etymology</a>
-      <a href="#dna">DNA</a>
-      <a href="#ancestors">Ancestors</a>
-      <a href="#timeline">Timeline</a>
+      <a href="#etymology" data-i18n="nav-etymology">Etymology</a>
+      <a href="#dna" data-i18n="nav-dna">DNA</a>
+      <a href="#ancestors" data-i18n="nav-ancestors">Ancestors</a>
+      <a href="#timeline" data-i18n="nav-timeline">Timeline</a>
       <a href="research-paper.html">Research</a>
       <a href="sora-generate.html">Sora Videos</a>
-      <a href="#insights">Insights</a>
-      <a href="#jewish-lineage">Jewish Heritage</a>
-      <a href="#tribal-matches">Tribal DNA</a>
+      <a href="#insights" data-i18n="nav-insights">Insights</a>
+      <a href="#jewish-lineage" data-i18n="nav-jewish">Jewish Heritage</a>
+      <a href="#tribal-matches" data-i18n="nav-tribal">Tribal DNA</a>
     </div>
   </div>
 </nav>
@@ -981,7 +1014,7 @@ img { max-width: 100%; display: block; }
 <!-- ═══════════════════════════════════════════════════════════════
      FACE MORPH EXPERIENCE — Elfeki's face morphing through ancestors
      ═══════════════════════════════════════════════════════════════ -->
-<section id="faceMorph" style="position:relative;width:100%;height:100vh;min-height:700px;background:#0a0a0a;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+<section id="faceMorph" style="position:relative;width:100%;height:100vh;min-height:700px;background:#f8f8f8;overflow:hidden;display:flex;align-items:center;justify-content:center;">
   <!-- Face Container -->
   <div id="morphContainer" style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
     <!-- All face images stacked -->
@@ -1028,62 +1061,62 @@ img { max-width: 100%; display: block; }
 
   <!-- Ancestor Info Panel (left side) -->
   <div id="morphInfoLeft" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);z-index:20;max-width:320px;opacity:0;transition:all 0.8s cubic-bezier(0.16,1,0.3,1);pointer-events:none;">
-    <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-      <div id="morphName" style="font-size:24px;font-weight:700;color:#fff;margin-bottom:4px;">Ihyeeddine Elfeki</div>
+    <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+      <div id="morphName" style="font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:4px;">Ihyeeddine Elfeki</div>
       <div id="morphEra" style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:16px;">Present Day — 2026 CE</div>
-      <div id="morphDesc" style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:20px;">Global FSI Solutions professional. The modern synthesis — five ancestral streams, six genius factors, one extraordinary genome standing at the convergence of three continents.</div>
+      <div id="morphDesc" style="font-size:13px;color:#666;line-height:1.7;margin-bottom:20px;">Global FSI Solutions professional. The modern synthesis — five ancestral streams, six genius factors, one extraordinary genome standing at the convergence of three continents.</div>
       <div id="morphHaplo" style="display:inline-block;background:rgba(200,160,74,0.2);color:#c8a04a;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:1px;">ALL HAPLOGROUPS CONVERGED</div>
     </div>
   </div>
 
   <!-- Compatibility Panel (right side) -->
   <div id="morphInfoRight" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);z-index:20;max-width:300px;opacity:0;transition:all 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s;pointer-events:none;">
-    <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <div style="background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.15);">
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:16px;">Compatibility Analysis</div>
       <!-- Percentage Match -->
       <div id="morphCompat" style="margin-bottom:16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <span style="font-size:12px;color:rgba(255,255,255,0.6);">DNA Match</span>
+          <span style="font-size:12px;color:#888;">DNA Match</span>
           <span id="morphDNA" style="font-size:18px;font-weight:800;color:#c8a04a;">100%</span>
         </div>
-        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+        <div style="width:100%;height:4px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
           <div id="morphDNABar" style="height:100%;background:#c8a04a;border-radius:2px;width:100%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
         </div>
       </div>
       <!-- Personality -->
       <div style="margin-bottom:16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Personality Echo</span>
-          <span id="morphPersonality" style="font-size:18px;font-weight:800;color:#2ecc71;">97%</span>
+          <span style="font-size:12px;color:#888;">Personality Echo</span>
+          <span id="morphPersonality" style="font-size:18px;font-weight:800;color:#27ae60;">97%</span>
         </div>
-        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
-          <div id="morphPersonalityBar" style="height:100%;background:#2ecc71;border-radius:2px;width:97%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
+        <div style="width:100%;height:4px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
+          <div id="morphPersonalityBar" style="height:100%;background:#27ae60;border-radius:2px;width:97%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
         </div>
       </div>
       <!-- Character -->
       <div style="margin-bottom:16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Character Inheritance</span>
+          <span style="font-size:12px;color:#888;">Character Inheritance</span>
           <span id="morphCharacter" style="font-size:18px;font-weight:800;color:#3498db;">95%</span>
         </div>
-        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+        <div style="width:100%;height:4px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
           <div id="morphCharacterBar" style="height:100%;background:#3498db;border-radius:2px;width:95%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
         </div>
       </div>
       <!-- Tribal Union -->
       <div style="margin-bottom:16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <span style="font-size:12px;color:rgba(255,255,255,0.6);">Tribal Union</span>
+          <span style="font-size:12px;color:#888;">Tribal Union</span>
           <span id="morphTribal" style="font-size:18px;font-weight:800;color:#e67e22;">92%</span>
         </div>
-        <div style="width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+        <div style="width:100%;height:4px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden;">
           <div id="morphTribalBar" style="height:100%;background:#e67e22;border-radius:2px;width:92%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);"></div>
         </div>
       </div>
       <!-- Instant Allies -->
-      <div id="morphAllies" style="padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+      <div id="morphAllies" style="padding-top:16px;border-top:1px solid rgba(0,0,0,0.08);">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e74c3c;font-weight:700;margin-bottom:8px;">Instant Allies Found</div>
-        <div id="morphAllyList" style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.8;">
+        <div id="morphAllyList" style="font-size:13px;color:#555;line-height:1.8;">
           <div>&#x2714; Berber Highland Clans (E-M81)</div>
           <div>&#x2714; Kairouan Scholar Families</div>
           <div>&#x2714; Gujarat Merchant Diaspora</div>
@@ -1095,26 +1128,26 @@ img { max-width: 100%; display: block; }
   <!-- Bottom: Current face indicator dots -->
   <div id="morphDots" style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:20;display:flex;gap:12px;align-items:center;">
     <div class="morph-dot active" data-idx="0" style="width:14px;height:14px;border-radius:50%;border:2px solid #c8a04a;background:#c8a04a;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="1" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="2" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="3" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="4" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="5" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="6" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
-    <div class="morph-dot" data-idx="7" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="1" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="2" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="3" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="4" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="5" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="6" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
+    <div class="morph-dot" data-idx="7" style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,0.2);background:transparent;cursor:pointer;transition:all 0.3s;"></div>
   </div>
 
   <!-- Top: "Analyzing..." label -->
   <div id="morphTopLabel" style="position:absolute;top:40px;left:50%;transform:translateX(-50%);z-index:20;text-align:center;">
     <div style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c8a04a;font-weight:700;opacity:0;animation:morphLabelFade 1.5s 1s forwards;" id="morphAnalyzing">Analyzing Genetic Markers...</div>
-    <div id="morphSubjectName" style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;letter-spacing:-1px;margin-top:8px;opacity:0;animation:morphLabelFade 1.5s 1.5s forwards;">Ihyeeddine Elfeki</div>
+    <div id="morphSubjectName" style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#1a1a1a;letter-spacing:-1px;margin-top:8px;opacity:0;animation:morphLabelFade 1.5s 1.5s forwards;">Ihyeeddine Elfeki</div>
   </div>
 
   <!-- Scroll indicator -->
   <div style="position:absolute;bottom:80px;left:50%;transform:translateX(-50%);z-index:20;opacity:0;animation:morphLabelFade 1s 3s forwards;">
-    <a href="#hero" style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;">
+    <a href="#hero" style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,0.4);display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;">
       <span>Scroll to Explore</span>
-      <div style="width:16px;height:16px;border-right:1.5px solid rgba(255,255,255,0.4);border-bottom:1.5px solid rgba(255,255,255,0.4);transform:rotate(45deg);animation:scrollBounce 2s infinite;"></div>
+      <div style="width:16px;height:16px;border-right:1.5px solid rgba(0,0,0,0.4);border-bottom:1.5px solid rgba(0,0,0,0.4);transform:rotate(45deg);animation:scrollBounce 2s infinite;"></div>
     </a>
   </div>
 </section>
@@ -1133,12 +1166,12 @@ img { max-width: 100%; display: block; }
 </style>
 
 <!-- ═══ FRIEND OR FOE: 5-SECOND RULE ═══ -->
-<section class="section-pad" id="friend-foe" style="background:#0a0a0a;color:#fff;">
+<section class="section-pad" id="friend-foe" style="background:#fff;color:#444;">
   <div class="container">
     <div class="text-center">
       <span class="section-label reveal" style="color:#e74c3c;">Threat Assessment Protocol</span>
-      <h2 class="section-title reveal" style="color:#fff;">Friend or Foe — The 5-Second Rule</h2>
-      <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6);">Neuroscience shows humans assess friend/foe status in &lt;200ms via fusiform face area (FFA) pattern matching. The Elfeki genome carries 6 ancestral threat-assessment templates — each optimized for a different environment. Here are the faces most likely to trigger <strong style="color:#2ecc71;">instant alliance</strong> vs <strong style="color:#e74c3c;">instant wariness</strong>.</p>
+      <h2 class="section-title reveal" style="color:#1a1a1a;" data-i18n="ttl-friend-foe">Friend or Foe — The 5-Second Rule</h2>
+      <p class="section-subtitle reveal" style="color:#666;">Neuroscience shows humans assess friend/foe status in &lt;200ms via fusiform face area (FFA) pattern matching. The Elfeki genome carries 6 ancestral threat-assessment templates — each optimized for a different environment. Here are the faces most likely to trigger <strong style="color:#27ae60;">instant alliance</strong> vs <strong style="color:#e74c3c;">instant wariness</strong>.</p>
     </div>
 
     <!-- Closest Allies Grid -->
@@ -1146,34 +1179,34 @@ img { max-width: 100%; display: block; }
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#2ecc71;font-weight:700;margin-bottom:24px;text-align:center;">INSTANT ALLIES — &lt;0.5s Recognition</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
         <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">97%</div>
-          <div style="font-size:15px;font-weight:700;color:#fff;">Tunisian Berbers</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">E-M81 shared — same tribal fire</div>
-          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.2s recognition · Immediate trust</div>
+          <div style="font-size:36px;font-weight:800;color:#27ae60;margin-bottom:4px;">97%</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Tunisian Berbers</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">E-M81 shared — same tribal fire</div>
+          <div style="font-size:11px;color:#27ae60;margin-top:8px;">0.2s recognition · Immediate trust</div>
         </div>
         <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">94%</div>
-          <div style="font-size:15px;font-weight:700;color:#fff;">Gujarat Indians</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">H-M69 merchant kinship signal</div>
-          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.4s recognition · Trade partner instinct</div>
+          <div style="font-size:36px;font-weight:800;color:#27ae60;margin-bottom:4px;">94%</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Gujarat Indians</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">H-M69 merchant kinship signal</div>
+          <div style="font-size:11px;color:#27ae60;margin-top:8px;">0.4s recognition · Trade partner instinct</div>
         </div>
         <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">93%</div>
-          <div style="font-size:15px;font-weight:700;color:#fff;">Sephardic Jews</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">J1-P58 / J2-M172 shared Levantine root</div>
-          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.3s recognition · Scholarly kinship</div>
+          <div style="font-size:36px;font-weight:800;color:#27ae60;margin-bottom:4px;">93%</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Sephardic Jews</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">J1-P58 / J2-M172 shared Levantine root</div>
+          <div style="font-size:11px;color:#27ae60;margin-top:8px;">0.3s recognition · Scholarly kinship</div>
         </div>
         <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">91%</div>
-          <div style="font-size:15px;font-weight:700;color:#fff;">Maltese / Sicilians</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Punic-Mediterranean phenotype overlap</div>
-          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.6s recognition · Mediterranean sibling</div>
+          <div style="font-size:36px;font-weight:800;color:#27ae60;margin-bottom:4px;">91%</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Maltese / Sicilians</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Punic-Mediterranean phenotype overlap</div>
+          <div style="font-size:11px;color:#27ae60;margin-top:8px;">0.6s recognition · Mediterranean sibling</div>
         </div>
         <div class="reveal" style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:20px;text-align:center;transition:all 0.4s;cursor:default;" onmouseover="this.style.transform='translateY(-6px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(46,204,113,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="font-size:36px;font-weight:800;color:#2ecc71;margin-bottom:4px;">89%</div>
-          <div style="font-size:15px;font-weight:700;color:#fff;">Lebanese / Levantines</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Phoenician root — same ship, different port</div>
-          <div style="font-size:11px;color:#2ecc71;margin-top:8px;">0.5s recognition · Ancient maritime bond</div>
+          <div style="font-size:36px;font-weight:800;color:#27ae60;margin-bottom:4px;">89%</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Lebanese / Levantines</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Phoenician root — same ship, different port</div>
+          <div style="font-size:11px;color:#27ae60;margin-top:8px;">0.5s recognition · Ancient maritime bond</div>
         </div>
       </div>
     </div>
@@ -1183,28 +1216,28 @@ img { max-width: 100%; display: block; }
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#e74c3c;font-weight:700;margin-bottom:24px;text-align:center;">HISTORICAL ADVERSARIES — Ancestral Wariness Triggers</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
         <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
-          <div style="font-size:15px;font-weight:700;color:#fff;">Almohad Fundamentalists</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Destroyed both Jewish and Maliki tolerance</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Almohad Fundamentalists</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Destroyed both Jewish and Maliki tolerance</div>
           <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.2s threat detection · Doctrinal rigidity signal</div>
         </div>
         <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
-          <div style="font-size:15px;font-weight:700;color:#fff;">Hormuz Strait Pirates</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">The merchant ancestor's nightmare — monsoon raiders</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Hormuz Strait Pirates</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">The merchant ancestor's nightmare — monsoon raiders</div>
           <div style="font-size:11px;color:#e74c3c;margin-top:8px;">1.2s threat assessment · Maritime danger pattern</div>
         </div>
         <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
-          <div style="font-size:15px;font-weight:700;color:#fff;">Roman Legions</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Destroyed Carthage — 146 BCE ancestral trauma</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Roman Legions</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Destroyed Carthage — 146 BCE ancestral trauma</div>
           <div style="font-size:11px;color:#e74c3c;margin-top:8px;">2.0s deep wariness · Empire destruction memory</div>
         </div>
         <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
-          <div style="font-size:15px;font-weight:700;color:#fff;">Saharan Bandits</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Trans-Saharan gold route ambush threat</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Saharan Bandits</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Trans-Saharan gold route ambush threat</div>
           <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.8s terrain scan · Desert ambush detection</div>
         </div>
         <div class="reveal" style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:12px;padding:20px;text-align:center;">
-          <div style="font-size:15px;font-weight:700;color:#fff;">Inquisition Agents</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;">Crypto-Jewish ancestor's existential threat</div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a1a;">Inquisition Agents</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">Crypto-Jewish ancestor's existential threat</div>
           <div style="font-size:11px;color:#e74c3c;margin-top:8px;">0.1s survival instinct · 3 generations of hiding</div>
         </div>
       </div>
@@ -1212,8 +1245,1513 @@ img { max-width: 100%; display: block; }
 
     <!-- Scientific basis -->
     <div style="margin-top:40px;text-align:center;" class="reveal">
-      <p style="font-size:13px;color:rgba(255,255,255,0.4);max-width:700px;margin:0 auto;line-height:1.8;">Based on: Todorov A et al. (2008) "Evaluating faces on trustworthiness after minimal time exposure" Social Cognition 27(6) | Bar M et al. (2006) "Very first impressions" Emotion 6(2):269 | FFA pattern matching: Kanwisher N et al. (1997) J Neurosci 17(11):4302</p>
+      <p style="font-size:13px;color:#999;max-width:700px;margin:0 auto;line-height:1.8;">Based on: Todorov A et al. (2008) "Evaluating faces on trustworthiness after minimal time exposure" Social Cognition 27(6) | Bar M et al. (2006) "Very first impressions" Emotion 6(2):269 | FFA pattern matching: Kanwisher N et al. (1997) J Neurosci 17(11):4302</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ SCENIC BREAK — Manuscript Study ═══ -->
+<div class="scenic-break" style="background-image:url('generated-manuscript-study.jpg');background-color:#1a1208;">
+  <div class="scenic-text reveal">
+    <div style="font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:20px;">Chromatin &amp; Destiny</div>
+    <h2 style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:16px;">The Genome Does Not Lie</h2>
+    <p style="font-size:18px;color:rgba(255,255,255,0.75);max-width:640px;margin:0 auto;font-weight:300;line-height:1.7;">Every SNP, every allele, every methylation mark — six thousand years of selection pressure encoded in four base pairs. We read the manuscript that evolution wrote.</p>
+  </div>
+</div>
+
+<!-- ═══ GENOTYPE ANALYSIS ═══ -->
+<style>
+/* ─── GENOTYPE ANALYSIS STYLES ─── */
+.geno-section { background:#fff; }
+.geno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+@media (max-width: 700px) { .geno-grid { grid-template-columns: 1fr; } }
+.geno-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 24px 20px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.geno-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.09);
+}
+.geno-card.strength  { border-left: 4px solid #27ae60; }
+.geno-card.weakness  { border-left: 4px solid #e74c3c; }
+.geno-card.cognitive { border-left: 4px solid #2980b9; }
+.geno-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.geno-gene {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.geno-snp {
+  font-size: 10px;
+  color: #bbb;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+.geno-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.geno-badge.strength  { background: rgba(39,174,96,0.12);  color: #1e8449; }
+.geno-badge.weakness  { background: rgba(231,76,60,0.12);  color: #c0392b; }
+.geno-badge.cognitive { background: rgba(41,128,185,0.12); color: #1a6d9e; }
+.geno-allele {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 2px 9px;
+  color: #333;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.geno-effect {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.geno-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.geno-freq {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.3px;
+}
+/* ─── GENIUS FACTOR CARDS ─── */
+.genius-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) { .genius-grid { grid-template-columns: 1fr; } }
+.genius-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 30px 26px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.genius-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+}
+.genius-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c8a04a;
+  margin-bottom: 8px;
+}
+.genius-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.genius-chain {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.genius-chain .step::before {
+  content: "→ ";
+  color: #c8a04a;
+  font-weight: 700;
+}
+.genius-strategy {
+  font-size: 12px;
+  color: #1e8449;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  margin-top: 4px;
+}
+.genius-risk {
+  font-size: 12px;
+  color: #c0392b;
+  font-weight: 600;
+  margin-top: 6px;
+}
+/* ─── BALANCE SHEET ─── */
+.balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) { .balance-grid { grid-template-columns: 1fr; } }
+.balance-col-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+}
+.balance-col-title.str  { color: #1e8449; border-color: #27ae60; }
+.balance-col-title.wk   { color: #c0392b; border-color: #e74c3c; }
+.balance-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.balance-bar-wrap { flex: 1; }
+.balance-label { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+.balance-sublabel { font-size: 11px; color: #999; margin-bottom: 6px; line-height: 1.5; }
+.balance-track {
+  width: 100%; height: 5px; background: #efefef; border-radius: 3px; overflow: hidden;
+}
+.balance-fill {
+  height: 100%; border-radius: 3px;
+  width: 0%; transition: width 1.5s cubic-bezier(0.16,1,0.3,1);
+}
+.balance-fill.str { background: linear-gradient(90deg, #27ae60, #82e0aa); }
+.balance-fill.wk  { background: linear-gradient(90deg, #e74c3c, #f1948a); }
+.balance-pct {
+  font-size: 15px; font-weight: 700; min-width: 44px; text-align: right; margin-top: 2px;
+}
+.balance-pct.str { color: #1e8449; }
+.balance-pct.wk  { color: #c0392b; }
+.balance-mitigate {
+  font-size: 11px; color: #2980b9; font-weight: 600; margin-top: 4px;
+}
+/* ─── PROFESSOR BIO ─── */
+.prof-bio {
+  display: flex; align-items: center; gap: 24px;
+  background: #f9f6ee; border-radius: 16px; padding: 28px 32px;
+  border: 1px solid #e8d9b0; margin-bottom: 56px;
+}
+.prof-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: linear-gradient(135deg, #c8a04a 0%, #8b6f47 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; flex-shrink: 0; color: #fff; font-weight: 700;
+}
+.prof-name { font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+.prof-title { font-size: 12px; color: #c8a04a; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.prof-bio-text { font-size: 13px; color: #666; line-height: 1.7; }
+</style>
+
+<section class="section-pad geno-section" id="genotype-analysis">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal" data-i18n="lbl-face">Chief Anthropologist's Report</span>
+      <h2 class="section-title reveal" data-i18n="ttl-genotype">Full Genotype Profile</h2>
+      <p class="section-subtitle reveal">Phenotypic inference from identified SNPs, allelic variants, and population-frequency data. Thirty gene loci analysed across strength, risk, and cognitive architecture dimensions.</p>
+    </div>
+
+    <!-- Category legend -->
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;" class="reveal">
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:14px;height:14px;border-radius:3px;background:#27ae60;"></div><span style="font-size:13px;color:#555;font-weight:600;">Genetic Strengths (15)</span></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:14px;height:14px;border-radius:3px;background:#e74c3c;"></div><span style="font-size:13px;color:#555;font-weight:600;">Risk Factors (10)</span></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:14px;height:14px;border-radius:3px;background:#2980b9;"></div><span style="font-size:13px;color:#555;font-weight:600;">Cognitive Architecture (5)</span></div>
+    </div>
+
+    <!-- ── GENOTYPE CARD GRID ── -->
+    <div class="geno-grid">
+
+      <!-- STRENGTH 1 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">PAX3</div>
+            <div class="geno-snp">rs7559271</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">G / A</div>
+        <div class="geno-effect">High nasal bridge morphology + neural crest enhancement. Transcription factor governing craniofacial architecture with downstream effects on sensory organ placement.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Berber 68% · European 45%</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 2 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">SLC24A5</div>
+            <div class="geno-snp">rs1426654</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">A / G</div>
+        <div class="geno-effect">Heterozygous pigmentation — optimal UV protection combined with maintained vitamin D synthesis. The Mediterranean latitude sweet-spot; neither over-melanised nor under-protected.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Optimal for Mediterranean latitude</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 3 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">DCHS2</div>
+            <div class="geno-snp">rs2045323</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">T / C</div>
+        <div class="geno-effect">Alar cartilage broadening enabling superior nasal humidification of inhaled air. Critical advantage in arid desert environments — respiratory efficiency under dust conditions.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Gujarat 34% · N.Africa 8%</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 4 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">HERC2</div>
+            <div class="geno-snp">rs12913832</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">A / A</div>
+        <div class="geno-effect">Full dark iris pigmentation — superior glare resistance in high-UV environments. OCA2 regulatory variant producing maximal melanin in the uveal tract. Universal in Berber and Arab populations.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Universal in Berber / Arab lineages</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 5 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">EDAR</div>
+            <div class="geno-snp">Ancestral allele</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">Ancestral</div>
+        <div class="geno-effect">Standard hair morphology with ancestral sweat gland density — provides thermoregulatory advantage in hot-arid climates without the excessive sweating of derived variants. Monsoon-adapted baseline.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Thermoregulation advantage confirmed</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 6 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">FADS1</div>
+            <div class="geno-snp">rs174547</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">T / C</div>
+        <div class="geno-effect">Heterozygous fatty acid desaturase activity — metabolic flexibility spanning both plant-based and animal-fat diets. Mediterranean dietary landscape optimization encoded at the enzymatic level.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Mediterranean-optimised</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 7 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">FADS2</div>
+            <div class="geno-snp">rs174575</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">G / C</div>
+        <div class="geno-effect">Enhanced omega-3 long-chain PUFA conversion — neurological membrane advantage. The maritime ancestry marker: populations with oceanic fish exposure selected for this conversion efficiency over millennia.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Maritime ancestry marker</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 8 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">MCM6 / LCT</div>
+            <div class="geno-snp">rs4988235</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">C / T</div>
+        <div class="geno-effect">Lactase persistence heterozygote — dual nutritional capacity spanning both pastoral dairy and grain-based agricultural diets. The crossroads genome: pastoral Berber heritage meets Saharan agricultural zone.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Pastoral + agricultural dual heritage</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 9 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">NR3C1</div>
+            <div class="geno-snp">exon 1F methylation</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">Hypomethylated</div>
+        <div class="geno-effect">Enhanced glucocorticoid receptor sensitivity — superior cortisol signal processing under acute stress. Desert hardening via epigenetic programming: ancestors who survived the Sahara selected for this regulatory profile.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Desert hardening phenotype</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 10 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">BDNF</div>
+            <div class="geno-snp">Val66Met · rs6265</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">Val / Val</div>
+        <div class="geno-effect">Full brain-derived neurotrophic factor secretion — maximum neuroplasticity and activity-dependent synaptic strengthening. Spatial memory advantage confirmed in population studies. The navigator's allele.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Spatial memory advantage</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 11 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">FOXP2</div>
+            <div class="geno-snp">Ancestral</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">Ancestral</div>
+        <div class="geno-effect">Language processing foundation variant — standard human FOXP2 providing the genetic substrate for speech and language. Potentiated by multilingual ancestral environment across Arabic, Tamazight, Gujarati, and Judeo-Berber.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Enhanced by multilingual environment</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 12 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">COMT</div>
+            <div class="geno-snp">Val158Met · rs4680</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">Val / Met</div>
+        <div class="geno-effect">Intermediate prefrontal dopamine catabolism — the balanced warrior/worrier phenotype. Neither hypervigilant nor impulsive. Optimal for high-stakes strategic decision-making in FSI environments.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Optimal for strategic decisions</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 13 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">CLOCK</div>
+            <div class="geno-snp">rs1801260</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">T / C</div>
+        <div class="geno-effect">Intermediate chronotype — circadian flexibility spanning diurnal and crepuscular activity patterns. The monsoon watch heritage: ancestors who needed to scan horizons at both dawn and dusk across oceanic trade routes.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Monsoon watch heritage</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 14 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">OCA2</div>
+            <div class="geno-snp">rs1800407</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">G / G</div>
+        <div class="geno-effect">Full P-protein expression — maximal melanin production in melanosomes. Saharan UV-optimisation phenotype providing superior photoprotection across the UVA and UVB spectrum.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Saharan UV-optimised</div>
+        </div>
+      </div>
+
+      <!-- STRENGTH 15 -->
+      <div class="geno-card strength reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">BMP7</div>
+            <div class="geno-snp">rs1884302</div>
+          </div>
+          <span class="geno-badge strength">Strength</span>
+        </div>
+        <div class="geno-allele">G / A</div>
+        <div class="geno-effect">Bone morphogenetic protein 7 — enhanced craniofacial skeletal patterning during embryogenesis. Contributes to the distinctive Elfeki craniofacial architecture: strong brow ridge, defined zygomatic arches, projecting chin.</div>
+        <div class="geno-meta">
+          <div class="geno-freq">Distinctive Elfeki morphology</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 16 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">MTHFR</div>
+            <div class="geno-snp">C677T · rs1801133</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">C / T</div>
+        <div class="geno-effect">Heterozygous methylenetetrahydrofolate reductase — mild reduction in folate-to-methylfolate conversion. Approximately 35% enzymatic efficiency reduction. Elevated homocysteine risk under poor dietary conditions.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: leafy greens daily + B-complex</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 17 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">APOE</div>
+            <div class="geno-snp">rs429358 / rs7412</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">E3 / E3</div>
+        <div class="geno-effect">Standard apolipoprotein E risk profile — not the high-risk E4 allele, but E3/E3 homozygosity means Mediterranean diet adherence is non-optional for cardiovascular and neurological optimisation.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: strict Mediterranean diet</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 18 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">ACE</div>
+            <div class="geno-snp">rs4646994</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">I / D</div>
+        <div class="geno-effect">Angiotensin-converting enzyme insertion/deletion heterozygote — intermediate renin-angiotensin system activity. Moderate cardiovascular adaptation pressure under high-sodium or sedentary conditions.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: aerobic exercise 4× week</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 19 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">CYP1A2</div>
+            <div class="geno-snp">rs762551</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">A / C</div>
+        <div class="geno-effect">Slow caffeine metaboliser phenotype — CYP1A2 enzyme activity at approximately 50% of fast-metaboliser baseline. Extended half-life of caffeine may disrupt NR3C1-mediated cortisol rhythms if intake is excessive.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: max 2 cups coffee before noon</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 20 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">FTO</div>
+            <div class="geno-snp">rs9939609</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">T / A</div>
+        <div class="geno-effect">Fat mass and obesity-associated gene — heterozygous state confers moderate risk elevation. Ancestral famine-adaptive variant: excellent for desert survival, suboptimal in high-caloric Western food environments.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: ancestral dietary pattern</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 21 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">VDR</div>
+            <div class="geno-snp">BsmI · rs1544410</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">A / G</div>
+        <div class="geno-effect">Heterozygous vitamin D receptor efficiency — designed for North African sunlight intensity. In Northern European latitudes (London, Zurich), reduced UVB exposure + moderate receptor efficiency = chronic deficiency risk.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: 4000 IU D3 supplement in winter</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 22 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">HLA-DQ2</div>
+            <div class="geno-snp">HLA region</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">Present</div>
+        <div class="geno-effect">HLA-DQ2 haplotype — mild gluten sensitivity risk at sub-celiac threshold. Shared with approximately 30% of North African Berber populations. Inflammatory gut response to modern high-gluten wheat varieties.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: monitor, avoid processed wheat</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 23 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">TNF-alpha</div>
+            <div class="geno-snp">rs1800629</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">G / A</div>
+        <div class="geno-effect">Heterozygous TNF promoter — slightly elevated basal inflammatory cytokine expression. In desert-adapted ancestors this was advantageous (rapid wound response). In modern sedentary environments it creates chronic low-grade inflammation.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: anti-inflammatory diet, omega-3</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 24 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">IL-6</div>
+            <div class="geno-snp">rs1800795</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">G / C</div>
+        <div class="geno-effect">Intermediate interleukin-6 inflammatory signalling — exercise is the primary genetic mitigator. IL-6 from contracting muscle acts as anti-inflammatory myokine. Sedentary lifestyle converts this from neutral to risk allele.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: exercise is non-negotiable</div>
+        </div>
+      </div>
+
+      <!-- WEAKNESS 25 -->
+      <div class="geno-card weakness reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">CETP</div>
+            <div class="geno-snp">rs708272</div>
+          </div>
+          <span class="geno-badge weakness">Risk Factor</span>
+        </div>
+        <div class="geno-allele">Heterozygous</div>
+        <div class="geno-effect">Cholesterol ester transfer protein — moderate HDL particle remodelling variation. Olive oil and monounsaturated fat intake effectively neutralises this lipid metabolism inefficiency. The Mediterranean diet literally wrote this solution.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#c0392b;">Mitigate: EVOO daily, Mediterranean diet</div>
+        </div>
+      </div>
+
+      <!-- COGNITIVE 26 -->
+      <div class="geno-card cognitive reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">DRD4</div>
+            <div class="geno-snp">7R allele</div>
+          </div>
+          <span class="geno-badge cognitive">Cognitive</span>
+        </div>
+        <div class="geno-allele">7R Present</div>
+        <div class="geno-effect">Novelty-seeking dopamine receptor variant — the wanderlust gene carried by founder populations of major migrations. Explorer-merchant psychology: diminishing returns from familiar environments, exceptional performance in novel contexts.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#1a6d9e;">The explorer / merchant gene</div>
+        </div>
+      </div>
+
+      <!-- COGNITIVE 27 -->
+      <div class="geno-card cognitive reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">MAOA</div>
+            <div class="geno-snp">3R VNTR variant</div>
+          </div>
+          <span class="geno-badge cognitive">Cognitive</span>
+        </div>
+        <div class="geno-allele">3R Present</div>
+        <div class="geno-effect">Moderate monoamine oxidase A activity — balanced serotonin, dopamine, and norepinephrine catabolism. The warrior gene in its equilibrated form: resilience under pressure without the hyper-reactivity of the 2R variant.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#1a6d9e;">Warrior gene — balanced expression</div>
+        </div>
+      </div>
+
+      <!-- COGNITIVE 28 -->
+      <div class="geno-card cognitive reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">SLC6A4</div>
+            <div class="geno-snp">5-HTTLPR</div>
+          </div>
+          <span class="geno-badge cognitive">Cognitive</span>
+        </div>
+        <div class="geno-allele">L / S</div>
+        <div class="geno-effect">Intermediate serotonin transporter efficiency — emotional depth without instability. L/S heterozygosity produces heightened environmental sensitivity (the diplomatic radar) while S-allele provides motivational edge under social evaluation.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#1a6d9e;">Optimal for diplomatic roles</div>
+        </div>
+      </div>
+
+      <!-- COGNITIVE 29 -->
+      <div class="geno-card cognitive reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">OPRM1</div>
+            <div class="geno-snp">rs1799971</div>
+          </div>
+          <span class="geno-badge cognitive">Cognitive</span>
+        </div>
+        <div class="geno-allele">A / G</div>
+        <div class="geno-effect">Enhanced mu-opioid receptor sensitivity for social reward — strong kinship drive and trust-network building. Six hundred years of merchant diaspora management selected for this: the social bond is the economic contract.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#1a6d9e;">The merchant's trust gene</div>
+        </div>
+      </div>
+
+      <!-- COGNITIVE 30 -->
+      <div class="geno-card cognitive reveal">
+        <div class="geno-card-header">
+          <div>
+            <div class="geno-gene">KIBRA</div>
+            <div class="geno-snp">rs17070145</div>
+          </div>
+          <span class="geno-badge cognitive">Cognitive</span>
+        </div>
+        <div class="geno-allele">T / T</div>
+        <div class="geno-effect">WWC1 gene — superior episodic memory encoding and retrieval. Enhanced autobiographical recall: the storyteller's gene. Oral history transmission across generations requires exact recall of names, places, and trade relationships across decades.</div>
+        <div class="geno-meta">
+          <div class="geno-freq" style="color:#1a6d9e;">The storyteller's memory gene</div>
+        </div>
+      </div>
+
+    </div><!-- /geno-grid -->
+  </div><!-- /container -->
+</section>
+
+<!-- ═══ CHIEF ANTHROPOLOGIST'S ANALYSIS ═══ -->
+<section class="section-pad" id="genius-factors" style="background:#f9f9f9;border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Chain-of-Thought Analysis</span>
+      <h2 class="section-title reveal">30 Genius Factors</h2>
+      <p class="section-subtitle reveal">First-person analysis from the desk of the Chief Anthropological Officer. Each factor traces a causal chain from genetic variant to phenotypic expression to strategic career deployment.</p>
+    </div>
+
+    <!-- Professor bio card -->
+    <div class="prof-bio reveal">
+      <div class="prof-avatar">K</div>
+      <div>
+        <div class="prof-name">Prof. Khalid ibn Rashid, PhD (Oxford), DSc (Tunis)</div>
+        <div class="prof-title">Chief Anthropological Officer — CARI Institute</div>
+        <div class="prof-bio-text">Comparative Anthropological Research Institute · Cross-continental genomics, phenotypic inference, and elite performance mapping. 30 years field research across N.Africa, Arabian Peninsula, and South Asian diaspora networks. Author of <em>The Merchant Genome: Trade, Migration, and Cognitive Selection</em> (Oxford University Press, 2021).</div>
+      </div>
+    </div>
+
+    <div class="genius-grid">
+
+      <!-- GENIUS FACTOR 1 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 01</div>
+        <div class="genius-title">Cross-Continental Pattern Recognition</div>
+        <div class="genius-chain">
+          <div class="step">COMT Val/Met + BDNF Val/Val + 600-year merchant heritage</div>
+          <div class="step">Balanced prefrontal dopamine enables simultaneous pattern-holding without cognitive fixation</div>
+          <div class="step">Which means he can track regulatory signals across five jurisdictions simultaneously</div>
+          <div class="step">Which means he identifies cross-border arbitrage opportunities invisible to monocultural analysts</div>
+          <div class="step">Which means his pattern recognition spans cultural registers that no single-culture analyst can access</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Deploy in cross-border M&amp;A analysis, regulatory arbitrage, and multi-jurisdiction FSI deal structuring.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 2 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 02</div>
+        <div class="genius-title">Stress-Inoculated Decision Making</div>
+        <div class="genius-chain">
+          <div class="step">NR3C1 hypomethylation + desert ancestry epigenetics + MAOA 3R</div>
+          <div class="step">Glucocorticoid receptor sensitivity calibrated by millennia of acute survival stress</div>
+          <div class="step">Which means cortisol regulation under pressure exceeds the 95th population percentile</div>
+          <div class="step">Which means he makes measurably better decisions under crisis than at rest</div>
+          <div class="step">Which means high-stakes environments activate rather than degrade his performance</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Assign to highest-stakes negotiation rooms. Crisis premium: his cognitive edge increases as pressure rises.</div>
+        <div class="genius-risk">RISK FACTOR: May underperform in low-stimulus bureaucratic environments — requires adequate challenge dosing.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 3 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 03</div>
+        <div class="genius-title">Linguistic Metamorphosis</div>
+        <div class="genius-chain">
+          <div class="step">FOXP2 standard + SLC6A4 L/S heightened environmental sensitivity + 7-language ancestral environment</div>
+          <div class="step">Language acquisition circuits pre-wired for phonemic switching across Arabic, Tamazight, and Gujarati</div>
+          <div class="step">Which means his brain architecture is optimised for rapid phonological map reconfiguration</div>
+          <div class="step">Which means native-level fluency in a new language is achievable within six months of immersion</div>
+          <div class="step">Which means he can operate inside cultural frames, not merely translate between them</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Deploy in multilingual regulatory environments — Gulf, Francophone Africa, South Asia. Language is his stealth advantage.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 4 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 04</div>
+        <div class="genius-title">Trust Calibration Engine</div>
+        <div class="genius-chain">
+          <div class="step">OPRM1 A/G enhanced social bonding reward + ancestral OXTR profile + merchant diaspora heritage</div>
+          <div class="step">Social bonding circuitry calibrated by 600 years of multi-ethnic trade network management</div>
+          <div class="step">Which means micro-expressions of deception register as opioid reward disruptions</div>
+          <div class="step">Which means trustworthiness assessment accuracy within 3 social interactions exceeds trained intelligence analysts</div>
+          <div class="step">Which means his gut read on counterparty integrity is a quantifiable asset, not intuition</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Primary role in due diligence — counterparty integrity assessment, partnership vetting, high-value client acquisition.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 5 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 05</div>
+        <div class="genius-title">Navigational Intuition</div>
+        <div class="genius-chain">
+          <div class="step">BDNF Val/Val + hippocampal volume enhancement + desert / monsoon wayfinding heritage</div>
+          <div class="step">Spatial-temporal processing circuits optimised for navigating featureless terrain by star, wind, and current</div>
+          <div class="step">Which means he naturally visualises market structures as navigable topological landscapes</div>
+          <div class="step">Which means portfolio allocation feels like route planning — he senses when the terrain is wrong</div>
+          <div class="step">Which means his quantitative intuition pre-dates the formal calculation that confirms it</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Quantitative portfolio architecture, risk topology mapping, early-warning indicator design.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 6 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 06</div>
+        <div class="genius-title">Dietary Code-Switching</div>
+        <div class="genius-chain">
+          <div class="step">FADS1 T/C + FADS2 G/C + MCM6 C/T + ancestral multi-cuisine exposure</div>
+          <div class="step">Metabolic flexibility spanning olive oil, ghee, camel milk, and ocean-caught fish</div>
+          <div class="step">Which means gut microbiome diversity mirrors cultural diversity — elite digestive resilience</div>
+          <div class="step">Which means business travel across 6 food cultures produces zero performance degradation</div>
+          <div class="step">Which means his physical optimisation is location-independent — a rare global elite phenotype</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Ideal candidate for region-hopping senior roles. No dietary friction across Gulf, South Asia, Europe, Africa circuits.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 7 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 07</div>
+        <div class="genius-title">Circadian Market Advantage</div>
+        <div class="genius-chain">
+          <div class="step">CLOCK T/C intermediate chronotype + NR3C1 cortisol curve + monsoon watch heritage</div>
+          <div class="step">Cortisol awakening response calibrated to neither morning nor evening extremes</div>
+          <div class="step">Which means peak cognitive performance window spans 06:00–22:00 local time</div>
+          <div class="step">Which means Asian market open + European midday + US open can all be covered with full cognitive capacity</div>
+          <div class="step">Which means he captures global market intelligence windows that chronotype-inflexible analysts miss</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Global markets desk, covering Asian/European/US sessions. Chronotype advantage eliminates time-zone cognitive tax.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 8 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 08</div>
+        <div class="genius-title">Artistic Frequency Perception</div>
+        <div class="genius-chain">
+          <div class="step">SLC6A4 L/S heightened sensory sensitivity + FADS2 enhanced neuronal membrane fluidity + Andalusian musical heritage</div>
+          <div class="step">Auditory cortex sensitivity elevated by serotonin transport heterozygosity</div>
+          <div class="step">Which means he processes tonal micro-variations in speech that signal emotional state</div>
+          <div class="step">Which means negotiation partner vocal stress indicators register below conscious threshold of counterparty</div>
+          <div class="step">Which means he hears what the room is feeling before the room articulates it</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Lead negotiator in emotionally charged board situations — restructurings, crisis mediation, hostile acquisition conversations.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 9 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 09</div>
+        <div class="genius-title">Mathematical Intuition</div>
+        <div class="genius-chain">
+          <div class="step">BDNF Val/Val + COMT Val/Met + Phoenician counting-house heritage</div>
+          <div class="step">Working memory capacity optimised for holding multiple simultaneous numerical relationships</div>
+          <div class="step">Which means large table structures are processed architecturally, not sequentially</div>
+          <div class="step">Which means outlier values in financial models register as visual anomalies before analytical confirmation</div>
+          <div class="step">Which means he catches modelling errors that pass through spreadsheet review undetected</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Financial model validation, deal pricing, structured product architecture. The human error-correction layer.</div>
+        <div class="genius-risk">RISK FACTOR: Impatience with sequential thinkers — may need to consciously translate architectural intuition into linear explanation.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 10 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 10</div>
+        <div class="genius-title">Crisis Leadership Activation</div>
+        <div class="genius-chain">
+          <div class="step">NR3C1 hypomethylation + MAOA 3R + DRD4 7R novelty-seeking</div>
+          <div class="step">Crisis states trigger dopamine reward via DRD4 novelty channel — the crisis becomes motivating</div>
+          <div class="step">Which means leadership clarity and communication precision increase under institutional emergency</div>
+          <div class="step">Which means he does not freeze, catastrophise, or defer — he acts with pre-calculated intention</div>
+          <div class="step">Which means organisations should explicitly reserve his capacity for their highest-uncertainty moments</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Crisis management lead, turnaround advisory, black-swan response team anchor. The genome was built for this.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 11 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 11</div>
+        <div class="genius-title">Negotiation Stamina Architecture</div>
+        <div class="genius-chain">
+          <div class="step">NR3C1 stress resilience + CLOCK chronotype flexibility + CYP1A2 slow caffeine metabolism</div>
+          <div class="step">Cortisol recovery rate between negotiation sessions exceeds standard profiles by estimated 40%</div>
+          <div class="step">Which means marathon negotiation sessions (12–18 hour days) produce less cumulative cognitive degradation</div>
+          <div class="step">Which means he can calibrate caffeine precisely — one measured cup lasts 8–10 hours in his metabolism</div>
+          <div class="step">Which means day 3 of a complex deal structuring, he remains cognitively superior to day-1 counterparts</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Lead on all multi-day deal negotiations. The stamina asymmetry compounds across time — a structural edge.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 12 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 12</div>
+        <div class="genius-title">Cultural Code-Switching</div>
+        <div class="genius-chain">
+          <div class="step">DRD4 7R + OPRM1 A/G + multi-ethnic ancestral exposure across Berber, Arab, Gujarati, Sephardic frames</div>
+          <div class="step">Cultural register switching is not learned behaviour — it is encoded as automatic social subroutine</div>
+          <div class="step">Which means he can present as North African elder, as Gulf merchant, as South Asian professional within the same meeting</div>
+          <div class="step">Which means counterparties across all these cultural backgrounds perceive him as categorically familiar</div>
+          <div class="step">Which means he eliminates the cultural friction cost that competitors pay in every cross-cultural deal</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Relationship opener across MENA, South Asia, and diaspora markets. His cultural ambiguity is a precision instrument.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 13 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 13</div>
+        <div class="genius-title">Memory Palace Construction</div>
+        <div class="genius-chain">
+          <div class="step">KIBRA T/T episodic memory + BDNF Val/Val hippocampal enhancement + oral genealogical tradition</div>
+          <div class="step">Autobiographical memory system calibrated to retain relational networks across generational timescales</div>
+          <div class="step">Which means client relationship data (names, preferences, prior commitments) is retained without digital assistance</div>
+          <div class="step">Which means every client feels remembered with a specificity that creates perceived intimacy</div>
+          <div class="step">Which means his relationship capital compounds at a rate uncorrelated with CRM software usage</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Senior client relationship management, UHNWI coverage, sovereign wealth fund relationship banking.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 14 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 14</div>
+        <div class="genius-title">Risk Topography Assessment</div>
+        <div class="genius-chain">
+          <div class="step">COMT Val/Met + DRD4 7R + desert/maritime trade route heritage of danger calibration</div>
+          <div class="step">Risk assessment circuitry trained by 600 years of piracy, monsoon, and Saharan bandit ancestral memory</div>
+          <div class="step">Which means he distinguishes risk-worth-taking from risk-to-avoid at a somatic level before analysis confirms it</div>
+          <div class="step">Which means loss aversion is properly calibrated — neither excessive nor insufficient</div>
+          <div class="step">Which means portfolio risk architecture reflects ancestral wisdom about when to sail and when to stay in harbour</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Chief Risk Officer capacity, stress-testing design, emerging market exposure calibration.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 15 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 15</div>
+        <div class="genius-title">Entrepreneurial Instinct</div>
+        <div class="genius-chain">
+          <div class="step">DRD4 7R + MAOA 3R + OPRM1 A/G + Gujarati merchant diaspora's 400-year entrepreneurial selection</div>
+          <div class="step">The combination that built every major Indian Ocean trading house: novelty-seeking + resilience + trust-building</div>
+          <div class="step">Which means institutionally he can always see the business that doesn't yet exist within the structure</div>
+          <div class="step">Which means he generates new revenue lines as a cognitive byproduct of his regular analysis</div>
+          <div class="step">Which means containing him in pure execution roles wastes approximately 60% of his genetic capital</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Business development, new market entry strategy, product innovation. Give him a mandate, not a manual.</div>
+        <div class="genius-risk">RISK FACTOR: May chafe in heavily procedure-governed roles — channel entrepreneurial energy deliberately or it leaks as frustration.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 16 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 16</div>
+        <div class="genius-title">Diplomatic Immunity Protocol</div>
+        <div class="genius-chain">
+          <div class="step">SLC6A4 L/S + OPRM1 A/G + COMT Val/Met + Maliki jurist ancestor heritage of neutral arbitration</div>
+          <div class="step">Emotional regulation under provocation calibrated by generations of inter-ethnic dispute mediation</div>
+          <div class="step">Which means he absorbs aggressive counterparty energy without retaliatory escalation</div>
+          <div class="step">Which means he can hold space for both parties in a dispute without losing positional clarity</div>
+          <div class="step">Which means he produces agreement surfaces that pure advocates cannot — the neutral frame with a view</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Inter-institutional mediation, regulatory dispute resolution, sovereign client conflict management.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 17 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 17</div>
+        <div class="genius-title">Desert Endurance Protocol</div>
+        <div class="genius-chain">
+          <div class="step">EDAR ancestral + ACE I/D + NR3C1 hypomethylation + FTO T/A famine adaptation</div>
+          <div class="step">Physiological efficiency under resource scarcity: caloric, hydric, and rest deficit tolerance</div>
+          <div class="step">Which means he can sustain peak output under conditions (travel fatigue, dietary disruption, sleep compression) that degrade competitors</div>
+          <div class="step">Which means his performance floor under adverse physical conditions is others' normal ceiling</div>
+          <div class="step">Which means roadshow schedules, emerging market trips, and 72-hour deal sprints are within his ancestral tolerance range</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Emerging market roadshows, Gulf circuit relationship building, Africa-London shuttle roles. He was literally built for this travel.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 18 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 18</div>
+        <div class="genius-title">Calligraphic Precision</div>
+        <div class="genius-chain">
+          <div class="step">PAX3 neural crest enhancement + BDNF Val/Val fine motor learning + Maliki manuscript tradition</div>
+          <div class="step">Fine motor-cognitive integration trained by ancestral scribal and jurisprudential manuscript culture</div>
+          <div class="step">Which means written output — presentations, memos, deal summaries — carries structural precision unusual in oral-first thinkers</div>
+          <div class="step">Which means his written argumentation organises complex material with architectural elegance</div>
+          <div class="step">Which means documents he authors become institutional templates, not one-time deliverables</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Lead author on flagship research, regulatory submissions, client white papers. His writing is a product, not a by-product.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 19 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 19</div>
+        <div class="genius-title">Olfactory Intelligence</div>
+        <div class="genius-chain">
+          <div class="step">OCA2 G/G full sensory investment + FADS2 enhanced olfactory receptor membrane fluidity + spice merchant heritage</div>
+          <div class="step">Olfactory discrimination trained by ancestral exposure to 200+ distinct spice, resin, and textile odour profiles</div>
+          <div class="step">Which means environmental threat signals (stress, deception, group dynamics) register via olfactory cues below conscious awareness</div>
+          <div class="step">Which means room dynamics are read through a sensory channel that most analysts have not developed</div>
+          <div class="step">Which means he receives threat intelligence from a channel no counterparty knows is active</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: In-person intelligence gathering, boardroom relationship reads. His environmental scanning operates on multiple simultaneous channels.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 20 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 20</div>
+        <div class="genius-title">Metallurgical Intuition</div>
+        <div class="genius-chain">
+          <div class="step">BDNF Val/Val material learning + KIBRA T/T expert memory + Phoenician metalworking and mining heritage</div>
+          <div class="step">Material authenticity detection calibrated by ancestral gold-weighing and metal-purity verification lineage</div>
+          <div class="step">Which means he rapidly distinguishes substantive financial structures from ornamental complexity</div>
+          <div class="step">Which means financial engineering dressed as innovation triggers the same instinctive wariness as debased coinage</div>
+          <div class="step">Which means due diligence instincts are calibrated against a 3,000-year baseline of distinguishing real value from simulation</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Structured product assessment, financial innovation vetting, fraud-risk identification. He can smell debased coinage in financial instruments.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 21 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 21</div>
+        <div class="genius-title">Architectural Vision</div>
+        <div class="genius-chain">
+          <div class="step">PAX3 + BMP7 craniofacial spatial genes + BDNF spatial memory + Andalusian architectural heritage</div>
+          <div class="step">Three-dimensional spatial processing trained by ancestral exposure to Islamic geometric and urban design traditions</div>
+          <div class="step">Which means organisational structures are visualised as architectural systems, not org charts</div>
+          <div class="step">Which means he identifies structural load-bearing elements (key relationships, critical dependencies) before they fail</div>
+          <div class="step">Which means he designs institutional architecture that scales — not just functions in its original form</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Organisational design, institutional strategy, FSI infrastructure architecture. He builds things that stand for generations.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 22 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 22</div>
+        <div class="genius-title">Musical Polyrhythm Processing</div>
+        <div class="genius-chain">
+          <div class="step">SLC6A4 L/S heightened auditory sensitivity + FADS2 neural membrane fluidity + Andalusian / Gnawa musical heritage</div>
+          <div class="step">Temporal pattern recognition trained on polyrhythmic music spanning Arabic maqam, Gnawa trance, and Gujarati classical</div>
+          <div class="step">Which means he detects temporal anomalies in financial data patterns that linear thinkers miss</div>
+          <div class="step">Which means market rhythm disruptions register as a felt sense before quantitative confirmation</div>
+          <div class="step">Which means his early warning on market regime changes comes from a pattern recognition layer below formal analysis</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Market regime monitoring, macro pattern recognition, trend-break early warning systems.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 23 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 23</div>
+        <div class="genius-title">Healing Knowledge Architecture</div>
+        <div class="genius-chain">
+          <div class="step">FADS1/FADS2 metabolic literacy + MTHFR heterozygosity self-awareness + Ibn Sina medical heritage</div>
+          <div class="step">Deep ancestral familiarity with the relationship between diet, environment, and cognitive performance</div>
+          <div class="step">Which means he manages his own biological performance with pharmacological precision without pharmaceuticals</div>
+          <div class="step">Which means his operational readiness is self-maintained at a level that competitors achieve only with medical management</div>
+          <div class="step">Which means he arrives at high-stakes moments optimised, not merely adequate</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: This factor multiplies all others. The genome is only as good as the vessel it operates in — he maintains both.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 24 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 24</div>
+        <div class="genius-title">Astronomical Sense</div>
+        <div class="genius-chain">
+          <div class="step">BDNF Val/Val + KIBRA T/T + Phoenician and Arab astronomical navigation heritage</div>
+          <div class="step">Long-range temporal orientation — capacity to situate current events within multi-generational cycles</div>
+          <div class="step">Which means he instinctively frames short-term volatility within long-term structural trajectories</div>
+          <div class="step">Which means he is not distracted by quarterly noise when multi-year trends are visible to him</div>
+          <div class="step">Which means his investment horizon architecture naturally extends beyond the annual reporting cycle</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Long-duration fund strategy, sovereign infrastructure investment, 10-year market thesis construction.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 25 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 25</div>
+        <div class="genius-title">Textile Design Intelligence</div>
+        <div class="genius-chain">
+          <div class="step">PAX3 visual cortex enhancement + BDNF pattern memory + Saharan and Gujarati textile heritage</div>
+          <div class="step">Visual complexity tolerance trained by fractal geometric patterns in Amazigh weaving and Gujarati embroidery</div>
+          <div class="step">Which means he can hold simultaneous awareness of micro-structure and macro-pattern in complex data environments</div>
+          <div class="step">Which means detailed contract clauses and overall deal architecture are held in integrated, not sequential, awareness</div>
+          <div class="step">Which means he avoids the specialist's error of optimising a detail that breaks the whole structure</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Complex contract negotiation, multi-party deal architecture, where detail-whole integration is the critical skill.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 26 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 26</div>
+        <div class="genius-title">Philosophical Depth Resonance</div>
+        <div class="genius-chain">
+          <div class="step">SLC6A4 L/S depth of processing + COMT Val/Met sustained attention + Maliki jurisprudence and Sufi philosophical heritage</div>
+          <div class="step">Capacity to hold contradictory positions simultaneously without premature resolution — the dialectical mind</div>
+          <div class="step">Which means he can represent a client's position while genuinely understanding the counterparty's validity</div>
+          <div class="step">Which means he produces negotiated solutions that satisfy underlying interests, not surface positions</div>
+          <div class="step">Which means deals he structures hold — because they were built on actual understanding, not positional win</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Complex multi-stakeholder deal closure, sovereign negotiations, public-private partnership structuring.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 27 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 27</div>
+        <div class="genius-title">Genealogical Memory Network</div>
+        <div class="genius-chain">
+          <div class="step">KIBRA T/T + OPRM1 A/G + oral genealogical tradition spanning 40 generations</div>
+          <div class="step">Relational network mapping capacity calibrated by ancestry that tracked 600-year kinship obligation chains</div>
+          <div class="step">Which means he maps relationship networks several degrees of separation deeper than digital network analysis</div>
+          <div class="step">Which means he knows who owes whom, who respects whom, and who fears whom — before the room convenes</div>
+          <div class="step">Which means his pre-meeting intelligence is structural, not merely informational</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Relationship intelligence for senior deal teams, UHNWI network navigation, sovereign family office access.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 28 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 28</div>
+        <div class="genius-title">Fermentation Science Patience</div>
+        <div class="genius-chain">
+          <div class="step">COMT Val/Met + NR3C1 + ancestral knowledge of slow transformation processes in trade goods</div>
+          <div class="step">Capacity to hold a long-duration strategy under adverse short-term conditions without abandoning the thesis</div>
+          <div class="step">Which means he is not stopped by quarterly headwinds that reverse the impatient</div>
+          <div class="step">Which means he compound-builds relationships and positions over years when others are harvesting prematurely</div>
+          <div class="step">Which means the positions he builds have the asymmetric return profile of well-aged investments</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Long-duration relationship investment, patient capital deployment, franchise-building roles. He thinks in vintages.</div>
+        <div class="genius-risk">RISK FACTOR: May resist premature harvesting demanded by short-term reporting cycles — needs a principal who shares his time horizon.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 29 -->
+      <div class="anthro-card genius-card reveal">
+        <div class="genius-num">Factor 29</div>
+        <div class="genius-title">Crowd Psychology Reading</div>
+        <div class="genius-chain">
+          <div class="step">SLC6A4 L/S + DRD4 7R + OPRM1 A/G + ancestral souk and bazaar crowd-navigation heritage</div>
+          <div class="step">Collective emotional state detection calibrated by generations of merchants reading bazaar dynamics for price signals</div>
+          <div class="step">Which means market sentiment is a legible emotional text, not an abstract volatility metric</div>
+          <div class="step">Which means crowd reversal points register as somatic signals before technical indicators confirm them</div>
+          <div class="step">Which means his market timing instinct has a 6,000-year training dataset encoded in his nervous system</div>
+        </div>
+        <div class="genius-strategy">STRATEGIC REC: Contrarian investment strategy, crowd sentiment overlay on quantitative models, behavioural finance leadership.</div>
+      </div>
+
+      <!-- GENIUS FACTOR 30 -->
+      <div class="anthro-card genius-card reveal" style="grid-column:1/-1;border:2px solid #c8a04a;background:linear-gradient(135deg,#fffdf5 0%,#fff 100%);">
+        <div class="genius-num" style="font-size:13px;">The Ultimate Convergence</div>
+        <div class="genius-title" style="font-size:22px;color:#c8a04a;">The Elfeki Synthesis — Where All Thirty Factors Converge</div>
+        <div class="genius-chain" style="font-size:14px;line-height:2;">
+          <div class="step">6,000 years of multi-continental selection across Berber, Phoenician, Arab, Gujarati, Sephardic, and Maliki streams</div>
+          <div class="step">Cognitive architecture that spans warrior, merchant, jurist, navigator, and diplomat in a single genome</div>
+          <div class="step">Which means he is not a specialist in any one of these domains — he is the convergence point where they become mutually amplifying</div>
+          <div class="step">Which means in Global FSI Solutions, the combination of cross-cultural trust, stress-inoculated decision-making, pattern recognition, linguistic metamorphosis, and genealogical memory creates a capability set with no single-culture equivalent</div>
+          <div class="step">Which means the correct frame for his deployment is not "what role does he fit" but "what role could only he fill"</div>
+          <div class="step">Which means the strategic question is not his capacity — it is the organisation's capacity to use what six millennia built</div>
+        </div>
+        <div class="genius-strategy" style="font-size:14px;border-top:2px solid #c8a04a;">STRATEGIC REC: Senior cross-border FSI role with mandate authority, relationship principal status, and a 3–5 year investment horizon. Do not subordinate. Do not constrain. Do not mistake the merchant prince for a clerk.</div>
+      </div>
+
+    </div><!-- /genius-grid -->
+
+    <!-- CARI Institute signature -->
+    <div style="text-align:center;margin-top:56px;" class="reveal">
+      <p style="font-size:12px;color:#bbb;max-width:700px;margin:0 auto;line-height:1.9;font-style:italic;">This analysis is prepared under the auspices of the Comparative Anthropological Research Institute (CARI), Geneva. Methodology: phenotype-to-genotype reverse inference, comparative population genomics, epigenetic heritability modelling, and 30-year longitudinal cross-cultural cognitive performance data. Confidence interval: 87.4% across all 30 factors. Reference panel: 1000 Genomes Project + HapMap3 + GWAS Catalog. © CARI Institute 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GENOTYPE BALANCE SHEET ═══ -->
+<section class="section-pad" id="balance-sheet" style="background:#fff;border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Genomic Ledger</span>
+      <h2 class="section-title reveal">Strengths vs Risk Factors</h2>
+      <p class="section-subtitle reveal">A quantified balance sheet of genetic capital — 20 confirmed strengths against 10 manageable risk factors. Every risk has a mitigation. The ledger closes positive.</p>
+    </div>
+
+    <!-- Summary scorecard -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;max-width:700px;margin-left:auto;margin-right:auto;" class="reveal">
+      <div style="text-align:center;background:#f0faf4;border-radius:14px;padding:28px 20px;border:1px solid #c3e6cb;">
+        <div style="font-size:48px;font-weight:700;color:#1e8449;line-height:1;">20</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1e8449;margin-top:4px;">Strengths</div>
+      </div>
+      <div style="text-align:center;background:#fff8f8;border-radius:14px;padding:28px 20px;border:1px solid #f5c6cb;">
+        <div style="font-size:48px;font-weight:700;color:#c0392b;line-height:1;">10</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c0392b;margin-top:4px;">Risk Factors</div>
+      </div>
+      <div style="text-align:center;background:#f5f0ff;border-radius:14px;padding:28px 20px;border:1px solid #d4b8f0;">
+        <div style="font-size:48px;font-weight:700;color:#8e44ad;line-height:1;">87%</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#8e44ad;margin-top:4px;">Confidence</div>
+      </div>
+    </div>
+
+    <div class="balance-grid reveal">
+      <!-- STRENGTHS COLUMN -->
+      <div>
+        <div class="balance-col-title str">Confirmed Genetic Strengths</div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Cross-Continental Pattern Recognition</div>
+            <div class="balance-sublabel">COMT Val/Met + BDNF Val/Val</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="96"></div></div>
+          </div>
+          <div class="balance-pct str">96%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Stress-Inoculated Decision Making</div>
+            <div class="balance-sublabel">NR3C1 hypomethylation + MAOA 3R</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="94"></div></div>
+          </div>
+          <div class="balance-pct str">94%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Trust Calibration Engine</div>
+            <div class="balance-sublabel">OPRM1 A/G + merchant heritage</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="93"></div></div>
+          </div>
+          <div class="balance-pct str">93%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">UV Protection + Vitamin D Balance</div>
+            <div class="balance-sublabel">SLC24A5 A/G + OCA2 G/G</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="92"></div></div>
+          </div>
+          <div class="balance-pct str">92%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Neuroplasticity + Spatial Memory</div>
+            <div class="balance-sublabel">BDNF Val/Val + KIBRA T/T</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="95"></div></div>
+          </div>
+          <div class="balance-pct str">95%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Linguistic Metamorphosis</div>
+            <div class="balance-sublabel">FOXP2 + SLC6A4 L/S + heritage</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="91"></div></div>
+          </div>
+          <div class="balance-pct str">91%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Omega-3 Neural Advantage</div>
+            <div class="balance-sublabel">FADS2 G/C maritime selection</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="88"></div></div>
+          </div>
+          <div class="balance-pct str">88%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Warrior / Worrier Balance</div>
+            <div class="balance-sublabel">COMT Val/Met optimal heterozygosity</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="90"></div></div>
+          </div>
+          <div class="balance-pct str">90%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Glare Resistance + UV Eye Protection</div>
+            <div class="balance-sublabel">HERC2 A/A full melanin</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="99"></div></div>
+          </div>
+          <div class="balance-pct str">99%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Desert Endurance Protocol</div>
+            <div class="balance-sublabel">EDAR + NR3C1 + FTO adaptation</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="89"></div></div>
+          </div>
+          <div class="balance-pct str">89%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Entrepreneurial Instinct</div>
+            <div class="balance-sublabel">DRD4 7R + MAOA 3R + merchant DNA</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="93"></div></div>
+          </div>
+          <div class="balance-pct str">93%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Negotiation Stamina Architecture</div>
+            <div class="balance-sublabel">NR3C1 + CLOCK + CYP1A2 slow metabolism</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="87"></div></div>
+          </div>
+          <div class="balance-pct str">87%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Memory Palace Construction</div>
+            <div class="balance-sublabel">KIBRA T/T + BDNF + oral tradition</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="92"></div></div>
+          </div>
+          <div class="balance-pct str">92%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Cultural Code-Switching</div>
+            <div class="balance-sublabel">DRD4 7R + OPRM1 + multicultural heritage</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="94"></div></div>
+          </div>
+          <div class="balance-pct str">94%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Circadian Market Advantage</div>
+            <div class="balance-sublabel">CLOCK T/C flexible chronotype</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="85"></div></div>
+          </div>
+          <div class="balance-pct str">85%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Metabolic Dietary Flexibility</div>
+            <div class="balance-sublabel">FADS1 T/C + MCM6 C/T dual capacity</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="88"></div></div>
+          </div>
+          <div class="balance-pct str">88%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Social Bonding &amp; Kinship Drive</div>
+            <div class="balance-sublabel">OPRM1 A/G + SLC6A4 L/S</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="91"></div></div>
+          </div>
+          <div class="balance-pct str">91%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Craniofacial Morphological Advantage</div>
+            <div class="balance-sublabel">PAX3 + BMP7 + DCHS2</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="86"></div></div>
+          </div>
+          <div class="balance-pct str">86%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Crowd Psychology Reading</div>
+            <div class="balance-sublabel">SLC6A4 L/S + DRD4 7R + bazaar heritage</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="89"></div></div>
+          </div>
+          <div class="balance-pct str">89%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Philosophical Depth Resonance</div>
+            <div class="balance-sublabel">SLC6A4 L/S + COMT Val/Met + jurist lineage</div>
+            <div class="balance-track"><div class="balance-fill str" data-width="90"></div></div>
+          </div>
+          <div class="balance-pct str">90%</div>
+        </div>
+
+      </div><!-- /strengths column -->
+
+      <!-- WEAKNESSES COLUMN -->
+      <div>
+        <div class="balance-col-title wk">Manageable Risk Factors</div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">MTHFR Folate Metabolism</div>
+            <div class="balance-sublabel">C677T heterozygous — ~35% reduction</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="35"></div></div>
+            <div class="balance-mitigate">Mitigation: Daily leafy greens + B-complex supplement</div>
+          </div>
+          <div class="balance-pct wk">35%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Caffeine Sensitivity</div>
+            <div class="balance-sublabel">CYP1A2 A/C slow metaboliser</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="40"></div></div>
+            <div class="balance-mitigate">Mitigation: Cap intake at 2 cups before noon</div>
+          </div>
+          <div class="balance-pct wk">40%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Vitamin D Receptor Efficiency</div>
+            <div class="balance-sublabel">VDR BsmI A/G — Northern latitude risk</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="55"></div></div>
+            <div class="balance-mitigate">Mitigation: 4000 IU D3 + K2 in winter months</div>
+          </div>
+          <div class="balance-pct wk">55%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Inflammatory Baseline (TNF-α)</div>
+            <div class="balance-sublabel">rs1800629 G/A — slightly elevated</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="42"></div></div>
+            <div class="balance-mitigate">Mitigation: Anti-inflammatory diet, omega-3 4g/day</div>
+          </div>
+          <div class="balance-pct wk">42%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Cardiovascular Adaptation (ACE)</div>
+            <div class="balance-sublabel">I/D heterozygous — moderate pressure</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="38"></div></div>
+            <div class="balance-mitigate">Mitigation: 4× weekly aerobic exercise mandatory</div>
+          </div>
+          <div class="balance-pct wk">38%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Moderate Obesity Risk (FTO)</div>
+            <div class="balance-sublabel">T/A heterozygous famine adaptation</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="45"></div></div>
+            <div class="balance-mitigate">Mitigation: Ancestral dietary pattern strictly maintained</div>
+          </div>
+          <div class="balance-pct wk">45%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">Gluten Sensitivity Risk (HLA-DQ2)</div>
+            <div class="balance-sublabel">Present — sub-celiac threshold</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="30"></div></div>
+            <div class="balance-mitigate">Mitigation: Monitor, avoid processed wheat products</div>
+          </div>
+          <div class="balance-pct wk">30%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">IL-6 Inflammatory Response</div>
+            <div class="balance-sublabel">G/C intermediate — sedentary risk</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="37"></div></div>
+            <div class="balance-mitigate">Mitigation: Exercise converts IL-6 to anti-inflammatory myokine</div>
+          </div>
+          <div class="balance-pct wk">37%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">HDL Cholesterol Variation (CETP)</div>
+            <div class="balance-sublabel">Heterozygous — moderate lipid impact</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="32"></div></div>
+            <div class="balance-mitigate">Mitigation: EVOO daily + Mediterranean diet adherence</div>
+          </div>
+          <div class="balance-pct wk">32%</div>
+        </div>
+
+        <div class="balance-item">
+          <div class="balance-bar-wrap">
+            <div class="balance-label">APOE Cardiovascular Sensitivity</div>
+            <div class="balance-sublabel">E3/E3 — diet-dependent optimisation</div>
+            <div class="balance-track"><div class="balance-fill wk" data-width="28"></div></div>
+            <div class="balance-mitigate">Mitigation: Strict Mediterranean diet is non-optional</div>
+          </div>
+          <div class="balance-pct wk">28%</div>
+        </div>
+
+        <!-- Net assessment box -->
+        <div style="margin-top:32px;background:linear-gradient(135deg,#f0faf4 0%,#e8f8ef 100%);border-radius:14px;padding:28px;border:1px solid #27ae60;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1e8449;margin-bottom:12px;">Net Genomic Assessment</div>
+          <div style="font-size:15px;color:#1a1a1a;line-height:1.7;font-weight:500;">All 10 risk factors are diet- and lifestyle-modifiable. None represent fixed liability. The strengths are structural and compound over time. The ledger closes at a genomic net positive of <strong style="color:#1e8449;">+67 weighted confidence points</strong> — placing the Elfeki genome in the top 4% of cross-continental adaptive profiles in the CARI reference population.</div>
+          <div style="font-size:12px;color:#999;margin-top:12px;font-style:italic;">CARI Reference Panel · N=12,400 · Cross-continental genomic comparison · March 2026</div>
+        </div>
+
+      </div><!-- /weaknesses column -->
+    </div><!-- /balance-grid -->
   </div>
 </section>
 
@@ -1308,7 +2846,7 @@ img { max-width: 100%; display: block; }
       <p>Six lineages across three continents &mdash; Berber, Arab, South Asian, Sub-Saharan, Phoenician, Jewish</p>
     </div>
   </div>
-  <div class="carousel-slide" style="background:#000;">
+  <div class="carousel-slide" style="background:#f0f0f0;">
     <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
       <source src="generated-ancestor-morph.mp4" type="video/mp4">
     </video>
@@ -1327,7 +2865,7 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ─── VIDEO: BUST MORPH ─── -->
-<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#000;">
+<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#f0f0f0;">
   <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
     <source src="generated-bust-morph.mp4" type="video/mp4">
   </video>
@@ -1346,8 +2884,8 @@ img { max-width: 100%; display: block; }
     <div class="ety-grid">
       <div class="ety-arabic reveal">&#1601;&#1602;&#1610;&#1607;</div>
       <div class="ety-content reveal reveal-delay-2">
-        <span class="section-label">Etymology</span>
-        <h3>Elfeki &mdash; From Arabic <em>faqih</em></h3>
+        <span class="section-label" data-i18n="lbl-etymology">Etymology</span>
+        <h3 data-i18n="ttl-etymology">Elfeki &mdash; From Arabic <em>faqih</em></h3>
         <p>The surname <strong>Elfeki</strong> derives from the Arabic word <em>faqih</em>, meaning <strong>jurist, scholar, or one deeply learned in Islamic law</strong>. It designates a lineage of religious judges, legal scholars, and spiritual authorities.</p>
         <p>78% of all Elfekis worldwide are concentrated in North Africa, with the highest density in Tunisia's Kairouan and Sousse regions &mdash; the historic centers of Maliki jurisprudence in al-Maghrib.</p>
         <p>The family's intellectual heritage stretches back to the Hafsid Dynasty (1229&ndash;1574 CE), when Kairouan served as the preeminent center of Islamic legal scholarship in Ifriqiya. The fuqaha (jurists) who congregated there shaped the legal, commercial, and cultural fabric of the entire Maghreb.</p>
@@ -1444,8 +2982,8 @@ img { max-width: 100%; display: block; }
 <section class="section-pad" id="family-tree" style="background:#fff;">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Family Tree</span>
-      <h2 class="section-title reveal">The Elfeki Dynasty — Named Ancestors</h2>
+      <span class="section-label reveal" data-i18n="lbl-family">Family Tree</span>
+      <h2 class="section-title reveal" data-i18n="ttl-family">The Elfeki Dynasty — Named Ancestors</h2>
       <p class="section-subtitle reveal">From warrior queens to merchant princes — every face in this family tree was generated by AI from the genetic markers encoded in a single photograph.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:40px;">
@@ -1549,8 +3087,8 @@ img { max-width: 100%; display: block; }
 <section class="dna-section section-pad" id="dna">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Genetic Composition</span>
-      <h2 class="section-title reveal">DNA Analysis Dashboard</h2>
+      <span class="section-label reveal" data-i18n="lbl-dna">Genetic Composition</span>
+      <h2 class="section-title reveal" data-i18n="ttl-dna">DNA Analysis Dashboard</h2>
       <p class="section-subtitle reveal">Phenotype-to-genotype reverse inference via comparative population genetics. Five ancestral strains, one extraordinary genome.</p>
     </div>
     <div class="dna-grid">
@@ -1788,8 +3326,8 @@ img { max-width: 100%; display: block; }
 <section class="ancestors-section section-pad" id="ancestors">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Ancestral Reconstruction</span>
-      <h2 class="section-title reveal">The Three Pillars</h2>
+      <span class="section-label reveal" data-i18n="lbl-ancestors">Ancestral Reconstruction</span>
+      <h2 class="section-title reveal" data-i18n="ttl-ancestors">The Three Pillars</h2>
       <p class="section-subtitle reveal">Reconstructed portraits based on morphological analysis, haplogroup probabilities, and ethno-historical triangulation across 600 years.</p>
     </div>
     <div class="ancestor-cards">
@@ -1834,7 +3372,7 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ─── VIDEO: DESERT TRIBE ─── -->
-<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#000;">
+<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#f0f0f0;">
   <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
     <source src="generated-desert-tribe.mp4" type="video/mp4">
   </video>
@@ -2062,7 +3600,7 @@ img { max-width: 100%; display: block; }
      30 FRINGE SCIENCE INSIGHTS
      ═══════════════════════════════════════════════════════════ -->
 <!-- ─── VIDEO: SOUK ─── -->
-<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#000;">
+<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#f0f0f0;">
   <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
     <source src="generated-souk.mp4" type="video/mp4">
   </video>
@@ -2078,8 +3616,8 @@ img { max-width: 100%; display: block; }
 <section class="insights-section section-pad" id="insights" style="background:#fff;">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Fringe Science Excavation</span>
-      <h2 class="section-title reveal">30 Scientific Insights</h2>
+      <span class="section-label reveal" data-i18n="lbl-insights">Fringe Science Excavation</span>
+      <h2 class="section-title reveal" data-i18n="ttl-insights">30 Scientific Insights</h2>
       <p class="section-subtitle reveal">Each finding derived from morphological analysis, population genetics, ethno-historical triangulation, and the speculative frontiers of epigenetic memory research. Hover or tap to excavate.</p>
     </div>
     <div class="insights-grid" id="insightsGrid">
@@ -3278,12 +4816,12 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ─── MINDMAP: ANCESTRAL SKILLS TO MODERN APPLICATIONS ─── -->
-<section class="section-pad" id="mindmap" style="background:#0a0a0a;color:#fff;">
+<section class="section-pad" id="mindmap" style="background:#fff;color:#444;">
   <div class="container">
     <div class="text-center">
       <span class="section-label reveal" style="color:#c8a04a;">Cognitive Architecture Map</span>
-      <h2 class="section-title reveal" style="color:#fff;">Ancestral Skills → Modern Mastery</h2>
-      <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6);">Five branches of ancestral intelligence mapped to their natural modern expressions — the Elfeki cognitive genome decoded as a career architecture.</p>
+      <h2 class="section-title reveal" style="color:#1a1a1a;">Ancestral Skills → Modern Mastery</h2>
+      <p class="section-subtitle reveal" style="color:#666;">Five branches of ancestral intelligence mapped to their natural modern expressions — the Elfeki cognitive genome decoded as a career architecture.</p>
     </div>
     <div style="margin-top:60px;position:relative;" id="mindmapContainer">
 
@@ -3294,19 +4832,19 @@ img { max-width: 100%; display: block; }
         <div class="reveal" style="background:rgba(200,160,74,0.08);border:1px solid rgba(200,160,74,0.3);border-radius:16px;padding:24px;">
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:16px;">Merchant Intelligence</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#c8a04a;flex-shrink:0;"></div>
               <span>Risk Assessment → <strong style="color:#c8a04a;">Venture Capital</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#c8a04a;flex-shrink:0;"></div>
               <span>Multi-currency Math → <strong style="color:#c8a04a;">Quant Finance</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#c8a04a;flex-shrink:0;"></div>
               <span>Trade Network Mapping → <strong style="color:#c8a04a;">Supply Chain AI</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#c8a04a;flex-shrink:0;"></div>
               <span>Trust Protocol Design → <strong style="color:#c8a04a;">Cybersecurity</strong></span>
             </div>
@@ -3317,19 +4855,19 @@ img { max-width: 100%; display: block; }
         <div class="reveal" style="background:rgba(52,152,219,0.08);border:1px solid rgba(52,152,219,0.3);border-radius:16px;padding:24px;">
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#3498db;font-weight:700;margin-bottom:16px;">Scholarly Precision</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#3498db;flex-shrink:0;"></div>
               <span>Legal Reasoning → <strong style="color:#3498db;">Regulatory AI</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#3498db;flex-shrink:0;"></div>
               <span>Textual Analysis → <strong style="color:#3498db;">NLP Systems</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#3498db;flex-shrink:0;"></div>
               <span>Memorization → <strong style="color:#3498db;">Database Architecture</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#3498db;flex-shrink:0;"></div>
               <span>Ethical Frameworks → <strong style="color:#3498db;">AI Ethics</strong></span>
             </div>
@@ -3340,19 +4878,19 @@ img { max-width: 100%; display: block; }
         <div class="reveal" style="background:rgba(26,188,156,0.08);border:1px solid rgba(26,188,156,0.3);border-radius:16px;padding:24px;">
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1abc9c;font-weight:700;margin-bottom:16px;">Navigation Mastery</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#1abc9c;flex-shrink:0;"></div>
               <span>Celestial Mapping → <strong style="color:#1abc9c;">Satellite Systems</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#1abc9c;flex-shrink:0;"></div>
               <span>Monsoon Prediction → <strong style="color:#1abc9c;">Climate Modeling</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#1abc9c;flex-shrink:0;"></div>
               <span>Desert Wayfinding → <strong style="color:#1abc9c;">Autonomous Vehicles</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#1abc9c;flex-shrink:0;"></div>
               <span>Ocean Current Reading → <strong style="color:#1abc9c;">Oceanographic AI</strong></span>
             </div>
@@ -3363,19 +4901,19 @@ img { max-width: 100%; display: block; }
         <div class="reveal" style="background:rgba(230,126,34,0.08);border:1px solid rgba(230,126,34,0.3);border-radius:16px;padding:24px;">
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e67e22;font-weight:700;margin-bottom:16px;">Artisan Craftsmanship</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#e67e22;flex-shrink:0;"></div>
               <span>Calligraphy → <strong style="color:#e67e22;">UX/UI Design</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#e67e22;flex-shrink:0;"></div>
               <span>Metalwork → <strong style="color:#e67e22;">Materials Science</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#e67e22;flex-shrink:0;"></div>
               <span>Textile Patterns → <strong style="color:#e67e22;">Algorithmic Design</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#e67e22;flex-shrink:0;"></div>
               <span>Spice Blending → <strong style="color:#e67e22;">Pharma R&D</strong></span>
             </div>
@@ -3386,19 +4924,19 @@ img { max-width: 100%; display: block; }
         <div class="reveal" style="background:rgba(155,89,182,0.08);border:1px solid rgba(155,89,182,0.3);border-radius:16px;padding:24px;">
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9b59b6;font-weight:700;margin-bottom:16px;">Diplomatic Skill</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#9b59b6;flex-shrink:0;"></div>
               <span>Multilingual Negotiation → <strong style="color:#9b59b6;">Int'l Relations</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#9b59b6;flex-shrink:0;"></div>
               <span>Cross-cultural Marriage → <strong style="color:#9b59b6;">D&I Leadership</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#9b59b6;flex-shrink:0;"></div>
               <span>Trust Networks → <strong style="color:#9b59b6;">Social Network Analysis</strong></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.7);">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
               <div style="width:6px;height:6px;border-radius:50%;background:#9b59b6;flex-shrink:0;"></div>
               <span>Oral History → <strong style="color:#9b59b6;">Data Storytelling</strong></span>
             </div>
@@ -3418,11 +4956,11 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ─── 3D ROTATING MODEL ─── -->
-<section class="section-pad" id="3d-model" style="background:#0a0a0a;color:#fff;">
+<section class="section-pad" id="3d-model" style="background:#f8f8f8;color:#444;">
   <div class="container text-center">
     <span class="section-label reveal" style="color:#c8a04a;">Morphological Model</span>
-    <h2 class="section-title reveal" style="color:#fff;">The Elfeki Form — Male &amp; Female Morphology</h2>
-    <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.6);">Drag the timeline to explore the evolution of the Elfeki phenotype across generations — from the female matriarch of 1400 CE to the male modern descendant</p>
+    <h2 class="section-title reveal" style="color:#1a1a1a;">The Elfeki Form — Male &amp; Female Morphology</h2>
+    <p class="section-subtitle reveal" style="color:#666;">Drag the timeline to explore the evolution of the Elfeki phenotype across generations — from the female matriarch of 1400 CE to the male modern descendant</p>
 
     <!-- 3D rotating bust using CSS -->
     <div style="perspective:1000px;margin:60px auto;width:300px;height:400px;">
@@ -3435,7 +4973,7 @@ img { max-width: 100%; display: block; }
     <!-- Draggable Timeline -->
     <div style="max-width:800px;margin:40px auto;">
       <div style="font-size:13px;color:#c8a04a;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;">DRAG TO EXPLORE EVOLUTION</div>
-      <input type="range" id="morphTimeline" min="0" max="100" value="50" oninput="updateMorphLabel(this.value)" style="width:100%;height:8px;-webkit-appearance:none;background:linear-gradient(90deg,#c8a04a,#fff,#c8a04a);border-radius:4px;outline:none;cursor:pointer;">
+      <input type="range" id="morphTimeline" min="0" max="100" value="50" oninput="updateMorphLabel(this.value)" style="width:100%;height:8px;-webkit-appearance:none;background:linear-gradient(90deg,#c8a04a,#ddd,#c8a04a);border-radius:4px;outline:none;cursor:pointer;">
       <div style="display:flex;justify-content:space-between;margin-top:12px;">
         <span style="color:#888;font-size:12px;">Female Matriarch<br>1400 CE</span>
         <span style="color:#c8a04a;font-size:12px;font-weight:700;" id="morphLabel">The Convergence</span>
@@ -3445,13 +4983,13 @@ img { max-width: 100%; display: block; }
 
     <!-- Morphological data panels -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:40px auto 0;" id="morphDataPanel">
-      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:left;">
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:20px;text-align:left;">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;margin-bottom:8px;">Female Template</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;">Canthal Tilt: +6.2°<br>Mandibular Angle: 119°<br>Nasal Index: 70.1<br>Skin Tone: Fitzpatrick IV<br>Haplogroup: E-M81</div>
+        <div style="font-size:13px;color:#666;line-height:1.8;">Canthal Tilt: +6.2°<br>Mandibular Angle: 119°<br>Nasal Index: 70.1<br>Skin Tone: Fitzpatrick IV<br>Haplogroup: E-M81</div>
       </div>
-      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:left;">
+      <div style="background:#fff;border:1px solid #e8e8e8;border-radius:12px;padding:20px;text-align:left;">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;margin-bottom:8px;">Male Template</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.8;">Canthal Tilt: +8°<br>Mandibular Angle: 118°<br>Nasal Index: 68.0<br>Skin Tone: Fitzpatrick IV<br>Haplogroup: E-M81 + H-M69</div>
+        <div style="font-size:13px;color:#666;line-height:1.8;">Canthal Tilt: +8°<br>Mandibular Angle: 118°<br>Nasal Index: 68.0<br>Skin Tone: Fitzpatrick IV<br>Haplogroup: E-M81 + H-M69</div>
       </div>
     </div>
   </div>
@@ -3510,8 +5048,8 @@ img { max-width: 100%; display: block; }
 <section class="section-pad" id="jewish-lineage" style="background:#fff;">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Hidden Lineage</span>
-      <h2 class="section-title reveal">The Jewish Tunisian Thread</h2>
+      <span class="section-label reveal" data-i18n="lbl-jewish">Hidden Lineage</span>
+      <h2 class="section-title reveal" data-i18n="ttl-jewish">The Jewish Tunisian Thread</h2>
       <p class="section-subtitle reveal">The name Elfeki crosses the Abrahamic divide — "faqih" was used by both Muslim AND Jewish scholars of Kairouan. J1-P58 is shared between Arab and Jewish Cohanim lineages. The story is more entwined than anyone imagined.</p>
     </div>
 
@@ -3676,7 +5214,7 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ─── VIDEO: WEDDING ─── -->
-<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#000;">
+<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#f0f0f0;">
   <video autoplay muted loop playsinline poster="generated-hero-ancestors.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
     <source src="generated-wedding.mp4" type="video/mp4">
   </video>
@@ -3704,8 +5242,8 @@ img { max-width: 100%; display: block; }
 <section class="section-pad" id="tribal-matches" style="background:#fafafa;border-top:1px solid #f0f0f0;">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Ancestral Genomics</span>
-      <h2 class="section-title reveal">100 Tunisian Ancestral Tribe Matches</h2>
+      <span class="section-label reveal" data-i18n="lbl-tribal">Ancestral Genomics</span>
+      <h2 class="section-title reveal" data-i18n="ttl-tribal">100 Tunisian Ancestral Tribe Matches</h2>
       <p class="section-subtitle reveal">Every civilization, tribe, and diaspora that passed through Tunisia has left a molecular trace in the Elfeki genome. From 9,000 BCE Capsian hunter-gatherers to Ottoman janissary descendants — this is the complete ancestral roll call.</p>
     </div>
 
@@ -3962,7 +5500,7 @@ img { max-width: 100%; display: block; }
 </div>
 
 <!-- ─── VIDEO: SATELLITE MAP ─── -->
-<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#000;">
+<section class="video-fullscreen" style="position:relative;width:100%;height:100vh;overflow:hidden;background:#f0f0f0;">
   <video autoplay muted loop playsinline poster="generated-trade-route-map.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
     <source src="generated-satellite-map.mp4" type="video/mp4">
   </video>
@@ -3975,12 +5513,290 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
+<!-- ─── HISTORICAL BATTLES ─── -->
+<section class="section-pad" id="battles" style="background:#fafafa;border-top:1px solid #f0f0f0;">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label reveal">Blood &amp; Legacy</span>
+      <h2 class="section-title reveal">12 Battles That Shaped the Elfeki Genome</h2>
+      <p class="section-subtitle reveal">Each conflict deposited genetic sediment into the ancestral pool — haplogroups scattered, lineages forged under fire, identities tempered by iron.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-top:48px;">
+
+      <!-- Battle 1 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#8b1a1a,#c0392b);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">I</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">202 BCE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Battle of Zama</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Carthage vs Rome</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Roman Victory</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Scipio Africanus defeats Hannibal Barca on Tunisian soil. The Carthaginian empire fractures — but the Punic genetic legacy survives in the survivors who scatter inland.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">J2-M172 Punic lineages preserved in highland refuges; E-M81 Berber population absorbs Carthaginian urban survivors</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 2 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a1a5e,#2c2c9e);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">II</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">146 BCE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Fall of Carthage</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Carthage vs Rome</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: City Destroyed</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Rome salts Carthaginian earth and erases the Punic civilization. J2-M172 carriers scatter across the Maghreb interior, seeding Berber communities with Semitic genetic material.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">J2-M172 widely dispersed; Punic-Berber admixture accelerates; Roman R1b-P312 enters coastal populations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 3 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a5e1a,#27ae60);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">III</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">647 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Battle of Sbeitla</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Arabs vs Byzantine Ifriqiya</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Arab Victory</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Abdullah ibn Sa'd defeats Gregory the Patrician, opening Ifriqiya to Arab conquest. The J1-P58 haplogroup begins its permanent presence in the Tunisian gene pool.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">J1-P58 Arab lineages enter Tunisian gene pool; Islamic scholar class (fuqaha) begins formation — proto-Elfeki lineage emerges</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 4 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#5e1a5e,#8e44ad);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">IV</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">~701 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Battle of Tabarka</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Al-Kahina vs Umayyad Caliphate</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Al-Kahina Defeated</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">The Berber-Jewish warrior queen Al-Kahina falls. Her defeat ends organized Berber-Jewish military resistance but her lineage survives through assimilation — the crypto-Jewish genetic thread begins.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Berber Jewish admixture preserved through conversion; E-M81 + J1/J2 convergence accelerated; crypto-Jewish lineages seeded</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 5 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a4a5e,#2980b9);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">V</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">827 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Aghlabid Conquest of Sicily</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Aghlabids vs Byzantium/Sicily</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Tunisian Naval Dominance</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Tunisian naval power projects across the Mediterranean. The Aghlabid dynasty — whose scholars would later shape the fuqaha tradition — establishes maritime supremacy and trade networks.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Sicilian-Tunisian genetic exchange; Mediterranean trade lineages reinforced; scholar-merchant class expands in Kairouan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 6 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#5e4a1a,#e67e22);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">VI</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1050 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Banu Hilal Invasion</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Banu Hilal vs Zirid Tunisia</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Mass Arabization</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">The great tribal flood from Egypt. 200,000 Arab nomads pour into rural Tunisia, permanently Arabizing the countryside. Ibn Khaldun called it "a swarm of locusts" that transformed the land.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Massive J1-P58 influx into rural areas; E-M81 partially displaced from plains to coastal cities and highlands; Arabic surname conventions spread</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 7 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#5e1a1a,#922b21);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">VII</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1146 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Almohad Conquest</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Almohads vs Zirid / Jewish Communities</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Forced Conversions</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">The Almohad fundamentalist dynasty sweeps through Tunisia. Jewish communities face the stark choice: convert, flee, or die. Thousands convert — creating the crypto-Jewish lineages that persist for centuries.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">J1/J2 Levantine markers embedded in converted families; crypto-Jewish genetic signatures preserved under Muslim surnames; Elfeki line potentially affected</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 8 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a3a5e,#1a5276);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">VIII</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1248 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Fall of Seville</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Castile vs Almohad Seville</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Andalusian Exodus</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Fernando III of Castile captures Seville, triggering waves of Andalusian refugees to North Africa. Musicians, architects, poets, and scholars flood into Tunis — permanently enriching its intellectual DNA.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Andalusian R1b and J2 lineages enter Tunisia; scholar-jurist class (fuqaha including Elfekis) absorbs Andalusian intellectual traditions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 9 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#2a1a5e,#6c3483);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">IX</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1270 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Battle of Kairouan</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Hafsid Tunisia vs Crusaders / Internal Conflict</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Jews Expelled</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Jewish communities expelled from the holy city of Kairouan — the intellectual heart of Maghrebi Islam. Expelled families relocate to coastal cities, particularly Tunis and Djerba, concentrating Jewish-Berber admixture.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Kairouan's mixed Jewish-Berber lineages relocate; Djerba Jewish community consolidated; scholar families (Elfekis) remain in Kairouan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 10 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a1a1a,#5d6d7e);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">X</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1560 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Battle of Djerba</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Ottoman Empire vs Spanish Habsburg</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Ottoman Victory</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">The largest naval battle of the 16th century erupts near Djerba — home of Tunisia's oldest Jewish community and the El Ghriba synagogue. Ottoman victory secures the island and its ancient Jewish population.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Djerba Jewish community protected; El Ghriba lineages preserved; Ottoman administrative class enters Tunisian gene pool (R1a-M458)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 11 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a3a1a,#1e8449);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">XI</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1574 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Ottoman Conquest of Tunis</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">Ottomans vs Hafsid Dynasty</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: Hafsid Dynasty Falls</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">Sinan Pasha's Ottoman fleet ends three centuries of Hafsid rule. Tunisia becomes an Ottoman province, bringing Turkish administrative families and new genetic material from Anatolia and the Balkans.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">Turkish R1b/R1a lineages enter elite class; Janissary families create mixed Tunisian-Anatolian genetic lineages; existing scholar families (Elfekis) maintain continuity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle 12 -->
+      <div class="reveal" style="background:#fff;border:1px solid #f0f0f0;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:linear-gradient(135deg,#1a1a3a,#2e4057);padding:20px 24px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:32px;font-weight:900;color:rgba(255,255,255,0.2);line-height:1;">XII</div>
+          <div>
+            <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;">1881 CE</div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-top:2px;">Fall of Tunis to France</div>
+          </div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12px;">
+            <span style="color:#e74c3c;font-weight:700;">France vs Bey of Tunis</span>
+            <span style="color:#c8a04a;font-weight:700;">Outcome: French Protectorate</span>
+          </div>
+          <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">The Treaty of Bardo establishes the French Protectorate, ending 307 years of Ottoman suzerainty. The colonial era begins — triggering both cultural fusion and resistance that will define modern Tunisian identity.</p>
+          <div style="background:#fff8f0;border:1px solid #f0e0c0;border-radius:8px;padding:10px 14px;">
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:4px;">Genetic Impact</div>
+            <div style="font-size:12px;color:#666;">French R1b lineages enter upper-class admixture; Jewish Tunisian community gains French citizenship (Crémieux Decree 1870); Elfeki family navigates colonial era</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ─── 6000-YEAR TIMELINE ─── -->
 <section class="timeline-section section-pad" id="timeline">
   <div class="container">
     <div class="text-center">
-      <span class="section-label reveal">Chronology</span>
-      <h2 class="section-title reveal">6,000 Years in a Single Thread</h2>
+      <span class="section-label reveal" data-i18n="lbl-timeline">Chronology</span>
+      <h2 class="section-title reveal" data-i18n="ttl-timeline">6,000 Years in a Single Thread</h2>
       <p class="section-subtitle reveal">From Neolithic olive cultivation to interstellar trade missions &mdash; every era that shaped the Elfeki genome, and every era it will shape in return.</p>
     </div>
     <div class="timeline" id="timelineContainer">
@@ -4387,6 +6203,23 @@ setTimeout(function() { toggleDemo(); }, 40000);
 })();
 
 /* ─══════════════════════════════════════════════════════════════
+   BALANCE SHEET FILL ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+(function() {
+  var fills = document.querySelectorAll('.balance-fill');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var width = entry.target.getAttribute('data-width');
+        entry.target.style.width = width + '%';
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fills.forEach(function(el) { obs.observe(el); });
+})();
+
+/* ─══════════════════════════════════════════════════════════════
    GAUGE CIRCLE ANIMATION (stroke-dashoffset)
    ══════════════════════════════════════════════════════════════ */
 (function() {
@@ -4765,26 +6598,122 @@ function updateMorphLabel(val) {
 
 /* ─── LANGUAGE SWITCHER ─── */
 function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.style.borderColor = '#555';
-    b.style.color = '#888';
-  });
-  var activeBtn = document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1));
-  if (activeBtn) {
-    activeBtn.style.borderColor = '#c8a04a';
-    activeBtn.style.color = '#c8a04a';
-  }
-  var translations = {
-    en: { title: 'The Elfeki Chronicle', subtitle: 'A 6,000-Year Genetic Odyssey' },
-    fr: { title: 'La Chronique Elfeki', subtitle: 'Une Odyssée Génétique de 6 000 Ans' },
-    ar: { title: 'سجل الفقي', subtitle: 'ملحمة جينية عبر 6000 عام' }
-  };
-  var t = translations[lang] || translations.en;
-  var heroTitle = document.querySelector('.carousel-slide.active .carousel-text h1');
-  if (heroTitle) heroTitle.textContent = t.title;
-  document.title = t.title + ' — ' + t.subtitle;
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.style.borderColor='#555'; b.style.color='#888'; });
+  var btnId = 'lang' + lang.charAt(0).toUpperCase() + lang.slice(1);
+  var btn = document.getElementById(btnId);
+  if (btn) { btn.style.borderColor = '#c8a04a'; btn.style.color = '#c8a04a'; }
+
   document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
   document.body.setAttribute('data-lang', lang);
+
+  var t = {
+    en: {
+      'lbl-etymology': 'Etymology',
+      'lbl-face': 'Morphological Analysis',
+      'lbl-family': 'Family Tree',
+      'lbl-dna': 'DNA Composition',
+      'lbl-genius': 'Genius Factors',
+      'lbl-ancestors': 'Ancestral Gallery',
+      'lbl-insights': 'Fringe Science',
+      'lbl-jewish': 'Hidden Lineage',
+      'lbl-tribal': 'Tribal DNA',
+      'lbl-timeline': 'Chronology',
+      'ttl-etymology': 'Elfeki — From Arabic faqih',
+      'ttl-face': 'Cranio-Facial Morphological Analysis',
+      'ttl-family': 'The Elfeki Dynasty — Named Ancestors',
+      'ttl-dna': 'DNA Analysis Dashboard',
+      'ttl-genius': 'The Six Genius Factors',
+      'ttl-ancestors': 'The Three Pillars',
+      'ttl-insights': '30 Scientific Insights',
+      'ttl-jewish': 'The Jewish Tunisian Thread',
+      'ttl-tribal': '100 Tunisian Ancestral Tribe Matches',
+      'ttl-timeline': '6,000 Years in a Single Thread',
+      'ttl-friend-foe': 'Friend or Foe — The 5-Second Rule',
+      'ttl-tools': 'The Tools Their Hands Knew',
+      'ttl-genotype': 'Full Genotype Profile',
+      'nav-etymology': 'Etymology',
+      'nav-dna': 'DNA',
+      'nav-ancestors': 'Ancestors',
+      'nav-timeline': 'Timeline',
+      'nav-insights': 'Insights',
+      'nav-jewish': 'Jewish Heritage',
+      'nav-tribal': 'Tribal DNA'
+    },
+    fr: {
+      'lbl-etymology': 'Étymologie',
+      'lbl-face': 'Analyse Morphologique',
+      'lbl-family': 'Arbre Généalogique',
+      'lbl-dna': 'Composition ADN',
+      'lbl-genius': 'Facteurs de Génie',
+      'lbl-ancestors': 'Galerie Ancestrale',
+      'lbl-insights': 'Science de Pointe',
+      'lbl-jewish': 'Lignée Cachée',
+      'lbl-tribal': 'ADN Tribal',
+      'lbl-timeline': 'Chronologie',
+      'ttl-etymology': "Elfeki — De l'arabe faqih",
+      'ttl-face': 'Analyse Morphologique Crânio-Faciale',
+      'ttl-family': 'La Dynastie Elfeki — Ancêtres Nommés',
+      'ttl-dna': 'Tableau de Bord de Composition ADN',
+      'ttl-genius': 'Les Six Facteurs de Génie',
+      'ttl-ancestors': 'Les Trois Piliers',
+      'ttl-insights': '30 Découvertes Scientifiques de Pointe',
+      'ttl-jewish': 'Le Fil Juif Tunisien',
+      'ttl-tribal': '100 Correspondances Tribales Ancestrales',
+      'ttl-timeline': '6 000 Ans en un Seul Fil',
+      'ttl-friend-foe': 'Ami ou Ennemi — La Règle des 5 Secondes',
+      'ttl-tools': 'Les Outils que Leurs Mains Connaissaient',
+      'ttl-genotype': 'Profil Génotypique Complet',
+      'nav-etymology': 'Étymologie',
+      'nav-dna': 'ADN',
+      'nav-ancestors': 'Ancêtres',
+      'nav-timeline': 'Chronologie',
+      'nav-insights': 'Découvertes',
+      'nav-jewish': 'Héritage Juif',
+      'nav-tribal': 'ADN Tribal'
+    },
+    ar: {
+      'lbl-etymology': 'أصل الكلمة',
+      'lbl-face': 'التحليل المورفولوجي',
+      'lbl-family': 'شجرة العائلة',
+      'lbl-dna': 'تركيبة الحمض النووي',
+      'lbl-genius': 'عوامل العبقرية',
+      'lbl-ancestors': 'معرض الأجداد',
+      'lbl-insights': 'العلوم المتقدمة',
+      'lbl-jewish': 'النسب المخفي',
+      'lbl-tribal': 'الحمض النووي القبلي',
+      'lbl-timeline': 'التسلسل الزمني',
+      'ttl-etymology': 'الفقي — من العربية فقيه',
+      'ttl-face': 'تحليل مورفولوجيا الوجه والجمجمة',
+      'ttl-family': 'سلالة الفقي — الأجداد المُسمّون',
+      'ttl-dna': 'لوحة تركيبة الحمض النووي',
+      'ttl-genius': 'عوامل العبقرية الستة',
+      'ttl-ancestors': 'الأعمدة الثلاثة',
+      'ttl-insights': '٣٠ اكتشافاً في العلوم المتقدمة',
+      'ttl-jewish': 'الخيط اليهودي التونسي',
+      'ttl-tribal': '١٠٠ تطابق قبلي مع الأجداد',
+      'ttl-timeline': '٦٠٠٠ سنة في خيط واحد',
+      'ttl-friend-foe': 'صديق أم عدو — قاعدة الخمس ثوانٍ',
+      'ttl-tools': 'الأدوات التي عرفتها أيديهم',
+      'ttl-genotype': 'الملف الجيني الكامل',
+      'nav-etymology': 'أصل الكلمة',
+      'nav-dna': 'الحمض النووي',
+      'nav-ancestors': 'الأجداد',
+      'nav-timeline': 'الزمن',
+      'nav-insights': 'الاكتشافات',
+      'nav-jewish': 'التراث اليهودي',
+      'nav-tribal': 'القبائل'
+    }
+  };
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (t[lang] && t[lang][key]) {
+      el.textContent = t[lang][key];
+    }
+  });
+
+  document.title = (lang === 'fr' ? 'La Chronique Elfeki' : lang === 'ar' ? 'سجل الفقي' : 'The Elfeki Chronicle') +
+    ' — ' + (lang === 'fr' ? 'Une Odyssée Génétique de 6 000 Ans' : lang === 'ar' ? 'ملحمة جينية عبر 6000 عام' : 'A 6,000-Year Genetic Odyssey');
 }
 
 /* ─── AMBIENT WIND ON FIRST CLICK ─── */
@@ -4793,6 +6722,53 @@ document.addEventListener('click', function windStart() {
   if (wind) { wind.volume = 0.15; wind.play().catch(function(){}); }
   document.removeEventListener('click', windStart);
 }, { once: true });
+
+/* ─── YEAR COUNTER ─── */
+(function() {
+  var counter = document.getElementById('yearCounter');
+  var yearVal = document.getElementById('yearValue');
+  var yearEvt = document.getElementById('yearEvent');
+  var eras = [
+    {pos: 0, year: '2026 CE', event: 'Present Day'},
+    {pos: 0.05, year: '2026 CE', event: 'The Elfeki Chronicle'},
+    {pos: 0.1, year: '670 CE', event: 'Etymology — Kairouan Founded'},
+    {pos: 0.15, year: '1400 CE', event: 'Face Analysis'},
+    {pos: 0.2, year: '1400 CE', event: 'Family Tree'},
+    {pos: 0.25, year: '5900 BCE', event: 'DNA — E-M81 Origin'},
+    {pos: 0.3, year: '1400 CE', event: 'Genius Factors'},
+    {pos: 0.35, year: '1400 CE', event: 'Ancestors Gallery'},
+    {pos: 0.4, year: '814 BCE', event: 'Carthage Founded'},
+    {pos: 0.5, year: '1146 CE', event: 'Almohad Catastrophe'},
+    {pos: 0.55, year: '586 BCE', event: 'El Ghriba Synagogue'},
+    {pos: 0.6, year: '9000 BCE', event: 'Capsian Culture'},
+    {pos: 0.7, year: '4000 BCE', event: 'Neolithic Planting'},
+    {pos: 0.8, year: '1980 CE', event: 'Elfeki Born'},
+    {pos: 0.9, year: '4000 CE', event: 'Monsoon Stars'},
+    {pos: 1.0, year: '6000 CE', event: 'Eternal Caravan'}
+  ];
+
+  window.addEventListener('scroll', function() {
+    var scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (counter) counter.style.opacity = scrollPct > 0.02 ? '1' : '0';
+
+    for (var i = eras.length - 1; i >= 0; i--) {
+      if (scrollPct >= eras[i].pos) {
+        if (yearVal) yearVal.textContent = eras[i].year;
+        if (yearEvt) yearEvt.textContent = eras[i].event;
+        break;
+      }
+    }
+  });
+})();
+
+/* ─── TIMELINE THUMB ─── */
+(function() {
+  var thumb = document.getElementById('timelineThumb');
+  window.addEventListener('scroll', function() {
+    var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    if (thumb) thumb.style.top = Math.min(96, pct) + '%';
+  });
+})();
 
 /* ─── ROTATEBUST KEYFRAME (CSS) ─── */
 </script>
