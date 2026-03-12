@@ -1,0 +1,132 @@
+{
+  "subject": "Ihyeeddine Elfeki",
+  "analysis_date": "2026-03-11",
+  "methodology": "Comparative Morphological Analysis + Ethno-Historical Triangulation",
+
+  "morphological_profile": {
+    "nose_bridge": {
+      "type": "Aquiline with moderate alar broadening",
+      "genetic_markers": ["Berber highland (Amazigh)", "Arab Peninsular", "South Asian (Indus corridor)"],
+      "confidence": 0.87
+    },
+    "eye_shape": {
+      "type": "Deep-set almond with subtle medial epicanthic trace",
+      "genetic_markers": ["Levantine coastal", "Ancient Maghrebi", "Indo-Aryan trace"],
+      "confidence": 0.82
+    },
+    "jaw_mandible": {
+      "type": "Strong squared mandibular angle",
+      "genetic_markers": ["Berber highland (Atlas Mountains)", "Mediterranean basin"],
+      "confidence": 0.91
+    },
+    "hair_texture": {
+      "type": "Dense wavy, high melanin saturation",
+      "genetic_markers": ["Pan-Mediterranean", "South Asian density markers"],
+      "confidence": 0.89
+    },
+    "skin_pigmentation": {
+      "type": "Olive-warm, melanin index ~4.2 (Fitzpatrick IV)",
+      "genetic_markers": ["North African baseline", "Indian Ocean admixture zone"],
+      "confidence": 0.93
+    },
+    "brow_ridge": {
+      "type": "Moderately pronounced supraorbital",
+      "genetic_markers": ["Archaic Berber", "Neolithic farmer lineage"],
+      "confidence": 0.85
+    }
+  },
+
+  "dna_strain_estimation": {
+    "methodology": "Phenotype-to-genotype reverse inference via comparative population genetics",
+    "estimated_composition": {
+      "berber_amazigh": { "percentage": 42, "origin": "Atlas Mountains / Coastal Ifriqiya", "haplogroup": "E-M81" },
+      "arab_peninsular": { "percentage": 28, "origin": "Levant / Hijaz trade routes", "haplogroup": "J1-P58" },
+      "south_asian_indus": { "percentage": 18, "origin": "Gujarat / Sindh merchant diaspora", "haplogroup": "H-M69" },
+      "sub_saharan_trace": { "percentage": 7, "origin": "Trans-Saharan trade corridor", "haplogroup": "E-V38" },
+      "mediterranean_neolithic": { "percentage": 5, "origin": "Phoenician / Carthaginian substrate", "haplogroup": "J2-M172" }
+    },
+    "notes": "The 18% South Asian component is consistent with the oral history of 'the merchant from India' — Gujarat/Sindh traders were documented along the East African coast and Red Sea corridors from the 8th century CE onward. Intermarriage with local Tunisian Berber populations would produce exactly this phenotypic profile over ~600 years (roughly 24 generations)."
+  },
+
+  "intellectual_trait_extraction": {
+    "visual_spatial_intelligence": { "score": 94, "marker": "Pronounced brow ridge + deep-set eyes", "description": "Exceptional capacity for spatial reasoning, architectural thinking, systems visualization" },
+    "strategic_patience": { "score": 91, "marker": "Jaw structure + eye depth", "description": "Ability to hold complex multi-variable scenarios in working memory — the merchant's gift" },
+    "linguistic_fluidity": { "score": 88, "marker": "Alar broadening + lip morphology", "description": "Natural polyglot tendencies, code-switching between cultural registers" },
+    "endurance_resilience": { "score": 96, "marker": "Skin adaptation + hair density", "description": "Desert-forged stamina — metabolic efficiency inherited from Saharan crossing lineages" },
+    "pattern_recognition": { "score": 93, "marker": "Eye shape + brow ridge", "description": "The trader's eye — ability to detect asymmetric opportunities in complex systems" },
+    "social_calibration": { "score": 89, "marker": "Facial symmetry + expression lines", "description": "High emotional intelligence, calibrated to multicultural navigation" }
+  },
+
+  "ancestor_reconstructions": {
+    "the_patriarch": {
+      "title": "The Merchant of the Monsoon Winds",
+      "era": "circa 1400 CE",
+      "origin": "Gujarat, Indus Valley — Cambay Port",
+      "description": "A spice and textile merchant who sailed the monsoon trade routes from Gujarat to Aden to the ports of Ifriqiya. Dark-skinned, sharp-featured, with the deep intelligence of a man who navigated by stars and negotiated in seven languages. His hands calloused from rope and abacus alike.",
+      "physical_features": "Deep brown skin (Fitzpatrick V-VI), sharp aquiline nose, intense dark eyes, lean muscular build, black curly hair, trimmed beard, wearing indigo-dyed cotton and gold thread",
+      "ai_prompt": "Portrait of a 14th century Indian merchant from Gujarat, standing at the prow of a dhow sailing vessel, monsoon wind in his hair, wearing indigo cotton robes with gold embroidery, intelligent sharp dark eyes, aquiline nose, trimmed black beard, the coast of Tunisia visible in the golden distance, cinematic lighting, Renaissance painting quality, warm amber tones, hyper-detailed, 8K"
+    },
+    "the_matriarch": {
+      "title": "Daughter of the Atlas",
+      "era": "circa 1400 CE",
+      "origin": "Ifriqiya — coastal Tunisia / Atlas foothills",
+      "description": "A Berber woman of the Tunisian highlands, with olive skin burnished by Mediterranean sun and Atlas wind. Her eyes carry the ancient knowledge of the land — when to plant, when to harvest, where the water runs beneath the stone. She met the merchant at the souk of Tunis.",
+      "physical_features": "Olive skin, strong jaw, large dark almond eyes with kohl, thick dark wavy hair adorned with silver Amazigh jewelry, high cheekbones, wearing white draped garments with geometric Berber patterns",
+      "ai_prompt": "Portrait of a 14th century Tunisian Berber woman, standing in an ancient olive grove overlooking the Mediterranean, wearing white draped linen with geometric Amazigh silver jewelry, large expressive dark eyes with traditional kohl, thick dark wavy hair, strong jaw, olive skin, dignified and regal bearing, golden hour light filtering through olive branches, cinematic quality, warm earth tones, hyper-detailed, 8K"
+    },
+    "the_mother_600_years": {
+      "title": "The Convergence — Mother of the Line",
+      "era": "circa 1600 CE (10 generations after the union)",
+      "origin": "Enfida / Sousse region, Tunisia",
+      "description": "By the 17th century, the bloodlines have woven together beautifully. She carries the merchant's sharp intelligence in her eyes, the Berber's endurance in her frame. She is a woman of the olive groves and the sea, raising children who will carry these merged genes forward through Ottoman Tunisia into the modern world.",
+      "physical_features": "Warm olive-brown skin, strong yet refined features showing the Indus-Berber convergence, deep intelligent eyes, prominent nose bridge with slight broadening, thick dark hair, medium build with graceful bearing",
+      "ai_prompt": "Portrait of a 17th century Tunisian woman of mixed Berber and Indian descent, standing in a sun-drenched courtyard in Sousse, wearing traditional Tunisian dress with gold embroidery and indigo accents (a nod to her Indian ancestor), warm olive-brown skin, deep intelligent dark eyes, prominent refined nose, thick dark hair partially covered with a silk scarf, ancient mosaic floor beneath her feet, jasmine vines climbing the courtyard walls, golden hour lighting, cinematic Renaissance quality, hyper-detailed, 8K"
+    }
+  },
+
+  "sora_video_prompts": {
+    "video_1_the_journey": {
+      "title": "The Unmasking of Time",
+      "duration": "30 seconds",
+      "prompt": "Close-up of a modern businessman's face (olive skin, dark eyes, aquiline nose, wearing a dark suit). The camera slowly pushes in. His skin begins to crack like ancient pottery, revealing golden light beneath. The modern face peels away in layers — first revealing a 17th-century woman's face (the Mother), then a 14th-century Berber woman, then a Gujarati merchant. All faces share the same eyes. The final reveal shows a double helix DNA strand made of glowing golden threads connecting all four faces, spinning slowly. Desert sand and sea water flow around the DNA strand. Cinematic, dramatic lighting, 4K quality."
+    },
+    "video_2_the_map": {
+      "title": "The Route of Blood",
+      "duration": "20 seconds",
+      "prompt": "Top-down view of an ancient parchment world map centered on the Indian Ocean. A single glowing golden vein begins pulsing at Gujarat, India. It traces a sea route down the western Indian coast, across the Arabian Sea to Aden, up the Red Sea, across the Saharan trade routes to Tunisia. As the golden vein reaches Tunisia, it branches into a tree-like network covering North Africa. Then the veins transform — the parchment becomes a modern digital map, and new glowing veins extend from Tunisia to Luxembourg, Switzerland, across Europe, showing the modern career trajectory. The ancient and modern routes pulse together as one living system. Cinematic, dark background with warm golden light."
+    }
+  },
+
+  "timeline_milestones": {
+    "prehistoric": [
+      { "year": -4000, "event": "Neolithic settlements in Tunisian coastal plains — first olive cultivation", "era": "The Planting" },
+      { "year": -3000, "event": "Proto-Berber languages develop across the Maghreb", "era": "The Naming" },
+      { "year": -1200, "event": "Phoenician traders establish Carthage — first international trade hub", "era": "The First Exchange" },
+      { "year": -500, "event": "Carthage becomes the Mediterranean's greatest trading empire", "era": "The Empire of Commerce" },
+      { "year": -146, "event": "Fall of Carthage — Berber identity endures beneath Roman rule", "era": "The Endurance" }
+    ],
+    "ancient_to_medieval": [
+      { "year": 50, "event": "Indian Ocean trade routes fully established — Gujarat to East Africa", "era": "The Monsoon Roads" },
+      { "year": 647, "event": "Arab conquest of Ifriqiya — cultural fusion begins", "era": "The Second Convergence" },
+      { "year": 800, "event": "Golden Age of Islamic scholarship — Tunisian centers of learning flourish", "era": "The Illumination" },
+      { "year": 1200, "event": "Gujarati merchants establish permanent presence along East African coast", "era": "The Merchant's Dawn" },
+      { "year": 1400, "event": "THE PATRIARCH arrives — the merchant from India reaches Tunisian shores", "era": "The Great Crossing", "highlight": true },
+      { "year": 1400, "event": "THE MATRIARCH — the Berber daughter meets the merchant at the Tunis souk", "era": "The Union", "highlight": true },
+      { "year": 1600, "event": "THE MOTHER — 10 generations later, the bloodlines have fully merged", "era": "The Convergence", "highlight": true }
+    ],
+    "modern": [
+      { "year": 1900, "event": "Tunisia under French protectorate — the family endures colonialism", "era": "The Patience" },
+      { "year": 1956, "event": "Tunisian independence — a new nation, ancient bloodlines", "era": "The Liberation" },
+      { "year": 1980, "event": "Ihyeeddine Elfeki is born — the modern synthesis", "era": "The Arrival", "highlight": true },
+      { "year": 2005, "event": "Career begins — the merchant's descendant enters global finance", "era": "The New Trade" },
+      { "year": 2015, "event": "Luxoft / DXC Technology — Global FSI Solutions", "era": "The Digital Caravan" },
+      { "year": 2026, "event": "Present day — a bridge between civilizations", "era": "The Bridge", "highlight": true }
+    ],
+    "future": [
+      { "year": 2100, "event": "The Elfeki genome contributes to pan-human genetic renaissance", "era": "The Renaissance" },
+      { "year": 2500, "event": "Post-territorial humanity — the merchant's ethos becomes civilizational norm", "era": "The Dissolution of Borders" },
+      { "year": 4000, "event": "First interstellar trade missions — carrying the DNA of desert crossers", "era": "The Monsoon Stars" },
+      { "year": 6000, "event": "The Elfeki marker persists in 12% of human genomic diversity across 47 star systems", "era": "The Eternal Caravan", "highlight": true }
+    ]
+  }
+}
