@@ -905,8 +905,8 @@ img { max-width: 100%; display: block; }
 
 /* ─── FOOTER ─── */
 .site-footer {
-  background: #1a1a1a;
-  color: #888;
+  background: #f8f7f4;
+  color: #555;
   padding: 80px 0 40px;
 }
 .footer-grid {
@@ -919,7 +919,7 @@ img { max-width: 100%; display: block; }
 .footer-title {
   font-size: 22px;
   font-weight: 700;
-  color: #fff;
+  color: #1a1a1a;
   margin-bottom: 12px;
 }
 .footer-desc { font-size: 14px; color: #666; line-height: 1.7; }
@@ -927,20 +927,20 @@ img { max-width: 100%; display: block; }
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #666;
+  color: #888;
   font-weight: 700;
   margin-bottom: 16px;
 }
 .footer-link {
   display: block;
   font-size: 14px;
-  color: #888;
+  color: #666;
   margin-bottom: 10px;
   transition: color 0.3s;
 }
 .footer-link:hover { color: #c8a04a; }
 .footer-bottom {
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid #ddd;
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
@@ -948,7 +948,7 @@ img { max-width: 100%; display: block; }
   font-size: 13px;
 }
 @media (max-width: 768px) { .footer-bottom { flex-direction: column; gap: 12px; } }
-.footer-copy { color: #555; }
+.footer-copy { color: #888; }
 </style>
 </head>
 <body>
@@ -987,7 +987,7 @@ img { max-width: 100%; display: block; }
 </style>
 
 <!-- ─── LANGUAGE BAR ─── -->
-<div id="langBar" style="position:fixed;top:0;left:0;right:0;z-index:200;background:#1a1a1a;padding:6px 24px;display:flex;justify-content:center;gap:16px;font-size:12px;">
+<div id="langBar" style="position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px 24px;display:flex;justify-content:center;gap:16px;font-size:12px;border-bottom:1px solid rgba(0,0,0,0.08);">
   <button onclick="setLang('en')" class="lang-btn active" id="langEn" style="background:none;border:1px solid #c8a04a;color:#c8a04a;padding:4px 16px;border-radius:100px;cursor:pointer;font-size:12px;font-weight:600;">English</button>
   <button onclick="setLang('fr')" class="lang-btn" id="langFr" style="background:none;border:1px solid #555;color:#888;padding:4px 16px;border-radius:100px;cursor:pointer;font-size:12px;font-weight:600;">Français</button>
   <button onclick="setLang('ar')" class="lang-btn" id="langAr" style="background:none;border:1px solid #555;color:#888;padding:4px 16px;border-radius:100px;cursor:pointer;font-size:12px;font-weight:600;">العربية</button>
@@ -1251,7 +1251,7 @@ img { max-width: 100%; display: block; }
 </section>
 
 <!-- ═══ SCENIC BREAK — Manuscript Study ═══ -->
-<div class="scenic-break" style="background-image:url('generated-manuscript-study.jpg');background-color:#1a1208;">
+<div class="scenic-break" style="background-image:url('generated-manuscript-study.jpg');background-color:#f5f0e8;">
   <div class="scenic-text reveal">
     <div style="font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#c8a04a;font-weight:700;margin-bottom:20px;">Chromatin &amp; Destiny</div>
     <h2 style="font-size:clamp(28px,5vw,52px);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:16px;">The Genome Does Not Lie</h2>
@@ -6476,7 +6476,7 @@ function runDemoStep() {
 .demo-btn.active{background:linear-gradient(135deg,#e74c3c,#c0392b);box-shadow:0 8px 30px rgba(231,76,60,0.4)}
 .demo-hand{position:fixed;z-index:9998;pointer-events:none;font-size:40px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));transition:all 1s cubic-bezier(0.16,1,0.3,1);opacity:0}
 .demo-hand.visible{opacity:1}
-.demo-tooltip{position:fixed;z-index:9997;background:#1a1a1a;color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;max-width:300px;line-height:1.5;pointer-events:none;opacity:0;transition:opacity 0.4s;box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.demo-tooltip{position:fixed;z-index:9997;background:rgba(255,255,255,0.97);color:#1a1a1a;padding:12px 20px;border-radius:8px;font-size:13px;max-width:300px;line-height:1.5;pointer-events:none;opacity:0;transition:opacity 0.4s;box-shadow:0 8px 30px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.08);backdrop-filter:blur(12px)}
 .demo-tooltip.visible{opacity:1}
 .demo-highlight{outline:3px solid #f1c40f;outline-offset:4px;border-radius:8px;transition:outline 0.3s;box-shadow:0 0 0 8px rgba(241,196,15,0.12)}
 </style>
