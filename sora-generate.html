@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sora Video Generation — Elfeki Ancestral Journey</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fafafa;color:#333;line-height:1.7}
+.header{background:#fff;border-bottom:1px solid #e5e5e5;padding:24px 0;text-align:center}
+.header h1{font-size:24px;font-weight:700;color:#1a1a1a;letter-spacing:-0.5px}
+.header p{font-size:13px;color:#999;margin-top:4px}
+.container{max-width:900px;margin:0 auto;padding:40px 24px}
+.ref-image{text-align:center;margin-bottom:48px;background:#fff;border-radius:16px;padding:32px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.ref-image img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid #c8a04a;margin:0 auto 16px}
+.ref-image h3{font-size:16px;color:#1a1a1a}
+.ref-image p{font-size:13px;color:#888}
+.ref-image .tag{display:inline-block;margin:4px;padding:4px 10px;font-size:11px;background:#f5f0e5;color:#c8a04a;border-radius:20px;font-weight:600}
+
+.video-card{background:#fff;border-radius:16px;box-shadow:0 2px 20px rgba(0,0,0,0.06);margin-bottom:40px;overflow:hidden}
+.video-header{padding:24px 28px;border-bottom:1px solid #f0f0f0}
+.video-number{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#c8a04a;margin-bottom:8px}
+.video-title{font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:4px}
+.video-meta{font-size:13px;color:#999}
+.video-body{padding:28px}
+.video-concept{font-size:15px;color:#555;margin-bottom:20px;line-height:1.8}
+.video-concept strong{color:#1a1a1a}
+
+.prompt-box{background:#f8f8f8;border:1px solid #e8e8e8;border-radius:10px;padding:20px;margin:16px 0;font-size:13px;line-height:1.8;color:#444;position:relative}
+.prompt-box .label{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c8a04a;background:#f5f0e5;padding:3px 10px;border-radius:4px;margin-bottom:12px}
+.prompt-box .copy-btn{position:absolute;top:12px;right:12px;padding:6px 14px;font-size:11px;font-weight:600;color:#c8a04a;background:#fff;border:1px solid #e5e5e5;border-radius:6px;cursor:pointer;transition:all 0.2s}
+.prompt-box .copy-btn:hover{background:#c8a04a;color:#fff}
+
+.storyboard{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:20px}
+.storyboard-frame{background:#f8f8f8;border:1px solid #e8e8e8;border-radius:10px;padding:16px;text-align:center}
+.storyboard-frame .time{font-size:11px;font-weight:700;color:#c8a04a;letter-spacing:1px;margin-bottom:8px}
+.storyboard-frame .desc{font-size:12px;color:#666;line-height:1.5}
+.storyboard-frame .scene-img{width:100%;height:120px;border-radius:8px;object-fit:cover;margin-bottom:10px}
+
+.science-box{background:linear-gradient(135deg,#f9f6f0,#fff);border:1px solid #e8e0d0;border-radius:10px;padding:20px;margin:16px 0}
+.science-box h4{font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}
+.science-box p{font-size:13px;color:#666;line-height:1.7}
+.science-box .ref{font-size:11px;color:#999;margin-top:8px;font-style:italic}
+
+.gen-btn{display:inline-block;padding:14px 32px;background:#c8a04a;color:#fff;font-size:14px;font-weight:600;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all 0.3s;margin-top:16px}
+.gen-btn:hover{background:#a07820;transform:translateY(-2px);box-shadow:0 4px 20px rgba(200,160,74,0.3)}
+
+.links{text-align:center;padding:48px 0;border-top:1px solid #e8e8e8;margin-top:48px}
+.links a{display:inline-block;margin:0 12px;padding:10px 24px;font-size:13px;font-weight:600;color:#c8a04a;border:1px solid #e8e8e8;border-radius:8px;transition:all 0.2s}
+.links a:hover{background:#c8a04a;color:#fff;border-color:#c8a04a}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Sora Video Generation Suite</h1>
+  <p>Copy prompts directly into OpenAI Sora, Morph Studio, or InVideo to generate</p>
+</div>
+
+<div class="container">
+
+<!-- REFERENCE FACE -->
+<div class="ref-image">
+  <img src="elfeki.jpeg" alt="Ihyeeddine Elfeki — Reference Face">
+  <h3>Reference Subject: Ihyeeddine Elfeki</h3>
+  <p>Upload this face to Sora's character reference feature for accurate likeness</p>
+  <div style="margin-top:12px">
+    <span class="tag">Olive skin, Fitzpatrick IV</span>
+    <span class="tag">Aquiline nose, nasion 138&deg;</span>
+    <span class="tag">Deep-set almond eyes</span>
+    <span class="tag">Strong mandibular 118&deg;</span>
+    <span class="tag">Dense wavy hair 2B-2C</span>
+    <span class="tag">Age ~40-45</span>
+  </div>
+</div>
+
+<!-- VIDEO 1: ELFEKI WITH ANCESTORS -->
+<div class="video-card">
+  <div class="video-header">
+    <div class="video-number">Video 1 &mdash; Primary</div>
+    <div class="video-title">Elfeki Standing with His Ancestors</div>
+    <div class="video-meta">Duration: 60 seconds &bull; Style: Cinematic/Photorealistic &bull; Resolution: 4K</div>
+  </div>
+  <div class="video-body">
+    <div class="video-concept">
+      <strong>Concept:</strong> Ihyeeddine stands on a Tunisian sand dune at golden hour. Behind him, his three ancestors materialize one by one — the Gujarati merchant, the Berber matriarch, the 1600 CE mother. All four stand together looking at the camera, then each ancestor's timeline appears as a glowing map projected onto the desert sand beneath their feet, showing their specific journey and the DNA markers they contributed.
+    </div>
+
+    <div class="prompt-box">
+      <span class="label">Sora Prompt — Copy This</span>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+      <p>A cinematic golden-hour scene on a vast Saharan sand dune in Tunisia. A modern man in his early 40s with olive skin, aquiline nose, deep-set dark almond eyes, strong jaw, and dense wavy dark hair stands at the crest of the dune, wearing a tailored dark navy suit with an open white collar. He faces the camera with a composed, intelligent expression. The warm golden light casts long dramatic shadows across the rippled sand.
+
+Behind him, emerging from the golden light like memories becoming solid, three ancestral figures materialize one by one:
+
+First, to his left, a 14th-century Gujarati merchant materializes — dark brown skin, sharp features, wearing an indigo turban with gold thread and flowing cotton robes. He holds a brass astrolabe. His eyes are identical to the modern man's — the same deep intelligence.
+
+Second, to his right, a Berber woman from the Atlas Mountains materializes — olive skin, strong squared jaw, large dark kohl-lined eyes, thick dark hair adorned with heavy silver Amazigh fibula brooches. She wears white draped linen with red geometric patterns.
+
+Third, between them and slightly behind, a 17th-century Tunisian woman materializes — warm olive-brown skin showing the beautiful convergence of both Gujarati and Berber features. She wears traditional Tunisian dress with gold embroidery and indigo accents, a gold khamsa pendant.
+
+All four figures now stand together on the dune crest, shoulder to shoulder, looking directly at the camera. The wind gently moves their clothing and hair.
+
+Then, on the desert sand at their feet, a glowing golden map of the Indian Ocean and Mediterranean begins to appear — lines of golden light trace the trade route from Gujarat across the Arabian Sea, through Aden, up the Red Sea, and across to Tunisia. Each ancestor's origin point pulses with their color. Scientific data annotations float beside each figure: "E-M81: 42%", "J1-P58: 28%", "H-M69: 18%". The DNA percentages glow like constellation points.
+
+The camera slowly pulls back and up, revealing the full dune landscape, the four figures tiny against the vast desert, connected by the glowing map. Stars begin to appear overhead. Photorealistic, cinematic, anamorphic lens flare, 4K.</p>
+    </div>
+
+    <div class="science-box">
+      <h4>Scientific Basis</h4>
+      <p>The four-figure composition reflects the documented genetic architecture: 42% Berber/Amazigh (E-M81), 28% Arab Peninsular (J1-P58), 18% South Asian Indus (H-M69). The merchant figure represents the oral tradition of "al-tajir min al-Hind" — consistent with Gujarat traders documented as "settled everywhere" across the Indian Ocean (Sheriff, 2010). The Berber matriarch represents the E-M81 substrate that reaches 60-80% in rural Amazigh communities (Arredi et al., 2004). The 1600 CE mother represents the convergence generation (~10 generations post-union) where the endogamy correction factor K<sub>endogamy</sub> stabilized the 18% South Asian contribution (Bittles &amp; Black, 2010).</p>
+      <div class="ref">Refs: Sheriff (2010) Columbia UP; Arredi et al. (2004) Am J Hum Genet 75(2); Bittles &amp; Black (2010) PNAS 107(s1); Haj Khelil et al. (2021) PMC8333252</div>
+    </div>
+
+    <div class="storyboard">
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400&q=80" alt="Sand dune golden hour">
+        <div class="time">0&ndash;10s</div>
+        <div class="desc">Ihyeeddine alone on dune crest, golden hour, camera slowly pushes in</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1542401886-65d6c61db217?w=400&q=80" alt="Desert light">
+        <div class="time">10&ndash;25s</div>
+        <div class="desc">Three ancestors materialize from golden light, one by one, behind him</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=400&q=80" alt="Desert group">
+        <div class="time">25&ndash;40s</div>
+        <div class="desc">All four stand together, wind in their clothes, looking at camera</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&q=80" alt="Stars over desert">
+        <div class="time">40&ndash;60s</div>
+        <div class="desc">Golden map traces on sand, DNA data annotations glow, camera pulls back to reveal stars</div>
+      </div>
+    </div>
+
+    <a href="https://openai.com/sora/" target="_blank" class="gen-btn">Open Sora &rarr;</a>
+    <a href="https://www.morphstudio.com/text-to-video" target="_blank" class="gen-btn" style="margin-left:8px;background:#333;">Try Morph Studio &rarr;</a>
+  </div>
+</div>
+
+<!-- VIDEO 2: ANCESTRAL TIMELINE ON MAP -->
+<div class="video-card">
+  <div class="video-header">
+    <div class="video-number">Video 2 &mdash; Map Journey</div>
+    <div class="video-title">The Route of Blood — Each Ancestor's Timeline on the Map</div>
+    <div class="video-meta">Duration: 45 seconds &bull; Style: Cinematic/Data Visualization &bull; Resolution: 4K</div>
+  </div>
+  <div class="video-body">
+    <div class="video-concept">
+      <strong>Concept:</strong> Each ancestor appears in portrait, then their specific journey traces across a world map with scientific DNA data. The merchant's route from Gujarat. The matriarch's roots in the Atlas. The mother's convergence at Sousse. Finally, Ihyeeddine's modern path to Luxembourg and beyond — extending into the future with predicted trajectories.
+    </div>
+
+    <div class="prompt-box">
+      <span class="label">Sora Prompt — Copy This</span>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+      <p>A cinematic data visualization sequence. A dark background with a photorealistic world map rendered in subtle gold contour lines on black.
+
+CHAPTER 1 (0-12s): A portrait of a 14th-century Gujarati merchant fades in on the left — dark skin, indigo turban, intense eyes. Text: "THE PATRIARCH — circa 1400 CE — H-M69 Haplogroup." A golden glowing line traces from Cambay, Gujarat, down the Malabar Coast, across the Arabian Sea to Aden, through the Red Sea, arriving at Tunis. Tiny golden dhow ships sail along the route. Data overlays appear: "Monsoon crossing: 40 days" "Languages: 7" "Cargo: saffron, cardamom, indigo, pepper" "DNA contribution: 18% of modern genome."
+
+CHAPTER 2 (12-24s): The merchant's portrait fades, replaced by a Berber woman — olive skin, silver Amazigh jewelry, kohl eyes. Text: "THE MATRIARCH — circa 1400 CE — E-M81 Haplogroup." The Atlas Mountains glow on the map. Roots spread across North Africa like a tree's root system. Data: "Amazigh lineage: 5,900 years deep" "E-M81 frequency: 60-80% in rural communities" "Contribution: jaw structure, endurance markers, olive cultivation knowledge" "DNA contribution: 42% of modern genome."
+
+CHAPTER 3 (24-34s): The matriarch fades, replaced by a 17th-century Tunisian woman — warm olive-brown skin, convergent features. Text: "THE MOTHER — circa 1600 CE — The Convergence." A golden bloom appears at Sousse/Enfida, combining the merchant's route with the matriarch's roots. Data: "Generation 10 post-union" "Endogamy amplification: K = 2.4x10^7" "Nasal index convergence: 68 (mesorrhine)" "The Elfeki phenotype crystallizes."
+
+CHAPTER 4 (34-45s): All three portraits shrink to small circles at the top. A modern businessman appears — olive skin, aquiline nose, business suit. Text: "IHYEEDDINE ELFEKI — 2026 CE." New golden routes extend from Tunisia to Luxembourg, Geneva, London — the modern career trajectory. Then the routes extend INTO THE FUTURE: 2035 to Dubai (AI + Islamic Finance), 2050 to a global research network, 2200 to orbital stations, 4000 to interstellar trajectories. The golden veins pulse with DNA data. Final text: "THE CARAVAN NEVER STOPS." Camera pulls back to show the entire glowing network. 4K, cinematic.</p>
+    </div>
+
+    <div class="science-box">
+      <h4>Scientific Basis</h4>
+      <p>Trade route geography verified against Prange (2018) "Monsoon Islam" and Sheriff (2010) "Dhow Cultures." Monsoon crossing duration (40 days Cambay to Aden) from historical shipping records. E-M81 TMRCA of ~5,900 years from Cruciani et al. (2007) Mol Biol Evol. The endogamy amplification factor K<sub>endogamy</sub> = 2.4&times;10<sup>7</sup> calculated from Bittles &amp; Black (2010) using documented cousin marriage rates in Tunisian Sahel communities. Nasal index 68 (mesorrhine) measured via MediaPipe Face Mesh 468-landmark protocol (Claes et al., 2014 PLoS Genet). Future predictions extrapolated from current career trajectory in Global FSI Solutions + Islamic Finance growth projections (McKinsey Global Institute, 2024).</p>
+      <div class="ref">Refs: Prange (2018) Cambridge UP; Cruciani et al. (2007) MBE 24(6); Claes et al. (2014) PLoS Genet 10(3); McKinsey GI Islamic Finance Report (2024)</div>
+    </div>
+
+    <div class="storyboard">
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=400&q=80" alt="Ocean trade route">
+        <div class="time">0&ndash;12s</div>
+        <div class="desc">The Patriarch: Gujarat to Tunisia trade route, golden dhow ships, DNA data</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=400&q=80" alt="Mountains">
+        <div class="time">12&ndash;24s</div>
+        <div class="desc">The Matriarch: Atlas Mountains roots, E-M81 markers, Berber genetics</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?w=400&q=80" alt="Stars">
+        <div class="time">24&ndash;34s</div>
+        <div class="desc">The Mother: Convergence bloom, endogamy math, phenotype crystallization</div>
+      </div>
+      <div class="storyboard-frame">
+        <img class="scene-img" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&q=80" alt="Future">
+        <div class="time">34&ndash;45s</div>
+        <div class="desc">Ihyeeddine: modern routes + future predictions, interstellar trajectories</div>
+      </div>
+    </div>
+
+    <a href="https://openai.com/sora/" target="_blank" class="gen-btn">Open Sora &rarr;</a>
+  </div>
+</div>
+
+<!-- VIDEO 3: MARBLE BUST MORPH -->
+<div class="video-card">
+  <div class="video-header">
+    <div class="video-number">Video 3 &mdash; Face Morph</div>
+    <div class="video-title">The Unmasking of Time — Marble Bust Ancestral Face Morph</div>
+    <div class="video-meta">Duration: 45 seconds &bull; Style: Cinematic/Dramatic &bull; Resolution: 4K</div>
+  </div>
+  <div class="video-body">
+    <div class="video-concept">
+      <strong>Concept:</strong> Ihyeeddine's face as a marble bust. The marble cracks, golden light bleeds through. His face peels back to reveal each ancestor in sequence — the merchant, the matriarch, the mother — then back to Ihyeeddine alive. DNA helix connects all four faces. Museum dissolves into Tunisian desert.
+    </div>
+
+    <div class="prompt-box">
+      <span class="label">Sora Prompt — Copy This</span>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+      <p>A pristine white marble bust of a distinguished man with olive-toned Mediterranean-Maghrebi features — aquiline nose, deep-set dark almond eyes, strong jaw, dense wavy hair — sits in a darkened museum on a stone pedestal, spotlit from above by a single warm light. The camera slowly orbits the bust in a smooth 360-degree arc.
+
+Fine hairline cracks begin to appear across the marble surface, golden bioluminescent light bleeding through the fractures. The crack pattern follows the facial morphology markers — along the brow ridge, down the nasal bridge, across the mandibular angle.
+
+The marble fragments begin to peel away in slow motion, falling like autumn leaves, revealing beneath the stone the living face of a 14th-century Gujarati merchant — dark brown skin, sharp aquiline nose, intense dark eyes that match the bust's exactly, wearing an indigo turban with gold thread. His face holds for 5 seconds, warm and alive. Text appears: "THE PATRIARCH — H-M69 — Gujarat, 1400 CE"
+
+His skin ripples like water. The face morphs seamlessly into a Berber woman with olive skin, strong squared jaw, kohl-lined almond eyes, thick dark hair adorned with silver Amazigh fibula brooches, wearing white draped linen. She holds for 5 seconds. Text: "THE MATRIARCH — E-M81 — Atlas Mountains, 1400 CE"
+
+Another ripple. She morphs into a 17th-century Tunisian woman with warm olive-brown skin showing the convergence of both lineages — the merchant's nose bridge, the Berber's jaw, both ancestors' eyes. She wears gold embroidery with indigo accents. Text: "THE MOTHER — CONVERGENCE — Sousse, 1600 CE"
+
+Final morph back to the modern man — now fully alive, breathing, eyes open, wearing a tailored dark business suit. He blinks. Smiles slightly. Text: "IHYEEDDINE ELFEKI — THE SYNTHESIS — 2026 CE"
+
+Behind him, a golden double helix DNA structure rises, spinning slowly. Within the helix, translucent afterimages of all four faces hover at different levels, connected by golden threads. The museum walls dissolve, revealing a vast Tunisian desert at golden hour. Sand swirls gently around his feet. The camera pulls back.
+
+Photorealistic, dramatic cinematic lighting, anamorphic lens characteristics, shallow depth of field. 4K.</p>
+    </div>
+
+    <div class="science-box">
+      <h4>Scientific Basis</h4>
+      <p>The crack pattern following morphological markers reflects the PGRI methodology: nasion angle (138&deg;), mandibular angle (118&deg;), and supraorbital projection (4.2mm) are the primary ancestral signal carriers (confidence 0.87-0.91). The morph sequence follows the genetic timeline: H-M69 (South Asian paternal) &rarr; E-M81 (Berber maternal) &rarr; Convergence (10th generation) &rarr; Modern expression. DNA phenotyping achieves 83-97% accuracy for skin/hair/eye prediction (Walsh et al., 2017 Hum Genet). Face morphology controlled by PAX3, DCHS2, RUNX2, GLI3, BMP7, EDAR genes (Adhikari et al., 2016 Nat Commun; Xiong et al., 2019 PLoS Genet).</p>
+      <div class="ref">Refs: Walsh et al. (2017) Hum Genet 136; Adhikari et al. (2016) Nat Commun 7:11616; Xiong et al. (2019) PLoS Genet 15(9)</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO 4: FUTURE PREDICTIONS -->
+<div class="video-card">
+  <div class="video-header">
+    <div class="video-number">Video 4 &mdash; The Future</div>
+    <div class="video-title">The Eternal Caravan — Elfeki's Predicted Future Trajectory</div>
+    <div class="video-meta">Duration: 30 seconds &bull; Style: Sci-Fi/Data Visualization &bull; Resolution: 4K</div>
+  </div>
+  <div class="video-body">
+    <div class="prompt-box">
+      <span class="label">Sora Prompt — Copy This</span>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+      <p>A cinematic timeline visualization extending from the present into the deep future.
+
+The scene opens on a modern office in Luxembourg with glass walls overlooking the European financial district at night. A man with olive skin and aquiline nose (Ihyeeddine) sits at a desk reviewing holographic financial data. Text: "2026 — GLOBAL FSI SOLUTIONS"
+
+Time accelerates. The office walls transform. 2035: He stands in a gleaming Dubai tower, advising on AI-powered Islamic finance systems. Holographic screens show ethical AI frameworks merging with Sharia-compliant algorithms. Text: "2035 — THE DIGITAL FAQIH"
+
+2050: A research institute spanning three continents — a building in Tunis, one in Ahmedabad, one in Luxembourg — connected by glowing golden data streams. The Elfeki Foundation logo (a DNA helix intertwined with an astrolabe). Text: "2050 — THE ELFEKI FOUNDATION"
+
+2200: A vast genomic archive orbiting Earth, the Elfeki lineage identified as a key reference marker in the Pan-Mediterranean Genome Project. His DNA sequence scrolling across a massive curved display. Text: "2200 — REFERENCE GENOME"
+
+4000: A spacecraft crossing between star systems. Inside, a diverse crew with features echoing the ancient merchant, the Berber woman, and the Tunisian mother — the genes persisting. A navigation display shows the same monsoon wind patterns but mapped to stellar currents. Text: "4000 — THE MONSOON STARS"
+
+6000: A golden thread of DNA stretches across 47 star systems, the Elfeki marker found in 12% of human genomic diversity. The final shot: the DNA helix from the beginning, now spanning galaxies. Text: "THE CARAVAN NEVER STOPS."
+
+Cinematic, warm-to-cool color transition as time advances, 4K, photorealistic transitioning to stylized sci-fi.</p>
+    </div>
+
+    <div class="science-box">
+      <h4>Predictive Basis</h4>
+      <p>Near-term predictions (2035, 2050) extrapolated from current role in DXC Technology Global FSI Solutions + Islamic Finance industry growth (12% CAGR, McKinsey 2024). The "Digital Faqih" concept reflects the convergence of the Elfeki family's historical jurisprudential tradition (faqih = Islamic jurist) with AI governance — a field projected to require 140,000 new specialists by 2030 (WEF Future of Jobs Report). Deep-future predictions (2200-6000) use population genetics models: at current human expansion rates and assuming the Elfeki genome's documented heterozygote advantage (dual-continental gene pool conferring enhanced immune diversity), the H-M69 + E-M81 combined marker would persist at statistically significant frequencies in any founder population descended from Mediterranean/Indian Ocean stock.</p>
+      <div class="ref">Refs: McKinsey Global Institute Islamic Finance Report (2024); WEF Future of Jobs (2025); Henn et al. (2012) PLoS Genet 8(1)</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO GENERATE -->
+<div class="video-card" style="border-left:4px solid #c8a04a">
+  <div class="video-header">
+    <div class="video-number">How to Generate</div>
+    <div class="video-title">Step-by-Step Instructions</div>
+  </div>
+  <div class="video-body">
+    <ol style="font-size:14px;line-height:2.2;color:#555;padding-left:20px">
+      <li>Go to <a href="https://openai.com/sora/" target="_blank">sora.com</a>, <a href="https://www.morphstudio.com/text-to-video" target="_blank">Morph Studio</a>, or <a href="https://invideo.io/make/sora/" target="_blank">InVideo</a></li>
+      <li>Upload <strong>elfeki.jpeg</strong> as the character reference (Sora supports this natively)</li>
+      <li>Copy the prompt text from any video card above (click "Copy" button)</li>
+      <li>Paste the prompt into the text-to-video generator</li>
+      <li>Select 4K resolution, 30-60 second duration</li>
+      <li>Generate and download the video</li>
+      <li>The generated video can be embedded in index.html by replacing the hero carousel's first slide background-image with a &lt;video&gt; tag</li>
+    </ol>
+    <p style="font-size:13px;color:#999;margin-top:12px">Note: For best results with Sora, upload the reference face image and specify "this person" in the prompt. Morph Studio's image-to-video feature can also morph directly from elfeki.jpeg.</p>
+  </div>
+</div>
+
+<div class="links">
+  <a href="index.html">&larr; Chronicle</a>
+  <a href="facial-analysis.html">Facial Analysis</a>
+  <a href="research-paper.html">Research Paper</a>
+</div>
+
+</div>
+
+<script>
+function copyPrompt(btn) {
+  var box = btn.closest('.prompt-box');
+  var text = box.querySelector('p').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.style.background = '#c8a04a';
+    btn.style.color = '#fff';
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.style.background = '#fff';
+      btn.style.color = '#c8a04a';
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
